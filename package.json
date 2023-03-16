@@ -12,7 +12,8 @@
     "preview": "electron-vite preview",
     "start": "electron-vite dev --watch",
     "dev": "electron-vite dev",
-    "build": "npm run typecheck && electron-vite build",
+    "build": "npm run extract-messages:en && npm run typecheck && electron-vite build",
+    "extract-messages:en": "formatjs extract --format crowdin 'src/**/*.{ts,tsx,js,jsx}' --out-file messages/en.json",
     "postinstall": "electron-builder install-app-deps",
     "build:win": "npm run build && electron-builder --win --config",
     "build:mac": "electron-vite build && electron-builder --mac --config",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^1.0.1",
     "@electron/notarize": "^1.2.3",
+    "@formatjs/cli": "^6.0.4",
     "@types/node": "16.18.14",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
