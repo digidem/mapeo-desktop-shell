@@ -2,3 +2,5 @@ node_modules
 dist
 out
 *.log*
+src/renderer/translations/
+src/renderer/translations/
