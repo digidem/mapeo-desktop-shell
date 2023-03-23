@@ -46,7 +46,7 @@ const isTranslation = (langugage?: string): langugage is AvailableLocales => {
 
 type IntlSetContextType = Readonly<[string, Dispatch<SetStateAction<AvailableLocales | undefined>>]>
 
-export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => {}])
+export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => { }])
 
 const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof languages | undefined => {
   if (supportedLanguages.find((lang) => lang.locale === locale)) return locale as keyof typeof languages
