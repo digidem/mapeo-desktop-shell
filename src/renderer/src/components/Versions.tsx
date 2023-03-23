@@ -1,4 +1,4 @@
-import { IntlSwitchConext } from '../App'
+import { IntlSwitchConext } from '../components/IntlProvider'
 import { useContext, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { messages } from './messages'
