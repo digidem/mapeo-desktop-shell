@@ -58,13 +58,6 @@ const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof lang
     return nonRegionalLocale as keyof typeof languages
 }
 
-const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof languages | undefined => {
-  if (supportedLanguages.find((lang) => lang.locale === locale)) return locale as keyof typeof languages
-  const nonRegionalLocale = locale.split('-')[0]
-  if (supportedLanguages.find(({ locale }) => locale === nonRegionalLocale))
-    return nonRegionalLocale as keyof typeof languages
-}
-
 export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element | null => {
   const [appLocale, setAppLocale] = useState<AvailableLocales>()
   const [minLoadTimePassed, setMinLoadTimePassed] = useState(false)
