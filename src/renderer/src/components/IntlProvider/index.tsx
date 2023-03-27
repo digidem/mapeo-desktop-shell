@@ -11,15 +11,8 @@ type Translations = {
   en: IntlConfig['messages']
 }
 
-declare global {
-  namespace FormatjsIntl {
-    interface Message {
-      ids: keyof typeof en
-    }
-  }
-}
-
 const translations: Translations = { es, en }
+
 type AvailableLocales = keyof typeof translations | undefined
 
 const isTranslation = (langugage?: string): langugage is AvailableLocales => {
