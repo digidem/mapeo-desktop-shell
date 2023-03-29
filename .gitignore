@@ -4,3 +4,4 @@ out
 *.log*
 src/renderer/translations/
 yarn.lock
+/translations
