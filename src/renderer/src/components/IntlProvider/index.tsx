@@ -3,7 +3,7 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState
 import translations from '../../../translations/messages.json'
 import languages from '../../../../common/config/languages.json'
 
-const DEFAULT_LOCALE = 'en'
+const DEFAULT_LOCALE = 'es'
 
 type AvailableLocales = keyof typeof translations
 type SupportedLanguageLocales = keyof typeof languages
