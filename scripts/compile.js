@@ -48,7 +48,7 @@ async function compile() {
       translations[lang][key] = msgs[key].message
     })
   }
-  const output = path.join(__dirname, '../translations/messages.json')
+  const output = path.join(__dirname, '../src/renderer/translations/messages.json')
   await writeJson(output, translations)
 }
 

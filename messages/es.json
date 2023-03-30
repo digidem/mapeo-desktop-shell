@@ -1,5 +1,5 @@
 {
-  "noXrOT": {
-    "message": "Mapeo desktop test!"
+  "components.messages.test_message": {
+    "message": "test message en español! :)"
   }
 }

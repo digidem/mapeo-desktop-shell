@@ -6,6 +6,8 @@
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.tsx",
     "src/renderer/translations/*.json",
+    "src/common/**/*.json",
+    "src/common/**/*.ts",
     "src/preload/*.d.ts"
   ],
   "compilerOptions": {
