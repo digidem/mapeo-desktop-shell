@@ -1,7 +1,10 @@
 import { FormControl, MenuItem, Select, Stack } from '@mui/material'
 import { useContext, useState } from 'react'
-import { IntlSwitchConext } from '../../components/IntlProvider'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { IntlSwitchConext, translatedLocales } from '../../components/IntlProvider'
 import languagesConfig from './languages.json'
+import { Row } from '../LayoutComponents'
+import { StyledSelect } from './styles'
 
 export const LanguageSwitcher = () => {
   const [open, setOpen] = useState(false)
@@ -11,24 +14,33 @@ export const LanguageSwitcher = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120, cursor: 'pointer' }} size="small" variant="standard">
-      <Stack direction="row">
-        <Select
+    <FormControl
+      sx={{ m: 1, minWidth: 120, cursor: 'pointer', position: 'fixed', top: 1, right: 4 }}
+      size="small"
+      variant="standard"
+    >
+      <Row justifyContent={'flex-end'}>
+        <StyledSelect
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
           value={lang}
           IconComponent={() => null}
-          renderValue={() => lang.toUpperCase()}
+          renderValue={() => (
+            <>
+              <Row>
+                <ExpandMoreIcon /> {lang.toUpperCase()}
+              </Row>
+            </>
+          )}
         >
-          <MenuItem value="en" onClick={() => setLang('en')}>
-            {languagesConfig['en']?.nativeName}
-          </MenuItem>
-          <MenuItem value="es" onClick={() => setLang('es')}>
-            {languagesConfig['es']?.nativeName}
-          </MenuItem>
-        </Select>
-      </Stack>
+          {translatedLocales.map((locale) => (
+            <MenuItem key={locale} value={locale} onClick={() => setLang(locale)}>
+              {languagesConfig[locale]?.nativeName}
+            </MenuItem>
+          ))}
+        </StyledSelect>
+      </Row>
     </FormControl>
   )
 }
