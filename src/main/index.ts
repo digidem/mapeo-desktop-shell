@@ -73,5 +73,5 @@ app.on('window-all-closed', () => {
 ipcMain.handle('get-locale', () => {
   const lang = app.getLocale()
 
-  return lang ? lang.substring(0, 2) : 'es'
+  return lang
 })
