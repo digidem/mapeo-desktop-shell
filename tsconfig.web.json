@@ -5,7 +5,6 @@
     "src/renderer/src/env.d.ts",
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.tsx",
-    "src/renderer/src/**/*.json",
     "src/renderer/translations/*.json",
     "src/common/**/*.json",
     "src/common/**/*.ts",
