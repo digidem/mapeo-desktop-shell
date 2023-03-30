@@ -1,10 +1,14 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
   // Example api method:
   log: (message: string): void => console.log(message),
+  getLocale: (): Promise<string> => ipcRenderer.invoke('get-locale'),
+  // on: (channel, callback) => {
+  //   ipcRenderer.on(channel, (event, data) => callback(data))
+  // },
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

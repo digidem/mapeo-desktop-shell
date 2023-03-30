@@ -1,11 +1,12 @@
+import { IntlProvider } from './components/IntlProvider'
 import Versions from './components/Versions'
 
-function App(): JSX.Element {
+function App(): JSX.Element | null {
   return (
-    <div className="container">
+    <IntlProvider>
       <Versions></Versions>
       {/* Render other stuff here! */}
-    </div>
+    </IntlProvider>
   )
 }
 
