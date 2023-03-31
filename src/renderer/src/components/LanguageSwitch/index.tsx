@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, Select, Stack } from '@mui/material'
+import { FormControl, MenuItem } from '@mui/material'
 import { useContext, useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { IntlSwitchConext, translatedLocales } from '../../components/IntlProvider'
