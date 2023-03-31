@@ -9,6 +9,11 @@ import { appStrings } from '../../../../common/config/messages'
 import { Logo } from '../SplashScreen/logo'
 import { BoldSpan, Contents } from './styles'
 
+const PROJECT_KEY = '2023R**********'
+const CONFIG_ADDRESS = 'mapeoconf.v3'
+const OBSERVATIONS = 66
+const IMAGES = 14
+
 export const MigrationView = () => {
   const intl = useIntl()
   const theme = useTheme()
@@ -31,10 +36,10 @@ export const MigrationView = () => {
               <CheckItem message={intl.formatMessage(messages.migrateInstruction2, { appTitle })} />
             </Column>
             <DetailsCard
-              projectKey="2023R**********"
-              configAddress="mapeoconf.v3"
-              observations={66}
-              images={14}
+              projectKey={PROJECT_KEY}
+              configAddress={CONFIG_ADDRESS}
+              observations={OBSERVATIONS}
+              images={IMAGES}
             ></DetailsCard>
             <Row justifyContent={'space-between'}>
               <Button sx={{ color: theme.warningRed }}>{intl.formatMessage(messages.skipMigration)}</Button>
