@@ -13,15 +13,19 @@ const MigrationView = (_props: RouteComponentProps) => <Migration />
 function App(): JSX.Element | null {
   return (
     <IntlProvider>
+      <CssBaseline />
       <GlobalStyles
         styles={{
           color: black,
           backgroundColor: white,
         }}
       ></GlobalStyles>
-      <Router>
-        <IndexView path="/" />
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <MigrationView path="/" />
+          <IndexView path="/" />
+        </Router>
+      </ThemeProvider>
     </IntlProvider>
   )
 }
