@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material'
+import React from 'react'
 
 export const MAPEO_BLUE = '#0066FF'
 export const MAPEO_ORANGE = '#E86826'
