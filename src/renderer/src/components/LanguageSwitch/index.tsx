@@ -5,8 +5,10 @@ import { IntlSwitchConext, translatedLocales } from '../../components/IntlProvid
 import languagesConfig from './languages.json'
 import { Row } from '../LayoutComponents'
 import { StyledSelect } from './styles'
+// import { theme } from '@renderer/theme'
 
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: themeVarientType }) => {
+  const theme = useTheme()
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useContext(IntlSwitchConext)
 
@@ -25,6 +27,7 @@ export const LanguageSwitcher = () => {
           onClose={handleClose}
           onOpen={handleOpen}
           value={lang}
+          sx={{ color: themeVarient === 'dark' ? theme.background : theme.foreground }}
           IconComponent={() => null}
           renderValue={() => (
             <Row>
@@ -42,3 +45,5 @@ export const LanguageSwitcher = () => {
     </FormControl>
   )
 }
+
+export type themeVarientType = 'light' | 'dark' | undefined
