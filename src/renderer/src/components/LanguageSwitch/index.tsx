@@ -1,12 +1,14 @@
-import { FormControl, MenuItem, Select, Stack } from '@mui/material'
+import { FormControl, MenuItem, Select, Stack, Typography, useTheme } from '@mui/material'
 import { useContext, useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { IntlSwitchConext, translatedLocales } from '../../components/IntlProvider'
 import languagesConfig from './languages.json'
 import { Row } from '../LayoutComponents'
 import { StyledSelect } from './styles'
+// import { theme } from '@renderer/theme'
 
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: themeVarientType }) => {
+  const theme = useTheme()
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useContext(IntlSwitchConext)
 
@@ -25,11 +27,15 @@ export const LanguageSwitcher = () => {
           onClose={handleClose}
           onOpen={handleOpen}
           value={lang}
+          sx={{ color: themeVarient === 'dark' ? theme.background : theme.foreground }}
           IconComponent={() => null}
           renderValue={() => (
             <>
               <Row>
-                <ExpandMoreIcon /> {lang.toUpperCase()}
+                <ExpandMoreIcon />{' '}
+                <Typography variant="body1" component="label" fontWeight="bold">
+                  {lang.toUpperCase()}
+                </Typography>
               </Row>
             </>
           )}
@@ -44,3 +50,5 @@ export const LanguageSwitcher = () => {
     </FormControl>
   )
 }
+
+export type themeVarientType = 'light' | 'dark' | undefined
