@@ -10,6 +10,7 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()],
   },
   renderer: {
+    publicDir: 'src/renderer/src/assets',
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/src'),
