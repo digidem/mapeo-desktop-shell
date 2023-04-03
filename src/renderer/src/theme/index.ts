@@ -7,6 +7,7 @@ export const OFF_WHITE = '#F6F6F6'
 export const WHITE = '#FFFFFF'
 export const OFF_BLACK = '#333333'
 export const MIDNIGHT_BLUE = '#000033'
+export const MID_BLUE = '#19337F'
 export const WARNING_RED = '#D92222'
 export const GREY_LIGHT = '#EEEEEE'
 export const GREY = '#707070'
@@ -43,34 +44,42 @@ declare module '@mui/material/styles' {
   }
 }
 
+const defaultTextStyles = {
+  userSelect: 'none' as React.CSSProperties['userSelect'],
+}
+
 export const theme = createTheme({
   typography: {
     h1: {
       fontSize: 40,
       fontWeight: 500,
       color: MIDNIGHT_BLUE,
-      userSelect: 'none',
+      ...defaultTextStyles,
     },
     h2: {
       fontSize: 30,
       fontWeight: 400,
       color: MIDNIGHT_BLUE,
-      userSelect: 'none',
+      ...defaultTextStyles,
     },
     h3: {
       fontSize: 26,
       fontWeight: 400,
       color: MIDNIGHT_BLUE,
-      userSelect: 'none',
+      ...defaultTextStyles,
     },
     h4: {
       fontSize: 24,
       fontWeight: 300,
       color: MIDNIGHT_BLUE,
-      userSelect: 'none',
+      ...defaultTextStyles,
     },
     body1: {
-      userSelect: 'none',
+      ...defaultTextStyles,
+    },
+    caption: {
+      color: GREY,
+      ...defaultTextStyles,
     },
     fontFamily: [
       'Rubik',
@@ -98,6 +107,7 @@ export const theme = createTheme({
   },
   palette: {
     primary: { main: MAPEO_BLUE },
+    secondary: { main: MID_BLUE },
   },
   components: {
     MuiButtonBase: {
