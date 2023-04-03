@@ -26,6 +26,11 @@ declare module '@mui/material/styles' {
       light: React.CSSProperties['color']
       main: React.CSSProperties['color']
     }
+    blue: {
+      main: React.CSSProperties['color']
+      mid: React.CSSProperties['color']
+      dark: React.CSSProperties['color']
+    }
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -40,6 +45,11 @@ declare module '@mui/material/styles' {
     grey: {
       light: React.CSSProperties['color']
       main: React.CSSProperties['color']
+    }
+    blue: {
+      main: React.CSSProperties['color']
+      mid: React.CSSProperties['color']
+      dark: React.CSSProperties['color']
     }
   }
 }
@@ -96,6 +106,11 @@ export const theme = createTheme({
   background: OFF_WHITE,
   foreground: OFF_BLACK,
   blueDark: MIDNIGHT_BLUE,
+  blue: {
+    main: MAPEO_BLUE,
+    mid: MID_BLUE,
+    dark: MIDNIGHT_BLUE,
+  },
   primary: MAPEO_BLUE,
   warningRed: WARNING_RED,
   black: OFF_BLACK,
