@@ -1,1 +1,17 @@
-{}
+{
+  "components.skipMigrationModal.buttonCancel": {
+    "message": "Cancel"
+  },
+  "components.skipMigrationModal.buttonSkip": {
+    "message": "Skip Migration"
+  },
+  "components.skipMigrationModal.message1": {
+    "message": "Your previous Mapeo data will not be visible in the new Mapeo apps."
+  },
+  "components.skipMigrationModal.message2": {
+    "message": "Please proceed with caution."
+  },
+  "components.skipMigrationModal.title": {
+    "message": "Skip Migration"
+  }
+}
