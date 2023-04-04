@@ -27,11 +27,9 @@ export const LanguageSwitcher = () => {
           value={lang}
           IconComponent={() => null}
           renderValue={() => (
-            <>
-              <Row>
-                <ExpandMoreIcon /> {lang.toUpperCase()}
-              </Row>
-            </>
+            <Row>
+              <ExpandMoreIcon /> {lang.toUpperCase()}
+            </Row>
           )}
         >
           {translatedLocales.map((locale) => (
