@@ -9,7 +9,6 @@ import { OFF_BLACK as black, theme, OFF_WHITE as white } from './theme'
 import { ThemeProvider } from '@mui/system'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const IndexView = (_props: RouteComponentProps) => <Index />
 const MigrationView = (_props: RouteComponentProps) => <Migration />
 
 function App(): JSX.Element | null {
@@ -24,8 +23,8 @@ function App(): JSX.Element | null {
       ></GlobalStyles>
       <ThemeProvider theme={theme}>
         <Router>
-          <MigrationView path="/migration" />
-          <IndexView path="/" />
+          <MigrationView path="/" />
+          {/* <IndexView path="/" /> */}
         </Router>
       </ThemeProvider>
     </IntlProvider>

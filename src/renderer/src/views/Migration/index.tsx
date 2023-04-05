@@ -1,6 +1,5 @@
-import { Card, CardContent, CardHeader, Checkbox, Typography, useTheme } from '@mui/material'
+import { Button, Card, CardContent, CardHeader, Checkbox, Typography, useTheme } from '@mui/material'
 import CategoryIcon from '@mui/icons-material/Category'
-import { Button } from '@renderer/components/Button'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { DefaultLayout } from '@renderer/layouts/default'
@@ -23,7 +22,7 @@ export const MigrationView = () => {
   const appTitle = intl.formatMessage(appStrings.appTitle)
 
   return (
-    <DefaultLayout themeVarient="dark">
+    <DefaultLayout langBackgroundVarient="dark">
       <Row sx={{ height: '100vh' }}>
         <Column
           sx={{ bgcolor: theme.background, flex: 1, padding: '6em 8em 3em 8em' }}
