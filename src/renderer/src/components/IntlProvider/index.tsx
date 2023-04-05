@@ -2,7 +2,10 @@ import { IntlProvider as ReactIntlProvider } from 'react-intl'
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import translations from '../../../translations/messages.json'
 import languages from '../../../../common/config/languages.json'
+import { useTimeout } from '../../hooks/timerHooks'
+import { SplashView } from '../../views/SplashScreen'
 
+const MIN_SPLASH_TIME = 2000
 const DEFAULT_LOCALE = 'es'
 
 type AvailableLocales = keyof typeof translations
@@ -16,7 +19,7 @@ interface LanguageName {
   englishName: string
 }
 
-const translatedLocales = Object.keys(translations) as Array<AvailableLocales>
+export const translatedLocales = Object.keys(translations) as Array<AvailableLocales>
 
 export const supportedLanguages: LanguageName[] = translatedLocales
   .filter((locale) => {
@@ -57,6 +60,19 @@ const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof lang
 
 export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element | null => {
   const [appLocale, setAppLocale] = useState<AvailableLocales>()
+  const [minLoadTimePassed, setMinLoadTimePassed] = useState(false)
+
+  const timeout = setTimeout(() => {
+    setMinLoadTimePassed(true)
+  }, MIN_SPLASH_TIME)
+
+  useEffect(() => {
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
+  })
 
   const locale = appLocale || appLocale ? getSupportedLocale(appLocale) : DEFAULT_LOCALE
 
@@ -77,9 +93,11 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     setupApp()
   }, [])
 
-  return appLocale ? (
+  return !(appLocale && minLoadTimePassed) ? (
+    <SplashView />
+  ) : (
     <ReactIntlProvider messages={localeMessages} locale={appLocale} defaultLocale={DEFAULT_LOCALE}>
       <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
     </ReactIntlProvider>
-  ) : null
+  )
 }
