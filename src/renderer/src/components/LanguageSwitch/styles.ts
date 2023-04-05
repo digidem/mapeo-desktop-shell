@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
-import { Select, SelectProps } from '@mui/material'
-import { themeVarientType } from '.'
+import { Select } from '@mui/material'
 
-export const StyledSelect = styled(Select)<SelectProps>`
+export const StyledSelect = styled(Select)`
   &.muistack-root {
     justify-content: flex-end;
   }
