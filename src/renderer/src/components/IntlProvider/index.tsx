@@ -82,13 +82,11 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     setupApp()
   }, [])
 
-  return appLocale ? (
+  return !(appLocale && minLoadTimePassed) ? (
+    <SplashView />
+  ) : (
     <ReactIntlProvider messages={localeMessages} locale={appLocale} defaultLocale={DEFAULT_LOCALE}>
-      {minLoadTimePassed ? (
-        <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
-      ) : (
-        <SplashView />
-      )}
+      <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
     </ReactIntlProvider>
-  ) : null
+  )
 }
