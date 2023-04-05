@@ -7,7 +7,11 @@ import { Row } from '../LayoutComponents'
 import { StyledSelect } from './styles'
 // import { theme } from '@renderer/theme'
 
-export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: themeVarientType }) => {
+export const LanguageSwitcher = ({
+  langBackgroundVarient = 'light',
+}: {
+  langBackgroundVarient: LangBackgroundVarientType
+}) => {
   const theme = useTheme()
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useContext(IntlSwitchConext)
@@ -27,7 +31,7 @@ export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: the
           onClose={handleClose}
           onOpen={handleOpen}
           value={lang}
-          sx={{ color: themeVarient === 'dark' ? theme.background : theme.foreground }}
+          sx={{ color: langBackgroundVarient === 'dark' ? theme.background : theme.foreground }}
           IconComponent={() => null}
           renderValue={() => (
             <Row>
@@ -46,4 +50,4 @@ export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: the
   )
 }
 
-export type themeVarientType = 'light' | 'dark' | undefined
+export type LangBackgroundVarientType = 'light' | 'dark' | undefined
