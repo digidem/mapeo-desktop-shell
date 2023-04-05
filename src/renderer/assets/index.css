@@ -1,3 +1,94 @@
+/* Rubik-400 */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Rubik'), local('Rubik-Regular'), url('/fonts/Rubik-Regular.ttf') format('truetype');
+}
+
+/* Rubik-400 Italic */
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Rubik italic'), local('Rubik-italic'), url('/fonts/Rubik-Italic.ttf') format('truetype');
+}
+
+/* Rubik-600 */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Rubik semi-bold'), local('Rubik semibold'), local('Rubik semi bold'),
+    url('/fonts/Rubik-SemiBold.ttf') format('truetype');
+}
+
+/* Rubik-600 Italic */
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Rubik semi-bold italic'), local('Rubik semibold italic'), local('Rubik semi bold italic'),
+    url('/fonts/Rubik-SemiBoldItalic.ttf') format('truetype');
+}
+
+/* roboto-300 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/roboto-v20-latin-300.eot');
+  /* IE9 Compat Modes */
+  src: local('Roboto Light'), local('Roboto-Light'), url('/fonts/roboto-v20-latin-300.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/roboto-v20-latin-300.woff') format('woff'),
+    /* Modern Browsers */ url('/fonts/roboto-v20-latin-300.ttf') format('truetype');
+  /* Safari, Android, iOS */
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/roboto-v20-latin-regular.eot');
+  /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'), url('/fonts/roboto-v20-latin-regular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/roboto-v20-latin-regular.woff') format('woff'),
+    /* Modern Browsers */ url('/fonts/roboto-v20-latin-regular.ttf') format('truetype');
+  /* Safari, Android, iOS */
+}
+
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/roboto-v20-latin-500.eot');
+  /* IE9 Compat Modes */
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+    url('/fonts/roboto-v20-latin-500.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/roboto-v20-latin-500.woff') format('woff'),
+    /* Modern Browsers */ url('/fonts/roboto-v20-latin-500.ttf') format('truetype');
+  /* Safari, Android, iOS */
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/roboto-v20-latin-700.eot');
+  /* IE9 Compat Modes */
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('/fonts/roboto-v20-latin-700.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/roboto-v20-latin-700.woff') format('woff'),
+    /* Modern Browsers */ url('/fonts/roboto-v20-latin-700.ttf') format('truetype');
+  /* Safari, Android, iOS */
+}
+
 body {
   font-family: Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;
