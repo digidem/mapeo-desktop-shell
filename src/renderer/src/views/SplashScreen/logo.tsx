@@ -1,10 +1,10 @@
 // Todo: animate in logo?
-export const Logo = ({ loading }: { loading?: boolean }) => {
+export const Logo = ({ height, width, loading }: { height?: number; width?: number; loading?: boolean }) => {
   // TODO: Animate logo?
   // const logoTextStyle = { opacity: loading ? 0 : 1, transition: '0.2s opacity ease-in-out' }
 
   return (
-    <svg width="210" height="189" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 210 189" width={width} height={height} fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M103.35 6a30 30 0 0 0-30 30c0 16.568 30 60 30 60s30-43.432 30-60a30 30 0 0 0-30-30Z"
         fill="#F93"

@@ -12,7 +12,7 @@ export const SplashView = () => {
       sx={{ height: '100vh', width: '100vw', bgcolor: theme.blue }}
     >
       <Column alignItems="center" spacing={6} sx={{ paddingTop: '33vh', overflow: 'hidden' }}>
-        <Logo></Logo>
+        <Logo width={210} height={189}></Logo>
         <CircularProgress sx={{ color: 'white' }} />
       </Column>
     </Box>
