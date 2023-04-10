@@ -1,12 +1,23 @@
-import { IntlProvider } from './components/IntlProvider'
-
-import { RouteComponentProps, Router } from '@reach/router'
-import { IndexView as Index } from './views/Index'
+import { RouterProvider, createMemoryRouter } from 'react-router-dom'
+import styled from '@emotion/styled'
 import GlobalStyles from '@mui/material/GlobalStyles'
-import { OFF_BLACK as black, OFF_WHITE as white } from './theme'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const IndexView = (_props: RouteComponentProps) => <Index />
+import { IntlProvider } from '@renderer/components/IntlProvider'
+import { IndexView } from '@renderer/views/Index'
+import { OFF_BLACK as black, OFF_WHITE as white } from '@renderer/theme'
+
+const router = createMemoryRouter([
+  {
+    path: '/',
+    element: <IndexView />,
+  },
+])
+
+const AppContainer = styled.div(`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`)
 
 function App(): JSX.Element | null {
   return (
@@ -16,10 +27,10 @@ function App(): JSX.Element | null {
           color: black,
           backgroundColor: white,
         }}
-      ></GlobalStyles>
-      <Router>
-        <IndexView path="/" />
-      </Router>
+      />
+      <AppContainer>
+        <RouterProvider router={router} />
+      </AppContainer>
     </IntlProvider>
   )
 }
