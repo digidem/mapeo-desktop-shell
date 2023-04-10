@@ -5,11 +5,31 @@ import MapIcon from '@mui/icons-material/Map'
 import ObservationsIcon from '@mui/icons-material/PhotoLibrary'
 import SyncIcon from '@mui/icons-material/OfflineBolt'
 import SettingsIcon from '@mui/icons-material/Settings'
+import { defineMessages, useIntl } from 'react-intl'
 
 import { Logo } from '@renderer/views/SplashScreen/logo'
 import { theme } from '@renderer/theme'
 
 import { PANEL_NAMES, PanelName } from '.'
+
+const m = defineMessages({
+  territory: {
+    id: 'views.Home.Sidebar.territory',
+    defaultMessage: 'Territory',
+  },
+  observations: {
+    id: 'views.Home.Sidebar.observations',
+    defaultMessage: 'Observations',
+  },
+  sync: {
+    id: 'views.Home.Sidebar.sync',
+    defaultMessage: 'Sync',
+  },
+  settings: {
+    id: 'views.Home.Sidebar.settings',
+    defaultMessage: 'Settings',
+  },
+})
 
 const Container = styled.div(`
   display: flex;
@@ -55,6 +75,8 @@ interface Props {
 }
 
 export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
+  const { formatMessage: t } = useIntl()
+
   return (
     <Container>
       <LogoContainer>
@@ -67,16 +89,21 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
         value={activeTab}
         onChange={(_, value) => onChangeTab(value)}
       >
-        <StyledTab icon={<MapIcon />} label="Territory" iconPosition="start" value={PANEL_NAMES.territory} />
         <StyledTab
-          label="Observations"
+          icon={<MapIcon />}
+          label={t(m.territory)}
+          iconPosition="start"
+          value={PANEL_NAMES.territory}
+        />
+        <StyledTab
+          label={t(m.observations)}
           icon={<ObservationsIcon />}
           iconPosition="start"
           value={PANEL_NAMES.observations}
         />
-        <StyledTab label="Sync" icon={<SyncIcon />} iconPosition="start" value={PANEL_NAMES.sync} />
+        <StyledTab label={t(m.sync)} icon={<SyncIcon />} iconPosition="start" value={PANEL_NAMES.sync} />
         <StyledTab
-          label="Settings"
+          label={t(m.settings)}
           icon={<SettingsIcon />}
           iconPosition="start"
           value={PANEL_NAMES.settings}

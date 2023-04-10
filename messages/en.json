@@ -1,5 +1,17 @@
 {
   "components.messages.test_message": {
     "message": "Mapeo desktop test!"
+  },
+  "views.Home.Sidebar.observations": {
+    "message": "Observations"
+  },
+  "views.Home.Sidebar.settings": {
+    "message": "Settings"
+  },
+  "views.Home.Sidebar.sync": {
+    "message": "Sync"
+  },
+  "views.Home.Sidebar.territory": {
+    "message": "Territory"
   }
 }
