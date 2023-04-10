@@ -35,7 +35,7 @@ const Container = styled.div(`
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: ${theme.midnightBlue};
+  background: ${theme.blue};
   color: ${theme.white};
 `)
 
@@ -50,8 +50,10 @@ const StyledTabs = styled(Tabs)`
   flex: 1;
   position: relative;
   & .MuiTabs-indicator {
-    background-color: ${theme.orange};
+    background-color: ${theme.midnightBlue};
   }
+
+  color: white;
 `
 
 const StyledTab = styled(Tab)`
@@ -61,11 +63,11 @@ const StyledTab = styled(Tab)`
     justify-content: flex-start;
     padding: 0 20px;
     font-size: 1rem;
-    font-weight: bold;
+    opacity: unset;
   }
 
   &.Mui-selected {
-    background-color: #33335c;
+    background-color: ${theme.midnightBlue}33;
   }
 `
 

@@ -26,7 +26,7 @@ const MainGridSection = styled.div(`
 
 const BottomBarGridSection = styled.div(`
   grid-area: 2 / 1 / 3 / 3;
-  background: ${theme.orange};
+  background: ${theme.midnightBlue};
 `)
 
 export const PANEL_NAMES = {
