@@ -7,7 +7,7 @@ import SyncIcon from '@mui/icons-material/OfflineBolt'
 import SettingsIcon from '@mui/icons-material/Settings'
 import { defineMessages, useIntl } from 'react-intl'
 
-import { Logo } from '@renderer/views/SplashScreen/logo'
+import mapeoLogoUrl from '@renderer/assets/mapeo-sidebar-logo.svg'
 import { theme } from '@renderer/theme'
 
 import { PANEL_NAMES, PanelName } from '.'
@@ -80,7 +80,7 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
   return (
     <Container>
       <LogoContainer>
-        <Logo width={160} />
+        <img src={mapeoLogoUrl} />
       </LogoContainer>
       <StyledTabs
         orientation="vertical"
