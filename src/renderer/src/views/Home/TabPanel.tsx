@@ -2,7 +2,8 @@ import { PropsWithChildren } from 'react'
 
 import styled from '@emotion/styled'
 
-const Container = styled.div(`
+const Container = styled.div<{ hide: boolean }>(
+  ({ hide }) => `
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -11,12 +12,14 @@ const Container = styled.div(`
   right: 0;
   bottom: 0;
   left: 0;
-`)
+  visibility: ${hide ? 'hidden' : undefined};
+`,
+)
 
 interface Props extends PropsWithChildren<{}> {
   active: boolean
 }
 
 export const TabPanel = ({ active, children }: Props) => {
-  return <Container hidden={!active}>{active ? children : null}</Container>
+  return <Container hide={!active}>{children}</Container>
 }
