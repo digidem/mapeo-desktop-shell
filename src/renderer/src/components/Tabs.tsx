@@ -26,7 +26,7 @@ const StyledTab = styled(Tab)<{ colorSelected: React.CSSProperties['color'] }>`
   }
 
   &.Mui-selected {
-    background-color: ${(props) => props.colorSelected}33;
+    background-color: ${(props) => props.colorSelected};
   }
 `
 
