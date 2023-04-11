@@ -62,7 +62,18 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
   const [appLocale, setAppLocale] = useState<AvailableLocales>()
   const [minLoadTimePassed, setMinLoadTimePassed] = useState(false)
 
-  useTimeout(() => setMinLoadTimePassed(true), MIN_SPLASH_TIME)
+  const timeout = setTimeout(() => {
+    setMinLoadTimePassed(true)
+  }, MIN_SPLASH_TIME)
+
+  useEffect(() => {
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
+  })
+
   const locale = appLocale || appLocale ? getSupportedLocale(appLocale) : DEFAULT_LOCALE
 
   const languageCode = locale ? locale.split('-')[0] : null
@@ -82,13 +93,11 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     setupApp()
   }, [])
 
-  return appLocale ? (
+  return !(appLocale && minLoadTimePassed) ? (
+    <SplashView />
+  ) : (
     <ReactIntlProvider messages={localeMessages} locale={appLocale} defaultLocale={DEFAULT_LOCALE}>
-      {minLoadTimePassed ? (
-        <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
-      ) : (
-        <SplashView />
-      )}
+      <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
     </ReactIntlProvider>
-  ) : null
+  )
 }

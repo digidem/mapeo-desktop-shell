@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { Select, SelectProps } from '@mui/material'
-import { themeVarientType } from '.'
 
 export const StyledSelect = styled(Select)<SelectProps>`
   &.muistack-root {
