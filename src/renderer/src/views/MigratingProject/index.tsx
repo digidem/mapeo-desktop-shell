@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { useLocation } from 'react-router-dom'
 
-const INTERVAL_DURATION = 100
+const INTERVAL_DURATION = 250
 
 type LocationState = { observations: number; media: number }
 
@@ -71,9 +71,13 @@ export const MigratingProjectView = () => {
       <Container maxWidth="lg">
         <Column spacing={16} alignItems="center">
           <Container maxWidth="sm">
-            <Row alignItems="center" justifyContent="space-between">
-              <Mapeo5Logo />
-              <ArrowsSvg />
+            <Row alignItems="center" justifyContent={progress === 100 ? 'center' : 'space-between'}>
+              {progress !== 100 ? (
+                <>
+                  <Mapeo5Logo />
+                  <ArrowsSvg />
+                </>
+              ) : null}
               <Logo textColourVariant="dark" />
             </Row>
           </Container>
