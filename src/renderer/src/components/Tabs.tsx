@@ -3,19 +3,22 @@ import MuiTabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 
 const StyledTabs = styled(MuiTabs)<{
-  colorText: React.CSSProperties['color']
-  colorSelected: React.CSSProperties['color']
-}>`
+  color: React.CSSProperties['color']
+  selectedColor: React.CSSProperties['color']
+}>(
+  ({ color, selectedColor }) => `
   flex: 1;
   position: relative;
   & .MuiTabs-indicator {
-    background-color: ${(props) => props.colorSelected};
+    background-color: ${selectedColor};
   }
 
-  color: ${(props) => props.colorText};
-`
+  color: ${color};
+`,
+)
 
-const StyledTab = styled(Tab)<{ colorSelected: React.CSSProperties['color'] }>`
+const StyledTab = styled(Tab)<{ selectedColor: React.CSSProperties['color'] }>(
+  ({ selectedColor }) => `
   &.MuiTab-root {
     text-transform: capitalize;
     flex-direction: row;
@@ -26,13 +29,26 @@ const StyledTab = styled(Tab)<{ colorSelected: React.CSSProperties['color'] }>`
   }
 
   &.Mui-selected {
-    background-color: ${(props) => props.colorSelected};
+    background-color: ${selectedColor};
   }
-`
+`,
+)
+
+const StyledLabel = styled.div(`
+  text-align: left;
+`)
+
+const StyledSubtitle = styled.p<{ color: React.CSSProperties['color'] }>(
+  ({ color }) => `
+  font-size: 0.75rem;
+  color: ${color};
+`,
+)
 
 export type TabData<Value> = {
   icon?: React.ReactElement
-  label: string
+  title: string
+  subtitle?: string
   value: Value
   sx?: React.ComponentProps<typeof Tab>['sx']
 }
@@ -41,16 +57,18 @@ interface Props<Value> {
   activeTab: Value
   onChangeTab: (value: Value) => void
   data: TabData<Value>[]
-  colorSelected: React.CSSProperties['color']
-  colorText: React.CSSProperties['color']
+  selectedColor: React.CSSProperties['color']
+  titleColor: React.CSSProperties['color']
+  subtitleColor?: React.CSSProperties['color']
 }
 
 export function Tabs<Value extends string>({
   activeTab,
   onChangeTab,
   data,
-  colorSelected,
-  colorText,
+  selectedColor,
+  titleColor,
+  subtitleColor,
 }: Props<Value>) {
   return (
     <StyledTabs
@@ -59,11 +77,25 @@ export function Tabs<Value extends string>({
       variant="scrollable"
       value={activeTab}
       onChange={(_, value) => onChangeTab(value)}
-      colorSelected={colorSelected}
-      colorText={colorText}
+      selectedColor={selectedColor}
+      color={titleColor}
     >
       {data.map((d) => (
-        <StyledTab {...d} iconPosition="start" key={d.value} colorSelected={colorSelected} sx={d.sx} />
+        <StyledTab
+          {...d}
+          iconPosition="start"
+          key={d.value}
+          selectedColor={selectedColor}
+          sx={d.sx}
+          label={
+            <StyledLabel>
+              <p>{d.title}</p>
+              {d.subtitle && (
+                <StyledSubtitle color={subtitleColor || titleColor}>{d.subtitle}</StyledSubtitle>
+              )}
+            </StyledLabel>
+          }
+        />
       ))}
     </StyledTabs>
   )
