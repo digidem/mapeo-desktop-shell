@@ -14,7 +14,6 @@ export const DefaultLayout = ({
   sx?: SxProps
 }) => {
   const location = useLocation()
-  console.log({ location })
   return (
     <Box minHeight="100vh" minWidth="100vw" sx={sx}>
       {location.pathname !== '/' ? (
