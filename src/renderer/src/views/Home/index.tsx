@@ -2,10 +2,11 @@ import * as React from 'react'
 
 import styled from '@emotion/styled'
 import { theme } from '@renderer/theme'
+import { DefaultLayout } from '@renderer/layouts/default'
 
 import { Sidebar } from './Sidebar'
 import { TabPanel } from './TabPanel'
-import { DefaultLayout } from '@renderer/layouts/default'
+import { Settings } from './Settings'
 
 const Container = styled.div(`
   flex: 1;
@@ -49,7 +50,10 @@ export const Home = ({ showBottomBar }: Props) => {
           <TabPanel active={activePanel === 'territory'}>Territory</TabPanel>
           <TabPanel active={activePanel === 'observations'}>Observations</TabPanel>
           <TabPanel active={activePanel === 'sync'}>Sync</TabPanel>
-          <TabPanel active={activePanel === 'settings'}>Settings</TabPanel>
+          <TabPanel active={activePanel === 'settings'}>
+            {' '}
+            <Settings />
+          </TabPanel>
         </MainGridSection>
         {showBottomBar && (
           <BottomBarGridSection>
