@@ -56,22 +56,22 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
   const tabsData: React.ComponentProps<typeof Tabs<PanelName>>['data'] = [
     {
       icon: <MapIcon />,
-      label: t(m.territory),
+      title: t(m.territory),
       value: 'territory',
     },
     {
       icon: <ObservationsIcon />,
-      label: t(m.observations),
+      title: t(m.observations),
       value: 'observations',
     },
     {
       icon: <SyncIcon />,
-      label: t(m.sync),
+      title: t(m.sync),
       value: 'sync',
     },
     {
       icon: <SettingsIcon />,
-      label: t(m.settings),
+      title: t(m.settings),
       value: 'settings',
       sx: { position: 'absolute', bottom: 0, right: 0, left: 0 },
     },
@@ -85,8 +85,8 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
       <Tabs
         activeTab={activeTab}
         onChangeTab={onChangeTab}
-        colorSelected={`${theme.blue.dark}33`}
-        colorText={theme.white}
+        selectedColor={`${theme.blue.dark}33`}
+        titleColor={theme.white}
         data={tabsData}
       />
     </Container>
