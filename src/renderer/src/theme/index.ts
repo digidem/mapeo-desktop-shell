@@ -11,6 +11,7 @@ export const MID_BLUE = '#19337F'
 export const WARNING_RED = '#D92222'
 export const GREY_LIGHT = '#EEEEEE'
 export const GREY = '#707070'
+export const GREEN = '#59A553'
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -19,6 +20,7 @@ declare module '@mui/material/styles' {
     foreground: React.CSSProperties['color']
     blueDark: React.CSSProperties['color']
     warningRed: React.CSSProperties['color']
+    successGreen: React.CSSProperties['color']
     black: React.CSSProperties['color']
     orange: React.CSSProperties['color']
     white: React.CSSProperties['color']
@@ -39,6 +41,7 @@ declare module '@mui/material/styles' {
     foreground: React.CSSProperties['color']
     blueDark: React.CSSProperties['color']
     warningRed: React.CSSProperties['color']
+    successGreen: React.CSSProperties['color']
     black: React.CSSProperties['color']
     orange: React.CSSProperties['color']
     white: React.CSSProperties['color']
@@ -116,6 +119,7 @@ export const theme = createTheme({
   black: OFF_BLACK,
   orange: MAPEO_ORANGE,
   white: WHITE,
+  successGreen: GREEN,
   grey: {
     light: GREY_LIGHT,
     main: GREY,
