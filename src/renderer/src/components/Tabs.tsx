@@ -2,7 +2,10 @@ import styled from '@emotion/styled'
 import MuiTabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 
-const StyledTabs = styled(MuiTabs)<{ colorText: string; colorSelected: string }>`
+const StyledTabs = styled(MuiTabs)<{
+  colorText: React.CSSProperties['color']
+  colorSelected: React.CSSProperties['color']
+}>`
   flex: 1;
   position: relative;
   & .MuiTabs-indicator {
@@ -12,7 +15,7 @@ const StyledTabs = styled(MuiTabs)<{ colorText: string; colorSelected: string }>
   color: ${(props) => props.colorText};
 `
 
-const StyledTab = styled(Tab)<{ colorSelected: string }>`
+const StyledTab = styled(Tab)<{ colorSelected: React.CSSProperties['color'] }>`
   &.MuiTab-root {
     text-transform: capitalize;
     flex-direction: row;
@@ -38,8 +41,8 @@ interface Props<Value> {
   activeTab: Value
   onChangeTab: (value: Value) => void
   data: TabData<Value>[]
-  colorSelected: string
-  colorText: string
+  colorSelected: React.CSSProperties['color']
+  colorText: React.CSSProperties['color']
 }
 
 export function Tabs<Value extends string>({
