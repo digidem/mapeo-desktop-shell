@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, Select, Stack, Typography, useTheme } from '@mui/material'
+import { FormControl, MenuItem, useTheme } from '@mui/material'
 import { useContext, useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { IntlSwitchConext, translatedLocales } from '../../components/IntlProvider'
@@ -7,7 +7,11 @@ import { Row } from '../LayoutComponents'
 import { StyledSelect } from './styles'
 // import { theme } from '@renderer/theme'
 
-export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: themeVarientType }) => {
+export const LanguageSwitcher = ({
+  langBackgroundVarient = 'light',
+}: {
+  langBackgroundVarient: LangBackgroundVarientType
+}) => {
   const theme = useTheme()
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useContext(IntlSwitchConext)
@@ -27,17 +31,12 @@ export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: the
           onClose={handleClose}
           onOpen={handleOpen}
           value={lang}
-          sx={{ color: themeVarient === 'dark' ? theme.background : theme.foreground }}
+          sx={{ color: langBackgroundVarient === 'dark' ? theme.background : theme.foreground }}
           IconComponent={() => null}
           renderValue={() => (
-            <>
-              <Row>
-                <ExpandMoreIcon />{' '}
-                <Typography variant="body1" component="label" fontWeight="bold">
-                  {lang.toUpperCase()}
-                </Typography>
-              </Row>
-            </>
+            <Row>
+              <ExpandMoreIcon /> {lang.toUpperCase()}
+            </Row>
           )}
         >
           {translatedLocales.map((locale) => (
@@ -51,4 +50,4 @@ export const LanguageSwitcher = ({ themeVarient = 'light' }: { themeVarient: the
   )
 }
 
-export type themeVarientType = 'light' | 'dark' | undefined
+export type LangBackgroundVarientType = 'light' | 'dark' | undefined

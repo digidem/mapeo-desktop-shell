@@ -25,7 +25,7 @@ export const MigrationView = () => {
   const appTitle = intl.formatMessage(appStrings.appTitle)
 
   return (
-    <DefaultLayout themeVarient="dark">
+    <DefaultLayout langBackgroundVarient="dark">
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
       <Row sx={{ height: '100vh' }}>
         <Column
