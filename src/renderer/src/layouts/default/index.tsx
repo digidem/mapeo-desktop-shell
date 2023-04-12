@@ -1,10 +1,16 @@
 import { ReactNode } from 'react'
 import { LanguageSwitcher } from '../../components/LanguageSwitch'
 
-export const DefaultLayout = ({ children }: { children: ReactNode }) => {
+export const DefaultLayout = ({
+  children,
+  langBackgroundVarient = 'light',
+}: {
+  children: ReactNode
+  langBackgroundVarient?: 'light' | 'dark'
+}) => {
   return (
     <div>
-      <LanguageSwitcher />
+      <LanguageSwitcher langBackgroundVarient={langBackgroundVarient} />
       {children}
     </div>
   )

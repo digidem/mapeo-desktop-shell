@@ -49,7 +49,7 @@ const isTranslation = (langugage?: string): langugage is AvailableLocales => {
 
 type IntlSetContextType = Readonly<[string, Dispatch<SetStateAction<AvailableLocales | undefined>>]>
 
-export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => {}])
+export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => { }])
 
 const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof languages | undefined => {
   if (supportedLanguages.find((lang) => lang.locale === locale)) return locale as keyof typeof languages
@@ -74,6 +74,7 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     }
   })
 
+  useTimeout(() => setMinLoadTimePassed(true), MIN_SPLASH_TIME)
   const locale = appLocale || appLocale ? getSupportedLocale(appLocale) : DEFAULT_LOCALE
 
   const languageCode = locale ? locale.split('-')[0] : null
@@ -97,7 +98,11 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     <SplashView />
   ) : (
     <ReactIntlProvider messages={localeMessages} locale={appLocale} defaultLocale={DEFAULT_LOCALE}>
-      <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
+      {minLoadTimePassed ? (
+        <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
+      ) : (
+        <SplashView />
+      )}
     </ReactIntlProvider>
   )
 }
