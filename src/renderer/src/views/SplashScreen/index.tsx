@@ -1,7 +1,7 @@
 import { Box, CircularProgress } from '@mui/material'
-import { theme } from '../../theme'
 import { Logo } from './logo'
 import { Column } from '../../components/LayoutComponents'
+import { theme } from '@renderer/theme'
 
 export const SplashView = () => {
   return (
@@ -9,7 +9,7 @@ export const SplashView = () => {
       display={'flex'}
       justifyContent="center"
       alignItems="flex-start"
-      sx={{ height: '100vh', width: '100vw', bgcolor: theme.blue }}
+      sx={{ height: '100vh', width: '100vw', bgcolor: theme.primary }}
     >
       <Column alignItems="center" spacing={6} sx={{ paddingTop: '33vh', overflow: 'hidden' }}>
         <Logo></Logo>

@@ -1,6 +1,7 @@
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 import styled from '@emotion/styled'
 import GlobalStyles from '@mui/material/GlobalStyles'
+import { CssBaseline } from '@mui/material'
 
 import { IntlProvider } from '@renderer/components/IntlProvider'
 import { IndexView } from '@renderer/views/Index'
@@ -22,6 +23,7 @@ const AppContainer = styled.div(`
 function App(): JSX.Element | null {
   return (
     <IntlProvider>
+      <CssBaseline />
       <GlobalStyles
         styles={{
           color: black,

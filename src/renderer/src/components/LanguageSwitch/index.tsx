@@ -1,12 +1,18 @@
-import { FormControl, MenuItem } from '@mui/material'
+import { FormControl, MenuItem, useTheme } from '@mui/material'
 import { useContext, useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { IntlSwitchConext, translatedLocales } from '../../components/IntlProvider'
 import languagesConfig from './languages.json'
 import { Row } from '../LayoutComponents'
 import { StyledSelect } from './styles'
+// import { theme } from '@renderer/theme'
 
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = ({
+  langBackgroundVarient = 'light',
+}: {
+  langBackgroundVarient: LangBackgroundVarientType
+}) => {
+  const theme = useTheme()
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useContext(IntlSwitchConext)
 
@@ -25,6 +31,7 @@ export const LanguageSwitcher = () => {
           onClose={handleClose}
           onOpen={handleOpen}
           value={lang}
+          sx={{ color: langBackgroundVarient === 'dark' ? theme.background : theme.foreground }}
           IconComponent={() => null}
           renderValue={() => (
             <Row>
@@ -42,3 +49,5 @@ export const LanguageSwitcher = () => {
     </FormControl>
   )
 }
+
+export type LangBackgroundVarientType = 'light' | 'dark' | undefined
