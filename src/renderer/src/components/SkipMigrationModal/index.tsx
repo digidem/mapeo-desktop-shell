@@ -35,9 +35,9 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
   }
 
   return (
-    <Dialog open={open} onClose={handleCloseDialog} maxWidth="lg" fullWidth>
+    <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
       <Column justifyContent="space-between" alignItems="stretch">
-        <Column sx={{ minHeight: '55vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
+        <Column sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
           <Row justifyContent="center">
             <ErrorIcon sx={{ height: '100px', width: '100px' }} color="error" />
           </Row>

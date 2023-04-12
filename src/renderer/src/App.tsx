@@ -18,7 +18,7 @@ function App(): JSX.Element | null {
       <ThemeProvider theme={theme}>
         <Router>
           <MigrationView path="/" />
-          <IndexView path="/" />
+          {/* <IndexView path="/" /> */}
         </Router>
       </ThemeProvider>
     </IntlProvider>
