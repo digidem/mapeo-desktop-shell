@@ -8,7 +8,7 @@ import { defineMessages, useIntl } from 'react-intl'
 import { appStrings } from '../../../../common/config/messages'
 import { Logo } from '../../components/Logo'
 import { BoldSpan, Contents } from './styles'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 import { Link } from 'react-router-dom'
 
@@ -18,8 +18,8 @@ const CONFIG_ADDRESS = 'mapeoconf.v3'
 export const MigrationView = () => {
   const intl = useIntl()
   const theme = useTheme()
-  const observations = useRef(Math.floor(Math.random() * 100))
-  const media = useRef(Math.floor(Math.random() * 100))
+  const observations = Math.floor(Math.random() * 100)
+  const media = Math.floor(Math.random() * 100)
   const [skipModalOpen, setSkipModalOpen] = useState(false)
 
   const appTitle = intl.formatMessage(appStrings.appTitle)
@@ -53,18 +53,15 @@ export const MigrationView = () => {
           <DetailsCard
             projectKey={PROJECT_KEY}
             configAddress={CONFIG_ADDRESS}
-            observations={observations.current}
-            images={media.current}
+            observations={observations}
+            images={media}
           />
           <Row justifyContent="space-between" alignItems="flex-start">
             <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
               {intl.formatMessage(messages.skipMigration)}
             </Button>
             <Column alignItems="flex-end" spacing={1}>
-              <Link
-                to="/migrating-project"
-                state={{ observations: observations.current, media: media.current }}
-              >
+              <Link to="/migrating-project" state={{ observations: observations, media: media }}>
                 <Button onClick={() => null} variant="contained" disableElevation>
                   {intl.formatMessage(messages.migrate)}
                 </Button>
