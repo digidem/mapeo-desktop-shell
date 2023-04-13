@@ -2,7 +2,6 @@ import { IntlProvider as ReactIntlProvider } from 'react-intl'
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import translations from '../../../translations/messages.json'
 import languages from '../../../../common/config/languages.json'
-import { useTimeout } from '../../hooks/timerHooks'
 import { SplashView } from '../../views/SplashScreen'
 
 const MIN_SPLASH_TIME = 2000
@@ -49,7 +48,7 @@ const isTranslation = (langugage?: string): langugage is AvailableLocales => {
 
 type IntlSetContextType = Readonly<[string, Dispatch<SetStateAction<AvailableLocales | undefined>>]>
 
-export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => {}])
+export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => { }])
 
 const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof languages | undefined => {
   if (supportedLanguages.find((lang) => lang.locale === locale)) return locale as keyof typeof languages
@@ -62,7 +61,18 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
   const [appLocale, setAppLocale] = useState<AvailableLocales>()
   const [minLoadTimePassed, setMinLoadTimePassed] = useState(false)
 
-  useTimeout(() => setMinLoadTimePassed(true), MIN_SPLASH_TIME)
+  const timeout = setTimeout(() => {
+    setMinLoadTimePassed(true)
+  }, MIN_SPLASH_TIME)
+
+  useEffect(() => {
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
+  })
+
   const locale = appLocale || appLocale ? getSupportedLocale(appLocale) : DEFAULT_LOCALE
 
   const languageCode = locale ? locale.split('-')[0] : null
@@ -82,7 +92,9 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     setupApp()
   }, [])
 
-  return appLocale ? (
+  return !(appLocale && minLoadTimePassed) ? (
+    <SplashView />
+  ) : (
     <ReactIntlProvider messages={localeMessages} locale={appLocale} defaultLocale={DEFAULT_LOCALE}>
       {minLoadTimePassed ? (
         <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
@@ -90,5 +102,5 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
         <SplashView />
       )}
     </ReactIntlProvider>
-  ) : null
+  )
 }

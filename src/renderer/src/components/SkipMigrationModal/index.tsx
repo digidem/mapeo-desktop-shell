@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { CircularProgress, Dialog, Typography, useTheme } from '@mui/material'
+import { useState } from 'react'
+import { Dialog, Typography, useTheme } from '@mui/material'
 import ErrorIcon from '@mui/icons-material/Error'
 import { Column, Row } from '../LayoutComponents'
 import { defineMessages, useIntl } from 'react-intl'
@@ -8,36 +8,18 @@ import { Button } from '../Button'
 export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalProps) => {
   const intl = useIntl()
   const theme = useTheme()
-  const [loading, setLoading] = useState(false)
-  let timeout
-
-  useEffect(() => {
-    return () => {
-      if (timeout) {
-        timeout.clear()
-      }
-    }
-  }, [])
+  const [skipped, setSkipped] = useState(false)
 
   const handleCloseDialog = (event?: Record<string, never>, reason?: 'escapeKeyDown' | 'backdropClick') => {
     if (reason === 'backdropClick' || reason === 'escapeKeyDown') return
     onClose()
-  }
-
-  const delayedNavigate = () => {
-    setLoading(true)
-    timeout = setTimeout(() => {
-      console.log('navigating to other screen')
-      // Navigate to other screen
-      setLoading(false)
-      onClose()
-    }, 3000)
+    setSkipped(false)
   }
 
   return (
-    <Dialog open={open} onClose={handleCloseDialog} maxWidth="lg" fullWidth>
+    <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
       <Column justifyContent="space-between" alignItems="stretch">
-        <Column sx={{ minHeight: '55vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
+        <Column sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
           <Row justifyContent="center">
             <ErrorIcon sx={{ height: '100px', width: '100px' }} color="error" />
           </Row>
@@ -45,24 +27,33 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
             {intl.formatMessage(messages.title)}
           </Typography>
           <span>
-            <Typography variant="body1" align="center">
-              {intl.formatMessage(messages.message1)}
-            </Typography>
-            <Typography variant="body1" align="center">
-              {intl.formatMessage(messages.message2)}
-            </Typography>
+            {!skipped ? (
+              <>
+                <Typography variant="body1" align="center">
+                  {intl.formatMessage(messages.message1)}
+                </Typography>
+                <Typography variant="body1" align="center">
+                  {intl.formatMessage(messages.message2)}
+                </Typography>
+              </>
+            ) : (
+              <Typography variant="body1" align="center">
+                {intl.formatMessage(messages.skippedMessage)}
+              </Typography>
+            )}
           </span>
-          {loading ? <CircularProgress /> : null}
         </Column>
         <Row
-          justifyContent="space-between"
+          justifyContent={skipped ? 'flex-end' : 'space-between'}
           sx={{ paddingY: 2, paddingX: 4, borderTop: '1px solid', borderColor: theme.grey.light }}
         >
-          <Button variant="text" color="error" onClick={() => delayedNavigate()}>
-            {intl.formatMessage(messages.buttonSkip)}
-          </Button>
-          <Button variant="text" color="primary" onClick={onClose} disabled={loading}>
-            {intl.formatMessage(messages.buttonCancel)}
+          {!skipped ? (
+            <Button variant="text" color="error" onClick={() => setSkipped(true)}>
+              {intl.formatMessage(messages.buttonSkip)}
+            </Button>
+          ) : null}
+          <Button variant="text" color="primary" onClick={handleCloseDialog}>
+            {skipped ? intl.formatMessage(messages.buttonClose) : intl.formatMessage(messages.buttonCancel)}
           </Button>
         </Row>
       </Column>
@@ -83,6 +74,10 @@ const messages = defineMessages({
     id: 'components.skipMigrationModal.message2',
     defaultMessage: 'Please proceed with caution.',
   },
+  skippedMessage: {
+    id: 'components.skipMigrationModal.skippedMessage',
+    defaultMessage: 'Join a project or create a project',
+  },
   buttonSkip: {
     id: 'components.skipMigrationModal.buttonSkip',
     defaultMessage: 'Skip Migration',
@@ -90,6 +85,10 @@ const messages = defineMessages({
   buttonCancel: {
     id: 'components.skipMigrationModal.buttonCancel',
     defaultMessage: 'Cancel',
+  },
+  buttonClose: {
+    id: 'components.skipMigrationModal.buttonClose',
+    defaultMessage: 'Close',
   },
 })
 
