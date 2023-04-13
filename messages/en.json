@@ -1,1 +1,59 @@
-{}
+{
+  "components.skipMigrationModal.buttonCancel": {
+    "message": "Cancel"
+  },
+  "components.skipMigrationModal.buttonClose": {
+    "message": "Close"
+  },
+  "components.skipMigrationModal.buttonSkip": {
+    "message": "Skip Migration"
+  },
+  "components.skipMigrationModal.message1": {
+    "message": "Your previous Mapeo data will not be visible in the new Mapeo apps."
+  },
+  "components.skipMigrationModal.message2": {
+    "message": "Please proceed with caution."
+  },
+  "components.skipMigrationModal.skippedMessage": {
+    "message": "Join a project or create a project"
+  },
+  "components.skipMigrationModal.title": {
+    "message": "Skip Migration"
+  },
+  "views.migration.configTitle": {
+    "message": "Config"
+  },
+  "views.migration.images": {
+    "message": "Images"
+  },
+  "views.migration.migrate": {
+    "message": "Migrate"
+  },
+  "views.migration.migrateInfo": {
+    "message": "It should take less than 5 minutes!"
+  },
+  "views.migration.migrateInstruction1": {
+    "message": "Migrating from [x] to [y]"
+  },
+  "views.migration.migrateInstruction2": {
+    "message": "You will have to coordinated with your team to upgrade each mobile device to {appTitle}"
+  },
+  "views.migration.migratePreviousInstruction": {
+    "message": "We have found a previous Mapeo project. Follow the steps below to begin migrating to the new Mapeo:"
+  },
+  "views.migration.migratePreviousTitle": {
+    "message": "Migrate your previous Mapeo data"
+  },
+  "views.migration.observations": {
+    "message": "Observations"
+  },
+  "views.migration.projectKeyTitle": {
+    "message": "Project key"
+  },
+  "views.migration.skipMigration": {
+    "message": "Skip migration"
+  },
+  "views.migration.welcomeTitle": {
+    "message": "Welcome to"
+  }
+}

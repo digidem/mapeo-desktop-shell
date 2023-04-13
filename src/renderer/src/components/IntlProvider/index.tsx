@@ -2,7 +2,6 @@ import { IntlProvider as ReactIntlProvider } from 'react-intl'
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import translations from '../../../translations/messages.json'
 import languages from '../../../../common/config/languages.json'
-import { useTimeout } from '../../hooks/timerHooks'
 import { SplashView } from '../../views/SplashScreen'
 
 const MIN_SPLASH_TIME = 2000
@@ -74,7 +73,6 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
     }
   })
 
-  useTimeout(() => setMinLoadTimePassed(true), MIN_SPLASH_TIME)
   const locale = appLocale || appLocale ? getSupportedLocale(appLocale) : DEFAULT_LOCALE
 
   const languageCode = locale ? locale.split('-')[0] : null

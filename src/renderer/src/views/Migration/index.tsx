@@ -1,5 +1,6 @@
-import { Button, Card, CardContent, CardHeader, Checkbox, Typography, useTheme } from '@mui/material'
+import { Card, CardContent, CardHeader, Checkbox, Typography, useTheme } from '@mui/material'
 import CategoryIcon from '@mui/icons-material/Category'
+import { Button } from '@renderer/components/Button'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { DefaultLayout } from '@renderer/layouts/default'
@@ -8,7 +9,8 @@ import { defineMessages, useIntl } from 'react-intl'
 import { appStrings } from '../../../../common/config/messages'
 import { Logo } from '../SplashScreen/logo'
 import { BoldSpan, Contents } from './styles'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 
 const PROJECT_KEY = '2023R**********'
 const CONFIG_ADDRESS = 'mapeoconf.v3'
@@ -18,11 +20,13 @@ export const MigrationView = () => {
   const theme = useTheme()
   const observations = useRef(Math.floor(Math.random() * 100))
   const images = useRef(Math.floor(Math.random() * 100))
+  const [skipModalOpen, setSkipModalOpen] = useState(false)
 
   const appTitle = intl.formatMessage(appStrings.appTitle)
 
   return (
     <DefaultLayout langBackgroundVarient="dark">
+      <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
       <Row sx={{ height: '100vh' }}>
         <Column
           sx={{ bgcolor: theme.background, flex: 1, padding: '6em 8em 3em 8em' }}
@@ -54,7 +58,7 @@ export const MigrationView = () => {
           />
           <Row justifyContent="space-between" alignItems="flex-start">
             {/* Buttons currently do nothing */}
-            <Button onClick={() => null} variant="text" sx={{ color: theme.warningRed }}>
+            <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
               {intl.formatMessage(messages.skipMigration)}
             </Button>
             <Column alignItems="flex-end" spacing={1}>
