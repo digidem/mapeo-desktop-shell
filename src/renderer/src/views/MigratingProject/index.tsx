@@ -21,10 +21,9 @@ export const MigratingProjectView = () => {
   const total = observationsTotal + mediaTotal
   const [observationsMigrated, setObservationsMigrated] = useState(0)
   const [mediaMigrated, setMediaMigrated] = useState(0)
-  const [progress, setProgress] = useState(0)
   let interval: NodeJS.Timer
 
-  const getProgress = () => ((mediaMigrated + observationsMigrated) / total) * 100
+  const progress = ((mediaMigrated + observationsMigrated) / total) * 100
 
   useEffect(() => {
     interval = setInterval(updateProgress, INTERVAL_DURATION)
@@ -35,10 +34,6 @@ export const MigratingProjectView = () => {
   }, [])
 
   useEffect(() => {
-    setProgress(getProgress())
-
-    console.log({ progress })
-
     if (observationsMigrated === observationsTotal && mediaMigrated === mediaTotal) {
       clearInterval(interval)
     }
