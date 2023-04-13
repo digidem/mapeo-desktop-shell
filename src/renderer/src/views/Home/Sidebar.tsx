@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
+import Tabs, { TabsProps } from '@mui/material/Tabs'
+import Tab, { TabProps } from '@mui/material/Tab'
 import MapIcon from '@mui/icons-material/Map'
 import ObservationsIcon from '@mui/icons-material/PhotoLibrary'
 import SyncIcon from '@mui/icons-material/OfflineBolt'
@@ -11,6 +11,9 @@ import mapeoLogoUrl from '@renderer/assets/mapeo-sidebar-logo.svg'
 import { theme } from '@renderer/theme'
 
 import { PANEL_NAMES, PanelName } from '.'
+
+const TypedTabs = (props: Omit<TabsProps, 'value'> & { value: PanelName }) => <Tabs {...props} />
+const TypedTab = (props: Omit<TabProps, 'value'> & { value: PanelName }) => <Tab {...props} />
 
 const m = defineMessages({
   territory: {
@@ -46,7 +49,7 @@ const LogoContainer = styled.div(`
   padding: 20px;
 `)
 
-const StyledTabs = styled(Tabs)`
+const StyledTabs = styled(TypedTabs)`
   flex: 1;
   position: relative;
   & .MuiTabs-indicator {
@@ -56,7 +59,7 @@ const StyledTabs = styled(Tabs)`
   color: white;
 `
 
-const StyledTab = styled(Tab)`
+const StyledTab = styled(TypedTab)`
   &.MuiTab-root {
     text-transform: capitalize;
     flex-direction: row;
