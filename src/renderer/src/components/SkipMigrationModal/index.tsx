@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { CircularProgress, Dialog, Typography, useTheme } from '@mui/material'
+import { useState } from 'react'
+import { Dialog, Typography, useTheme } from '@mui/material'
 import ErrorIcon from '@mui/icons-material/Error'
 import { Column, Row } from '../LayoutComponents'
 import { defineMessages, useIntl } from 'react-intl'
@@ -9,19 +9,11 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
   const intl = useIntl()
   const theme = useTheme()
   const [skipped, setSkipped] = useState(false)
-  let timeout
-
-  useEffect(() => {
-    return () => {
-      if (timeout) {
-        timeout.clear()
-      }
-    }
-  }, [])
 
   const handleCloseDialog = (event?: Record<string, never>, reason?: 'escapeKeyDown' | 'backdropClick') => {
     if (reason === 'backdropClick' || reason === 'escapeKeyDown') return
     onClose()
+    setSkipped(false)
   }
 
   return (
@@ -60,7 +52,7 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
               {intl.formatMessage(messages.buttonSkip)}
             </Button>
           ) : null}
-          <Button variant="text" color="primary" onClick={onClose}>
+          <Button variant="text" color="primary" onClick={handleCloseDialog}>
             {skipped ? intl.formatMessage(messages.buttonClose) : intl.formatMessage(messages.buttonCancel)}
           </Button>
         </Row>
