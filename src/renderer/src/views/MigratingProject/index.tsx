@@ -57,13 +57,12 @@ export const MigratingProjectView = () => {
     <DefaultLayout
       sx={{
         backgroundColor: theme.background,
-        pt: '15vh',
         display: 'grid',
         gridTemplateRows: 'auto minmax(auto, 75px)',
         gridTemplateColumns: '1fr',
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ pt: '15vh' }}>
         <Column spacing={16} alignItems="center">
           <Container maxWidth="sm">
             <Row alignItems="center" justifyContent={progress === 100 ? 'center' : 'space-between'}>
