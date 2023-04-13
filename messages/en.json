@@ -20,6 +20,21 @@
   "components.skipMigrationModal.title": {
     "message": "Skip Migration"
   },
+  "views.migratingProject.complete": {
+    "message": "Migration complete!"
+  },
+  "views.migratingProject.media": {
+    "message": "media"
+  },
+  "views.migratingProject.migrating": {
+    "message": "Migrating Project..."
+  },
+  "views.migratingProject.next": {
+    "message": "Next"
+  },
+  "views.migratingProject.observations": {
+    "message": "observations"
+  },
   "views.migration.configTitle": {
     "message": "Config"
   },
