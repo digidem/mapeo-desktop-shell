@@ -3,7 +3,7 @@ import CheckIcon from '@mui/icons-material/CheckCircleRounded'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { Logo, Mapeo5Logo } from '@renderer/components/Logo'
 import { DefaultLayout } from '@renderer/layouts/default'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { useLocation } from 'react-router-dom'
 
@@ -21,25 +21,9 @@ export const MigratingProjectView = () => {
   const total = observationsTotal + mediaTotal
   const [observationsMigrated, setObservationsMigrated] = useState(0)
   const [mediaMigrated, setMediaMigrated] = useState(0)
-  let interval: NodeJS.Timer
 
-  const progress = ((mediaMigrated + observationsMigrated) / total) * 100
-
-  useEffect(() => {
-    interval = setInterval(updateProgress, INTERVAL_DURATION)
-
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (observationsMigrated === observationsTotal && mediaMigrated === mediaTotal) {
-      clearInterval(interval)
-    }
-  }, [observationsMigrated, observationsTotal, mediaMigrated, mediaTotal])
-
-  const updateProgress = () => {
+  const updateProgress = useCallback(() => {
+    console.log('update')
     const obsMigrating = Math.floor(Math.random() * 6)
     const mediaMigrating = Math.floor(Math.random() * 6)
 
@@ -51,7 +35,31 @@ export const MigratingProjectView = () => {
     setMediaMigrated((prevMediaMigrated) =>
       prevMediaMigrated + mediaMigrating < mediaTotal ? prevMediaMigrated + mediaMigrating : mediaTotal,
     )
+  }, [total])
+
+  const interval = useRef<NodeJS.Timer | undefined>()
+
+  const progress = ((mediaMigrated + observationsMigrated) / total) * 100
+
+  if (progress >= 100 && interval.current) {
+    console.log('stop')
+    clearInterval(interval.current)
+    interval.current = undefined
   }
+
+  useEffect(() => {
+    interval.current = setInterval(updateProgress, INTERVAL_DURATION)
+
+    return () => {
+      clearInterval(interval.current)
+    }
+  }, [interval])
+
+  useEffect(() => {
+    if (observationsMigrated === observationsTotal && mediaMigrated === mediaTotal) {
+      clearInterval(interval.current)
+    }
+  }, [observationsMigrated, observationsTotal, mediaMigrated, mediaTotal])
 
   return (
     <DefaultLayout
