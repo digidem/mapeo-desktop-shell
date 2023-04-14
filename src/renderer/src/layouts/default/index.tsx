@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Box, SxProps } from '@mui/material'
 import { LanguageSwitcher } from '../../components/LanguageSwitch'
 import { Box, SxProps } from '@mui/material'
 
