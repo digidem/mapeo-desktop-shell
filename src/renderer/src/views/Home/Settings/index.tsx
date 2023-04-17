@@ -7,7 +7,7 @@ import AboutIcon from '@mui/icons-material/InfoOutlined'
 import CoordinatesIcon from '@mui/icons-material/Explore'
 
 import { Tabs } from '@renderer/components/Tabs'
-import { OFF_WHITE, OFF_BLACK, DARK_GREY, GREY } from '@renderer/theme'
+import { OFF_WHITE, OFF_BLACK, GREY, GREY_LIGHT } from '@renderer/theme'
 
 const m = defineMessages({
   languageTitle: {
@@ -106,7 +106,7 @@ export const Settings = () => {
           onChangeTab={setActiveTab}
           selectedColor={OFF_WHITE}
           titleColor={OFF_BLACK}
-          subtitleColor={DARK_GREY}
+          subtitleColor={GREY}
           data={tabsData}
         />
       </SettingsTabContainer>

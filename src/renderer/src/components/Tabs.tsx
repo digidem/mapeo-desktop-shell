@@ -17,8 +17,11 @@ const StyledTabs = styled(MuiTabs)<{
 `,
 )
 
-const StyledTab = styled(Tab)<{ selectedColor: React.CSSProperties['color'] }>(
-  ({ selectedColor }) => `
+const StyledTab = styled(Tab)<{
+  subtitleColor?: React.CSSProperties['color']
+  selectedColor: React.CSSProperties['color']
+}>(
+  ({ subtitleColor, selectedColor }) => `
   &.MuiTab-root {
     text-transform: capitalize;
     flex-direction: row;
@@ -30,6 +33,10 @@ const StyledTab = styled(Tab)<{ selectedColor: React.CSSProperties['color'] }>(
 
   &.Mui-selected {
     background-color: ${selectedColor};
+  }
+
+  & .MuiTab-iconWrapper {
+    color: ${subtitleColor};
   }
 `,
 )
@@ -87,6 +94,7 @@ export function Tabs<Value extends string>({
           key={d.value}
           selectedColor={selectedColor}
           sx={d.sx}
+          subtitleColor={subtitleColor || titleColor}
           label={
             <StyledLabel>
               <p>{d.title}</p>
