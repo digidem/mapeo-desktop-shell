@@ -1,24 +1,9 @@
-import { RouterProvider, createMemoryRouter } from 'react-router-dom'
-import styled from '@emotion/styled'
+import { IntlProvider } from './components/IntlProvider'
+import CssBaseline from '@mui/material/CssBaseline'
 import GlobalStyles from '@mui/material/GlobalStyles'
-import { CssBaseline } from '@mui/material'
-
-import { IntlProvider } from '@renderer/components/IntlProvider'
-import { IndexView } from '@renderer/views/Index'
-import { OFF_BLACK as black, OFF_WHITE as white } from '@renderer/theme'
-
-const router = createMemoryRouter([
-  {
-    path: '/',
-    element: <IndexView />,
-  },
-])
-
-const AppContainer = styled.div(`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`)
+import { OFF_BLACK as black, theme, OFF_WHITE as white } from './theme'
+import { ThemeProvider } from '@mui/system'
+import { Router } from './components/Router'
 
 function App(): JSX.Element | null {
   return (
@@ -29,10 +14,10 @@ function App(): JSX.Element | null {
           color: black,
           backgroundColor: white,
         }}
-      />
-      <AppContainer>
-        <RouterProvider router={router} />
-      </AppContainer>
+      ></GlobalStyles>
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider>
     </IntlProvider>
   )
 }

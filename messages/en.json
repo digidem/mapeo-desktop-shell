@@ -1,4 +1,25 @@
 {
+  "components.skipMigrationModal.buttonCancel": {
+    "message": "Cancel"
+  },
+  "components.skipMigrationModal.buttonClose": {
+    "message": "Close"
+  },
+  "components.skipMigrationModal.buttonSkip": {
+    "message": "Skip Migration"
+  },
+  "components.skipMigrationModal.message1": {
+    "message": "Your previous Mapeo data will not be visible in the new Mapeo apps."
+  },
+  "components.skipMigrationModal.message2": {
+    "message": "Please proceed with caution."
+  },
+  "components.skipMigrationModal.skippedMessage": {
+    "message": "Join a project or create a project"
+  },
+  "components.skipMigrationModal.title": {
+    "message": "Skip Migration"
+  },
   "views.Home.Sidebar.observations": {
     "message": "Observations"
   },
@@ -10,6 +31,21 @@
   },
   "views.Home.Sidebar.territory": {
     "message": "Territory"
+  },
+  "views.migratingProject.complete": {
+    "message": "Migration complete!"
+  },
+  "views.migratingProject.media": {
+    "message": "media"
+  },
+  "views.migratingProject.migrating": {
+    "message": "Migrating Project..."
+  },
+  "views.migratingProject.next": {
+    "message": "Next"
+  },
+  "views.migratingProject.observations": {
+    "message": "observations"
   },
   "views.migration.configTitle": {
     "message": "Config"

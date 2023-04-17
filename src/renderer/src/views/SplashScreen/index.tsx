@@ -1,5 +1,5 @@
 import { Box, CircularProgress } from '@mui/material'
-import { Logo } from './logo'
+import { Logo } from '../../components/Logo'
 import { Column } from '../../components/LayoutComponents'
 import { theme } from '@renderer/theme'
 
