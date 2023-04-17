@@ -5,6 +5,7 @@ import { theme } from '@renderer/theme'
 
 import { Sidebar } from './Sidebar'
 import { TabPanel } from './TabPanel'
+import { DefaultLayout } from '@renderer/layouts/default'
 
 const Container = styled.div(`
   flex: 1;
@@ -26,7 +27,7 @@ const MainGridSection = styled.div(`
 
 const BottomBarGridSection = styled.div(`
   grid-area: 2 / 1 / 3 / 3;
-  background: ${theme.midnightBlue};
+  background: ${theme.blueDark};
 `)
 
 export const PANEL_NAMES = {
@@ -46,21 +47,23 @@ export const Home = ({ showBottomBar }: Props) => {
   const [activePanel, setPanelName] = React.useState<PanelName>('territory')
 
   return (
-    <Container>
-      <SidebarGridSection>
-        <Sidebar activeTab={activePanel} onChangeTab={setPanelName} />
-      </SidebarGridSection>
-      <MainGridSection>
-        <TabPanel active={activePanel === 'territory'}>Territory</TabPanel>
-        <TabPanel active={activePanel === 'observations'}>Observations</TabPanel>
-        <TabPanel active={activePanel === 'sync'}>Sync</TabPanel>
-        <TabPanel active={activePanel === 'settings'}>Settings</TabPanel>
-      </MainGridSection>
-      {showBottomBar && (
-        <BottomBarGridSection>
-          <div style={{ height: 30 }} />
-        </BottomBarGridSection>
-      )}
-    </Container>
+    <DefaultLayout sx={{ display: 'flex', position: 'relative' }}>
+      <Container>
+        <SidebarGridSection>
+          <Sidebar activeTab={activePanel} onChangeTab={setPanelName} />
+        </SidebarGridSection>
+        <MainGridSection>
+          <TabPanel active={activePanel === 'territory'}>Territory</TabPanel>
+          <TabPanel active={activePanel === 'observations'}>Observations</TabPanel>
+          <TabPanel active={activePanel === 'sync'}>Sync</TabPanel>
+          <TabPanel active={activePanel === 'settings'}>Settings</TabPanel>
+        </MainGridSection>
+        {showBottomBar && (
+          <BottomBarGridSection>
+            <div style={{ height: 30 }} />
+          </BottomBarGridSection>
+        )}
+      </Container>
+    </DefaultLayout>
   )
 }

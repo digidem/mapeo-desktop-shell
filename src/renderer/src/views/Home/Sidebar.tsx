@@ -7,8 +7,8 @@ import SyncIcon from '@mui/icons-material/OfflineBolt'
 import SettingsIcon from '@mui/icons-material/Settings'
 import { defineMessages, useIntl } from 'react-intl'
 
-import mapeoLogoUrl from '@renderer/assets/mapeo-sidebar-logo.svg'
 import { theme } from '@renderer/theme'
+import mapeoLogoUrl from '../../../assets/mapeo-sidebar-logo.svg'
 
 import { PANEL_NAMES, PanelName } from '.'
 
@@ -38,7 +38,7 @@ const Container = styled.div(`
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: ${theme.blue};
+  background: ${theme.blue.main};
   color: ${theme.white};
 `)
 
@@ -53,7 +53,7 @@ const StyledTabs = styled(TypedTabs)`
   flex: 1;
   position: relative;
   & .MuiTabs-indicator {
-    background-color: ${theme.midnightBlue};
+    background-color: ${theme.blueDark};
   }
 
   color: white;
@@ -70,7 +70,7 @@ const StyledTab = styled(TypedTab)`
   }
 
   &.Mui-selected {
-    background-color: ${theme.midnightBlue}33;
+    background-color: ${theme.blueDark}33;
   }
 `
 
