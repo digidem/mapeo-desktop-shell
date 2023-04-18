@@ -6,6 +6,7 @@ import { DefaultLayout } from '@renderer/layouts/default'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const INTERVAL_DURATION = 250
 
@@ -122,15 +123,17 @@ export const MigratingProjectView = () => {
             borderColor: theme.grey.light,
           }}
         >
-          <Button
-            variant="contained"
-            color="secondary"
-            disableElevation
-            disableRipple
-            sx={{ textTransform: 'none', fontWeight: 700, paddingX: 5 }}
-          >
-            {intl.formatMessage(messages.next)}
-          </Button>
+          <Link to="/migration-complete">
+            <Button
+              variant="contained"
+              color="secondary"
+              disableElevation
+              disableRipple
+              sx={{ textTransform: 'none', fontWeight: 700, paddingX: 5 }}
+            >
+              {intl.formatMessage(messages.next)}
+            </Button>
+          </Link>
         </Row>
       ) : null}
     </DefaultLayout>
