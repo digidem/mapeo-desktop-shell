@@ -14,7 +14,9 @@ export const DefaultLayout = ({
 }) => {
   return (
     <Box minHeight="100vh" minWidth="100vw" sx={sx}>
-      <LanguageSwitcher langBackgroundVarient={langBackgroundVarient} />
+      <div style={{ zIndex: 1 }}>
+        <LanguageSwitcher langBackgroundVarient={langBackgroundVarient} />
+      </div>
       {children}
     </Box>
   )
