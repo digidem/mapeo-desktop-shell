@@ -127,6 +127,7 @@ export const theme = createTheme({
   palette: {
     primary: { main: MAPEO_BLUE },
     secondary: { main: MID_BLUE },
+    warning: { main: WARNING_RED },
   },
   components: {
     MuiButtonBase: {
