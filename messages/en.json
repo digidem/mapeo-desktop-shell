@@ -191,13 +191,37 @@
   "views.navigation.title": {
     "message": "Mapeo Desktop Testing"
   },
+  "views.migrationNoData.calloutLink": {
+    "message": "Mapeo Support Materials"
+  },
+  "views.migrationNoData.calloutText": {
+    "message": "Your previous Mapeo data will not be visible in the new Mapeo applications until you migrate your data. To start, sync the data on your mobile device with the previous version of Mapeo."
+  },
   "views.migrationNoData.message": {
     "message": "We are excited for you to experience the updated Mapeo."
   },
   "views.migrationNoData.message2": {
     "message": "One quick question before you get started:"
   },
+  "views.migrationNoData.no": {
+    "message": "No"
+  },
+  "views.migrationNoData.question": {
+    "message": "Have you used a previous version of Mapeo?"
+  },
+  "views.migrationNoData.questionCaption": {
+    "message": "This could be an earlier version of Mapeo on deskop or mobile. Versions 5x and earlier."
+  },
+  "views.migrationNoData.seeMigrationSteps": {
+    "message": "See Migration Steps"
+  },
+  "views.migrationNoData.skipMigration": {
+    "message": "Skip Migration"
+  },
   "views.migrationNoData.welcomeTitle": {
     "message": "Welcome to"
+  },
+  "views.migrationNoData.yes": {
+    "message": "Yes"
   }
 }
