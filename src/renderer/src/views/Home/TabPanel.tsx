@@ -13,6 +13,7 @@ const Container = styled.div<{ hide: boolean }>(
   bottom: 0;
   left: 0;
   visibility: ${hide ? 'hidden' : 'visible'};
+  overflow: auto;
 `,
 )
 
