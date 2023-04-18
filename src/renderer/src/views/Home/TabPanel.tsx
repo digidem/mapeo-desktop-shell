@@ -12,7 +12,7 @@ const Container = styled.div<{ hide: boolean }>(
   right: 0;
   bottom: 0;
   left: 0;
-  visibility: ${hide ? 'hidden' : undefined};
+  visibility: ${hide ? 'hidden' : 'visible'};
 `,
 )
 
