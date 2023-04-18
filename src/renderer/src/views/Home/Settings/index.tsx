@@ -1,13 +1,17 @@
 import * as React from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import styled from '@emotion/styled'
+import { useTheme } from '@mui/material'
 import LanguageIcon from '@mui/icons-material/Language'
 import ProjectIcon from '@mui/icons-material/Assignment'
 import AboutIcon from '@mui/icons-material/InfoOutlined'
 import CoordinatesIcon from '@mui/icons-material/Explore'
-
+import { spacing } from '@renderer/theme/spacing'
 import { Tabs } from '@renderer/components/Tabs'
-import { OFF_WHITE, OFF_BLACK, GREY, GREY_LIGHT } from '@renderer/theme'
+import { GREY_LIGHT } from '@renderer/theme'
+
+import { TabPanel } from '../TabPanel'
+import { ProjectConfig } from './ProjectConfig'
 
 const m = defineMessages({
   languageTitle: {
@@ -44,14 +48,7 @@ const m = defineMessages({
   },
 })
 
-const SETTINGS_PANEL_NAMES = {
-  language: 'language',
-  project: 'project',
-  about: 'about',
-  coordinates: 'coordinates',
-} as const
-
-type SettingsTabName = (typeof SETTINGS_PANEL_NAMES)[keyof typeof SETTINGS_PANEL_NAMES]
+type SettingsTabName = 'language' | 'project' | 'about' | 'coordinates'
 
 const Container = styled.div(`
   display: flex;
@@ -61,40 +58,49 @@ const Container = styled.div(`
 
 const SettingsTabContainer = styled.div(`
   border-width: 0 1px 0 0;
-  border-color: ${GREY};
+  border-color: ${GREY_LIGHT};
   border-style: solid;
+  margin-top: ${spacing.large};
+`)
+
+const SettingsPanelContainer = styled.div(`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 `)
 
 export const Settings = () => {
-  const [activeTab, setActiveTab] = React.useState<SettingsTabName>('language')
+  const [activeTab, setActiveTab] = React.useState<SettingsTabName>('project')
 
   const { formatMessage: t } = useIntl()
 
-  const tabsData = [
+  const theme = useTheme()
+
+  const tabsData: React.ComponentProps<typeof Tabs<SettingsTabName>>['data'] = [
     {
       icon: <LanguageIcon />,
       title: t(m.languageTitle),
       subtitle: t(m.languageSubtitle),
-      value: SETTINGS_PANEL_NAMES.language,
+      value: 'language',
     },
     {
       icon: <ProjectIcon />,
       title: t(m.projectTitle),
       subtitle: t(m.projectSubtitle),
-      value: SETTINGS_PANEL_NAMES.project,
+      value: 'project',
     },
     {
       icon: <AboutIcon />,
       title: t(m.aboutTitle),
       subtitle: t(m.aboutSubtitle),
-
-      value: SETTINGS_PANEL_NAMES.about,
+      value: 'about',
     },
     {
       icon: <CoordinatesIcon />,
       title: t(m.coordinatesTitle),
       subtitle: t(m.coordinatesSubtitle),
-      value: SETTINGS_PANEL_NAMES.coordinates,
+      value: 'coordinates',
     },
   ]
 
@@ -104,13 +110,20 @@ export const Settings = () => {
         <Tabs<SettingsTabName>
           activeTab={activeTab}
           onChangeTab={setActiveTab}
-          selectedColor={OFF_WHITE}
-          titleColor={OFF_BLACK}
-          subtitleColor={GREY}
+          selectedColor={theme.background}
+          titleColor={theme.black}
+          subtitleColor={theme.grey.main}
           data={tabsData}
         />
       </SettingsTabContainer>
-      <div></div>
+      <SettingsPanelContainer>
+        <TabPanel active={activeTab === 'language'}>Language</TabPanel>
+        <TabPanel active={activeTab === 'project'}>
+          <ProjectConfig />
+        </TabPanel>
+        <TabPanel active={activeTab === 'about'}>About</TabPanel>
+        <TabPanel active={activeTab === 'coordinates'}>Coordinate System</TabPanel>
+      </SettingsPanelContainer>
     </Container>
   )
 }

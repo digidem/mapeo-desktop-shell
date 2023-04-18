@@ -6,60 +6,45 @@ import { spacing } from '@renderer/theme/spacing'
 import { Text } from './Text'
 import type { SvgIconComponent } from '@mui/icons-material'
 
-type IconPosition = 'start' | 'end'
-
-const IconContainer = styled.span<{ position: IconPosition }>(
-  ({ position }) => `
+const IconContainer = styled.span(`
   line-height: 0;
-  margin-inline-${position === 'start' ? 'end' : 'start'}: ${spacing.small};
+  margin-inline-end: ${spacing.small};
   font-size: 18px;
-`,
-)
+`)
 
 export const PressableText = ({
+  Icon,
   children,
   destructive,
-  Icon,
-  iconPosition = 'start',
   onClick,
 }: React.PropsWithChildren<{
   destructive?: boolean
-  onClick: () => void
   Icon?: SvgIconComponent
-  iconPosition?: IconPosition
+  onClick: () => void
 }>) => {
-  const spacingStyles = {
-    padding: 0,
-    [iconPosition === 'start' ? 'marginRight' : 'marginLeft']: '-4px',
-    [iconPosition === 'start' ? 'paddingRight' : 'paddingLeft']: spacing.small,
-  }
-
   return (
     <Button
       color={destructive ? 'warning' : 'primary'}
       variant="text"
       onClick={onClick}
       sx={{
-        ...spacingStyles,
         justifyContent: 'flex-start',
+        padding: 0,
         alignItems: 'center',
         textTransform: 'none',
+        marginRight: '-4px',
+        paddingRight: spacing.small,
         minWidth: 0,
       }}
     >
-      {Icon && iconPosition === 'start' ? (
-        <IconContainer position="start">
+      {Icon ? (
+        <IconContainer>
           <Icon fontSize="inherit" />
         </IconContainer>
       ) : null}
       <Text size="small" color="inherit" fontWeight="500">
         {children}
       </Text>
-      {Icon && iconPosition === 'end' ? (
-        <IconContainer position="end">
-          <Icon fontSize="inherit" />
-        </IconContainer>
-      ) : null}
     </Button>
   )
 }

@@ -2,14 +2,12 @@ import * as React from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { Box } from '@mui/material'
 import { Row } from '@renderer/components/LayoutComponents'
-import { JoinProjectModal } from '@renderer/components/JoinProjectModal'
 import { spacing } from '@renderer/theme/spacing'
 
 import { Button } from './Button'
 import { ConfigSection } from './ConfigSection'
 import { ManageTeamSection } from './ManageTeamSection'
 import { Text } from './Text'
-import { InviteDeviceModal } from './InviteDeviceModal'
 
 const m = defineMessages({
   title: {
@@ -22,7 +20,24 @@ const m = defineMessages({
   },
 })
 
-const HeaderSection = ({ onJoinProject }: { onJoinProject: () => void }) => {
+interface Member {
+  isSelf?: true
+  id: string
+  deviceType: 'mobile' | 'desktop'
+  lastSynced: number
+  name: string
+  deviceId: string
+}
+
+export interface Coordinator extends Member {
+  role: 'coordinator'
+}
+
+export interface Participant extends Member {
+  role: 'participant'
+}
+
+const HeaderSection = () => {
   const { formatMessage: t } = useIntl()
 
   return (
@@ -35,7 +50,7 @@ const HeaderSection = ({ onJoinProject }: { onJoinProject: () => void }) => {
       <Text fontWeight="600" size="large" variant="h1">
         {t(m.title)}
       </Text>
-      <Button variant="outlined" onClick={onJoinProject}>
+      <Button variant="outlined" onClick={() => {}}>
         {t(m.joinProject)}
       </Button>
     </Row>
@@ -43,16 +58,34 @@ const HeaderSection = ({ onJoinProject }: { onJoinProject: () => void }) => {
 }
 
 export const ProjectConfig = () => {
-  const [joinProjectModalOpen, setJoinProjectModalOpen] = React.useState(false)
-  const [inviteModalOpen, setInviteModalOpen] = React.useState(false)
+  const [coordinators] = React.useState<Coordinator[]>([
+    {
+      id: 'me',
+      isSelf: true,
+      deviceType: 'desktop',
+      lastSynced: Date.now(),
+      name: 'My Computer',
+      deviceId: 'abc123',
+      role: 'coordinator',
+    },
+  ])
+
+  const [participants] = React.useState<Participant[]>([
+    {
+      id: 'peer 1',
+      deviceType: 'mobile',
+      lastSynced: Date.now(),
+      name: 'Peer 1 Android',
+      deviceId: '123abc',
+      role: 'participant',
+    },
+  ])
 
   return (
     <Box display="flex" justifyContent="flex-start" flexDirection="column" flex={1}>
-      <JoinProjectModal open={joinProjectModalOpen} onClose={() => setJoinProjectModalOpen(false)} />
-      <InviteDeviceModal open={inviteModalOpen} onClose={() => setInviteModalOpen(false)} />
-      <HeaderSection onJoinProject={() => setJoinProjectModalOpen(true)} />
+      <HeaderSection />
       <ConfigSection />
-      <ManageTeamSection onInviteClick={() => setInviteModalOpen(true)} />
+      <ManageTeamSection coordinators={coordinators} participants={participants} />
     </Box>
   )
 }
