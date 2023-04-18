@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import MuiTabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
+import { Typography } from '@mui/material'
 
 const StyledTabs = styled(MuiTabs)<{
   color: React.CSSProperties['color']
@@ -18,15 +19,15 @@ const StyledTabs = styled(MuiTabs)<{
 )
 
 const StyledTab = styled(Tab)<{
-  subtitleColor?: React.CSSProperties['color']
+  iconColor?: React.CSSProperties['color']
   selectedColor: React.CSSProperties['color']
 }>(
-  ({ subtitleColor, selectedColor }) => `
+  ({ iconColor, selectedColor }) => `
   &.MuiTab-root {
     text-transform: capitalize;
     flex-direction: row;
     justify-content: flex-start;
-    padding: 0 20px;
+    padding: 0 24px;
     font-size: 1rem;
     opacity: unset;
   }
@@ -36,7 +37,7 @@ const StyledTab = styled(Tab)<{
   }
 
   & .MuiTab-iconWrapper {
-    color: ${subtitleColor};
+    color: ${iconColor};
   }
 `,
 )
@@ -44,13 +45,6 @@ const StyledTab = styled(Tab)<{
 const StyledLabel = styled.div(`
   text-align: left;
 `)
-
-const StyledSubtitle = styled.p<{ color: React.CSSProperties['color'] }>(
-  ({ color }) => `
-  font-size: 0.75rem;
-  color: ${color};
-`,
-)
 
 export type TabData<Value> = {
   icon?: React.ReactElement
@@ -94,12 +88,14 @@ export function Tabs<Value extends string>({
           key={d.value}
           selectedColor={selectedColor}
           sx={d.sx}
-          subtitleColor={subtitleColor || titleColor}
+          iconColor={subtitleColor || titleColor}
           label={
             <StyledLabel>
-              <p>{d.title}</p>
+              <Typography color={titleColor}>{d.title}</Typography>
               {d.subtitle && (
-                <StyledSubtitle color={subtitleColor || titleColor}>{d.subtitle}</StyledSubtitle>
+                <Typography variant="subtitle1" color={subtitleColor} fontSize={'0.75em'}>
+                  {d.subtitle}
+                </Typography>
               )}
             </StyledLabel>
           }

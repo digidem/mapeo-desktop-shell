@@ -20,6 +20,48 @@
   "components.skipMigrationModal.title": {
     "message": "Skip Migration"
   },
+  "views.Home.Settings.ProjectConfig.ConfigSection.config": {
+    "message": "Config"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.edit": {
+    "message": "Edit"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.importConfig": {
+    "message": "Import Config"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.learnMore": {
+    "message": "Learn More"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.newProjectInfo": {
+    "message": "To create or join a new project you will have to leave your current project. Your data can not be transferred to the new project."
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
+    "message": "Project Name"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
+    "message": "Coordinators"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.description": {
+    "message": "Invite other devices to your project to start syncing and sharing data"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.invite": {
+    "message": "Invite"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.leaveProject": {
+    "message": "Leave Project"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.participants": {
+    "message": "Participants"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.title": {
+    "message": "Manage Team"
+  },
+  "views.Home.Settings.ProjectConfig.index.joinProject": {
+    "message": "Join Project"
+  },
+  "views.Home.Settings.ProjectConfig.index.title": {
+    "message": "Project Configuration"
+  },
   "views.Home.Settings.index.aboutSubtitle": {
     "message": "Version and build number"
   },
