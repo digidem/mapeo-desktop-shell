@@ -9,7 +9,7 @@ export const OFF_BLACK = '#333333'
 export const MIDNIGHT_BLUE = '#000033'
 export const MID_BLUE = '#19337F'
 export const WARNING_RED = '#D92222'
-export const GREY_LIGHT = '#EEEEEE'
+export const GREY_LIGHT = '#E6E6E6'
 export const GREY = '#707070'
 export const GREEN = '#59A553'
 
