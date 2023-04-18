@@ -10,7 +10,7 @@ import { defineMessages, useIntl } from 'react-intl'
 import { theme } from '@renderer/theme'
 import mapeoLogoUrl from '../../../assets/mapeo-sidebar-logo.svg'
 
-import { PANEL_NAMES, PanelName } from '.'
+import { PanelName } from '.'
 
 const TypedTabs = (props: Omit<TabsProps, 'value'> & { value: PanelName }) => <Tabs {...props} />
 const TypedTab = (props: Omit<TabProps, 'value'> & { value: PanelName }) => <Tab {...props} />
@@ -94,24 +94,19 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
         value={activeTab}
         onChange={(_, value) => onChangeTab(value)}
       >
-        <StyledTab
-          icon={<MapIcon />}
-          label={t(m.territory)}
-          iconPosition="start"
-          value={PANEL_NAMES.territory}
-        />
+        <StyledTab icon={<MapIcon />} label={t(m.territory)} iconPosition="start" value="territory" />
         <StyledTab
           label={t(m.observations)}
           icon={<ObservationsIcon />}
           iconPosition="start"
-          value={PANEL_NAMES.observations}
+          value="observations"
         />
-        <StyledTab label={t(m.sync)} icon={<SyncIcon />} iconPosition="start" value={PANEL_NAMES.sync} />
+        <StyledTab label={t(m.sync)} icon={<SyncIcon />} iconPosition="start" value="sync" />
         <StyledTab
           label={t(m.settings)}
           icon={<SettingsIcon />}
           iconPosition="start"
-          value={PANEL_NAMES.settings}
+          value="settings"
           sx={{ position: 'absolute', bottom: 0, right: 0, left: 0 }}
         />
       </StyledTabs>

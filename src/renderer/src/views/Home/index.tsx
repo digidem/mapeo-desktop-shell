@@ -30,14 +30,7 @@ const BottomBarGridSection = styled.div(`
   background: ${theme.blueDark};
 `)
 
-export const PANEL_NAMES = {
-  territory: 'territory',
-  observations: 'observations',
-  sync: 'sync',
-  settings: 'settings',
-} as const
-
-export type PanelName = (typeof PANEL_NAMES)[keyof typeof PANEL_NAMES]
+export type PanelName = 'territory' | 'observations' | 'sync' | 'settings'
 
 interface Props {
   showBottomBar?: boolean
