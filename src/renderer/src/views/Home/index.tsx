@@ -2,13 +2,13 @@ import * as React from 'react'
 
 import styled from '@emotion/styled'
 import { theme } from '@renderer/theme'
-import { DefaultLayout } from '@renderer/layouts/default'
+import { Box } from '@mui/material'
 
 import { Sidebar } from './Sidebar'
 import { TabPanel } from './TabPanel'
 import { Settings } from './Settings'
 
-const Container = styled.div(`
+const GridContainer = styled.div(`
   flex: 1;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -41,8 +41,8 @@ export const Home = ({ showBottomBar }: Props) => {
   const [activePanel, setPanelName] = React.useState<PanelName>('territory')
 
   return (
-    <DefaultLayout sx={{ display: 'flex', position: 'relative' }}>
-      <Container>
+    <Box minHeight="100vh" minWidth="100vw" display="flex">
+      <GridContainer>
         <SidebarGridSection>
           <Sidebar activeTab={activePanel} onChangeTab={setPanelName} />
         </SidebarGridSection>
@@ -51,7 +51,6 @@ export const Home = ({ showBottomBar }: Props) => {
           <TabPanel active={activePanel === 'observations'}>Observations</TabPanel>
           <TabPanel active={activePanel === 'sync'}>Sync</TabPanel>
           <TabPanel active={activePanel === 'settings'}>
-            {' '}
             <Settings />
           </TabPanel>
         </MainGridSection>
@@ -60,7 +59,7 @@ export const Home = ({ showBottomBar }: Props) => {
             <div style={{ height: 30 }} />
           </BottomBarGridSection>
         )}
-      </Container>
-    </DefaultLayout>
+      </GridContainer>
+    </Box>
   )
 }
