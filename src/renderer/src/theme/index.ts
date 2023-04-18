@@ -92,6 +92,7 @@ export const theme = createTheme({
     },
     caption: {
       color: GREY,
+      fontSize: 14,
       ...defaultTextStyles,
     },
     fontFamily: [
