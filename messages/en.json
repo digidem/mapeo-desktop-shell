@@ -70,5 +70,14 @@
   },
   "views.migration.welcomeTitle": {
     "message": "Welcome to"
+  },
+  "views.migrationNoData.message": {
+    "message": "We are excited for you to experience the updated Mapeo."
+  },
+  "views.migrationNoData.message2": {
+    "message": "One quick question before you get started:"
+  },
+  "views.migrationNoData.welcomeTitle": {
+    "message": "Welcome to"
   }
 }
