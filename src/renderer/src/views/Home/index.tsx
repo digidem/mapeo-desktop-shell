@@ -41,7 +41,7 @@ export const Home = ({ showBottomBar }: Props) => {
   const [activePanel, setPanelName] = React.useState<PanelName>('territory')
 
   return (
-    <Box minHeight="100vh" minWidth="100vw" display="flex">
+    <Box minHeight="100vh" display="flex" flex={1}>
       <GridContainer>
         <SidebarGridSection>
           <Sidebar activeTab={activePanel} onChangeTab={setPanelName} />
