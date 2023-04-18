@@ -15,11 +15,13 @@ import { defineMessages, useIntl } from 'react-intl'
 import { appStrings } from '../../../../common/config/messages'
 import { OnboardingLayout } from '@renderer/layouts/Onboarding'
 import { useState } from 'react'
+import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 
 export const MigrationNoDataView = () => {
   const intl = useIntl()
   const theme = useTheme()
   const [previouslyMapeoUser, setIsPrevMapeoUser] = useState<boolean | undefined>()
+  const [skipModalOpen, setSkipModalOpen] = useState(false)
 
   const getRadioValue = () => {
     if (previouslyMapeoUser === true) return 'yes'
@@ -34,47 +36,53 @@ export const MigrationNoDataView = () => {
   const appTitle = intl.formatMessage(appStrings.appTitle)
 
   return (
-    <OnboardingLayout>
-      <Column justifyContent="space-between" height={'100%'}>
-        <Column spacing={5}>
-          <span>
-            <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
-            <Typography variant="h1">{appTitle}</Typography>
-          </span>
-          <span>
-            <Typography variant="body1">{intl.formatMessage(messages.message)}</Typography>
-            <Typography variant="body1">{intl.formatMessage(messages.message2)}</Typography>
-          </span>
+    <>
+      <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
+      <OnboardingLayout>
+        <Column justifyContent="space-between" height={'100%'}>
+          <Column spacing={5}>
+            <span>
+              <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
+              <Typography variant="h1">{appTitle}</Typography>
+            </span>
+            <span>
+              <Typography variant="body1">{intl.formatMessage(messages.message)}</Typography>
+              <Typography variant="body1">{intl.formatMessage(messages.message2)}</Typography>
+            </span>
 
-          <Column component="span">
-            <StyledFormLabel sx={{ fontWeight: 700, color: theme.foreground }} required>
-              {intl.formatMessage(messages.question)}
-            </StyledFormLabel>
-            <Typography variant="caption">{intl.formatMessage(messages.questionCaption)}</Typography>
-            <RadioGroup row value={getRadioValue()} onChange={handleRadioChange}>
-              <FormControlLabel
-                value="yes"
-                sx={{ mr: 7 }}
-                control={<Radio />}
-                label={intl.formatMessage(messages.yes)}
-              />
-              <FormControlLabel value="no" control={<Radio />} label={intl.formatMessage(messages.no)} />
-            </RadioGroup>
+            <Column component="span">
+              <StyledFormLabel sx={{ fontWeight: 700, color: theme.foreground }} required>
+                {intl.formatMessage(messages.question)}
+              </StyledFormLabel>
+              <Typography variant="caption">{intl.formatMessage(messages.questionCaption)}</Typography>
+              <RadioGroup row value={getRadioValue()} onChange={handleRadioChange}>
+                <FormControlLabel
+                  value="yes"
+                  sx={{ mr: 4 }}
+                  control={<Radio />}
+                  label={intl.formatMessage(messages.yes)}
+                />
+                <FormControlLabel value="no" control={<Radio />} label={intl.formatMessage(messages.no)} />
+              </RadioGroup>
+            </Column>
+            {previouslyMapeoUser ? <YesInfoCallout /> : null}
           </Column>
-          {previouslyMapeoUser ? <YesInfoCallout /> : null}
+
+          {previouslyMapeoUser && (
+            <Row justifyContent="space-between" alignItems="flex-start">
+              <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
+                {intl.formatMessage(messages.skipMigration)}
+              </Button>
+              <Column alignItems="flex-end" spacing={1}>
+                <Button onClick={() => null} variant="contained" disableElevation sx={{ px: 5 }}>
+                  {intl.formatMessage(messages.seeMigrationSteps)}
+                </Button>
+              </Column>
+            </Row>
+          )}
         </Column>
-        <Row justifyContent="space-between" alignItems="flex-start">
-          <Button onClick={() => null} variant="text" sx={{ color: theme.warningRed }}>
-            {intl.formatMessage(messages.skipMigration)}
-          </Button>
-          <Column alignItems="flex-end" spacing={1}>
-            <Button onClick={() => null} variant="contained" disableElevation sx={{ px: 5 }}>
-              {intl.formatMessage(messages.seeMigrationSteps)}
-            </Button>
-          </Column>
-        </Row>
-      </Column>
-    </OnboardingLayout>
+      </OnboardingLayout>
+    </>
   )
 }
 
@@ -83,9 +91,19 @@ const YesInfoCallout = () => {
   const intl = useIntl()
 
   return (
-    <Card sx={{ backgroundColor: theme.background }}>
-      <CardContent>
+    <Card
+      sx={{
+        backgroundColor: theme.background,
+        '.MuiCardContent-root': {
+          pb: '16px',
+        },
+      }}
+    >
+      <CardContent sx={{ pb: 0 }}>
         <Typography variant="body1">{intl.formatMessage(messages.calloutText)}</Typography>
+        <Typography variant="body1">
+          <A target="_blank">{intl.formatMessage(messages.calloutLink)}</A>
+        </Typography>
       </CardContent>
     </Card>
   )
@@ -97,6 +115,17 @@ const StyledFormLabel = styled(FormLabel)`
 
   .MuiFormLabel-asterisk {
     color: ${({ theme }) => theme.warningRed};
+  }
+`
+
+const A = styled('a')`
+  color: ${({ theme }) => theme.blue.main};
+  text-decoration: none;
+
+  ::after {
+    content: '🡕';
+    vertical-align: super;
+    font-size: smaller;
   }
 `
 

@@ -9,7 +9,7 @@ export const OnboardingLayout = ({ children }: { children: ReactNode }) => {
   return (
     <DefaultLayout langBackgroundVarient="dark">
       <Row sx={{ height: '100vh' }}>
-        <Column sx={{ bgcolor: theme.white, flex: 5, padding: '6em 8em 3em 8em' }}>{children}</Column>
+        <Column sx={{ bgcolor: theme.white, flex: 5, padding: '6em 5em 3em 5em' }}>{children}</Column>
 
         <Contents
           sx={{
