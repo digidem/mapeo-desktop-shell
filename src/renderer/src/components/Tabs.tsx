@@ -3,7 +3,9 @@ import MuiTabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { Typography } from '@mui/material'
 
-const StyledTabs = styled(MuiTabs)<{
+const StyledTabs = styled(MuiTabs, {
+  shouldForwardProp: (prop) => prop !== 'color' && prop !== 'selectedColor',
+})<{
   color: React.CSSProperties['color']
   selectedColor: React.CSSProperties['color']
 }>(
@@ -18,7 +20,9 @@ const StyledTabs = styled(MuiTabs)<{
 `,
 )
 
-const StyledTab = styled(Tab)<{
+const StyledTab = styled(Tab, {
+  shouldForwardProp: (prop) => prop !== 'iconColor' && prop !== 'selectedColor',
+})<{
   iconColor?: React.CSSProperties['color']
   selectedColor: React.CSSProperties['color']
 }>(
