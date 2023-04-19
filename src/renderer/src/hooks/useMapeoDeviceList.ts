@@ -1,12 +1,27 @@
-import { mapeoDeviceStore } from './stores/mapeoDeviceStore'
-/**
- * This should only be used to display a list. When dealing with a singular device, use `useMapeDevice` as that is memoized. This component will update all its children when any component in the list is updated.
- *
- */
-export const useMapeoDeviceList = () => {
-  const devices = mapeoDeviceStore((store) => store.devices)
-  return {
-    members: Object.values(devices).filter((val) => val.role !== 'waitingInvite'),
-    nonMembers: Object.values(devices).filter((val) => val.role === 'waitingInvite'),
-  } as const
+import { useMapeoDeviceStore } from './stores/mapeoDeviceStore'
+
+export const useMapeoDeviceMembersListIds = () => {
+  const devices = useMapeoDeviceStore(
+    (store) => store.memberDevices,
+    (oldVal, newVal) => {
+      const oldValArray = Object.keys(oldVal).map((key) => key)
+      const newValArray = Object.keys(newVal).map((key) => key)
+      return oldValArray !== newValArray
+    },
+  )
+
+  return Object.keys(devices).map(([key]) => key)
+}
+
+export const useMapeoDeviceNonMembersListIds = () => {
+  const devices = useMapeoDeviceStore(
+    (store) => store.nonMemberDevices,
+    (oldVal, newVal) => {
+      const oldValArray = Object.keys(oldVal).map((key) => key)
+      const newValArray = Object.keys(newVal).map((key) => key)
+      return oldValArray !== newValArray
+    },
+  )
+
+  return Object.keys(devices).map(([key]) => key)
 }
