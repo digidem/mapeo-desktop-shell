@@ -77,6 +77,18 @@
   "views.migrationNoData.calloutText": {
     "message": "Your previous Mapeo data will not be visible in the new Mapeo applications until you migrate your data. To start, sync the data on your mobile device with the previous version of Mapeo."
   },
+  "views.migrationNoData.createProjectSubtitle": {
+    "message": "Start a new Mapeo Project"
+  },
+  "views.migrationNoData.createProjectTitle": {
+    "message": "Create a Project"
+  },
+  "views.migrationNoData.joinProjectSubtitle": {
+    "message": "Join an existing Mapeo Project"
+  },
+  "views.migrationNoData.joinProjectTitle": {
+    "message": "Join a Project"
+  },
   "views.migrationNoData.message": {
     "message": "We are excited for you to experience the updated Mapeo."
   },
@@ -85,6 +97,9 @@
   },
   "views.migrationNoData.no": {
     "message": "No"
+  },
+  "views.migrationNoData.noPathMessage": {
+    "message": "Great, let's get started!"
   },
   "views.migrationNoData.question": {
     "message": "Have you used a previous version of Mapeo?"
