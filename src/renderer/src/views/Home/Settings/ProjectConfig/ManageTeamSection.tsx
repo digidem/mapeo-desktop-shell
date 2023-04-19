@@ -57,7 +57,13 @@ const MemberCard = ({ member }: { member: Coordinator | Participant }) => {
     <Row
       padding={spacing.large}
       alignItems="center"
-      sx={{ maxWidth: '400px', minWidth: '300px', backgroundColor: theme.white, borderRadius: '6px' }}
+      sx={{
+        maxWidth: '400px',
+        minWidth: '300px',
+        backgroundColor: theme.white,
+        borderRadius: '6px',
+        border: `1px solid ${theme.grey.light}`,
+      }}
     >
       <Column marginRight={spacing.medium}>
         <img
