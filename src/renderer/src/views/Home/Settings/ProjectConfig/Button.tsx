@@ -21,9 +21,9 @@ export const Button = ({
     <MuiButton
       {...muiButtonProps}
       sx={{
-        borderRadius: '6px',
         backgroundColor: theme.white,
-        borderColor: theme.grey.light,
+        border: `1px solid ${theme.grey.light}`,
+        borderRadius: '6px',
         paddingY: spacing.medium,
         paddingX: spacing.large,
       }}
