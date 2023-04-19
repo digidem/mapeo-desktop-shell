@@ -17,8 +17,8 @@ type MemberDevice = {
 } & Device
 
 type MapeoDeviceState = {
-  nonMemberDevices: Record<string, Device>
-  memberDevices: Record<string, MemberDevice>
+  nonMemberDevices: Record<Device['deviceId'], Device>
+  memberDevices: Record<MemberDevice['deviceId'], MemberDevice>
   actions: {
     addDeviceToProject: (deviceId: string, role: Role) => void
     removeDeviceFromProject: (deviceId: string) => void
