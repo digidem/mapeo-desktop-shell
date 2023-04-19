@@ -60,7 +60,7 @@ const SettingsTabContainer = styled.div(`
   border-width: 0 1px 0 0;
   border-color: ${GREY_LIGHT};
   border-style: solid;
-  margin-top: ${spacing.large};
+  padding-top: ${spacing.large};
 `)
 
 const SettingsPanelContainer = styled.div(`
