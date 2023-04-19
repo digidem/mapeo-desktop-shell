@@ -8,6 +8,7 @@ import { Button } from './Button'
 import { ConfigSection } from './ConfigSection'
 import { ManageTeamSection } from './ManageTeamSection'
 import { Text } from './Text'
+import { InviteDeviceModal } from './InviteDeviceModal'
 
 const m = defineMessages({
   title: {
@@ -41,11 +42,14 @@ const HeaderSection = () => {
 }
 
 export const ProjectConfig = () => {
+  const [inviteModalOpen, setInviteModalOpen] = React.useState(false)
+
   return (
     <Box display="flex" justifyContent="flex-start" flexDirection="column" flex={1}>
+      <InviteDeviceModal open={inviteModalOpen} onClose={() => setInviteModalOpen(false)} />
       <HeaderSection />
       <ConfigSection />
-      <ManageTeamSection />
+      <ManageTeamSection onInviteClick={() => setInviteModalOpen(true)} />
     </Box>
   )
 }
