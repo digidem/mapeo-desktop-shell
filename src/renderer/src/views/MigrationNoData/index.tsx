@@ -66,6 +66,7 @@ export const MigrationNoDataView = () => {
               </RadioGroup>
             </Column>
             {previouslyMapeoUser ? <YesInfoCallout /> : null}
+            {previouslyMapeoUser === false ? <NoCards /> : null}
           </Column>
 
           {previouslyMapeoUser && (
@@ -108,6 +109,45 @@ const YesInfoCallout = () => {
     </Card>
   )
 }
+
+const NoCards = () => {
+  const intl = useIntl()
+
+  return (
+    <Row>
+      <OptionCard sx={{ mr: 2 }}>
+        <Column>
+          <Typography variant="h3" component="label">
+            {intl.formatMessage(messages.createProjectTitle)}
+          </Typography>
+          <Typography variant="body1" component="label">
+            {intl.formatMessage(messages.createProjectSubtitle)}
+          </Typography>
+        </Column>
+      </OptionCard>
+      <OptionCard>
+        <Column>
+          <Typography variant="h3" component="label">
+            {intl.formatMessage(messages.joinProjectTitle)}
+          </Typography>
+          <Typography variant="body1" component="label">
+            {intl.formatMessage(messages.joinProjectSubtitle)}
+          </Typography>
+        </Column>
+      </OptionCard>
+    </Row>
+  )
+}
+
+const OptionCard = styled(Card)`
+  flex: 1;
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid ${({ theme }) => theme.grey.light};
+`
 
 const StyledFormLabel = styled(FormLabel)`
   font-weight: 700;
@@ -174,5 +214,25 @@ const messages = defineMessages({
   seeMigrationSteps: {
     id: 'views.migrationNoData.seeMigrationSteps',
     defaultMessage: 'See Migration Steps',
+  },
+  noPathMessage: {
+    id: 'views.migrationNoData.noPathMessage',
+    defaultMessage: "Great, let's get started!",
+  },
+  createProjectTitle: {
+    id: 'views.migrationNoData.createProjectTitle',
+    defaultMessage: 'Create a Project',
+  },
+  createProjectSubtitle: {
+    id: 'views.migrationNoData.createProjectSubtitle',
+    defaultMessage: 'Start a new Mapeo Project',
+  },
+  joinProjectTitle: {
+    id: 'views.migrationNoData.joinProjectTitle',
+    defaultMessage: 'Join a Project',
+  },
+  joinProjectSubtitle: {
+    id: 'views.migrationNoData.joinProjectSubtitle',
+    defaultMessage: 'Join an existing Mapeo Project',
   },
 })
