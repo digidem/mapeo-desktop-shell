@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   FormControlLabel,
-  FormLabel,
   Radio,
   RadioGroup,
   Typography,
@@ -16,12 +15,15 @@ import { appStrings } from '../../../../common/config/messages'
 import { OnboardingLayout } from '@renderer/layouts/Onboarding'
 import { useState } from 'react'
 import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
+import { CreatProjectModal } from '@renderer/components/CreateProjectModal'
+import { FormLabel } from '@renderer/components/FormLabel'
 
 export const MigrationNoDataView = () => {
   const intl = useIntl()
   const theme = useTheme()
   const [previouslyMapeoUser, setIsPrevMapeoUser] = useState<boolean | undefined>()
   const [skipModalOpen, setSkipModalOpen] = useState(false)
+  const [createProjectModalOpen, setCreateProjectModalOpen] = useState(false)
 
   const getRadioValue = () => {
     if (previouslyMapeoUser === true) return 'yes'
@@ -38,6 +40,10 @@ export const MigrationNoDataView = () => {
   return (
     <>
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
+      <CreatProjectModal
+        open={createProjectModalOpen}
+        onClose={() => setCreateProjectModalOpen(false)}
+      ></CreatProjectModal>
       <OnboardingLayout>
         <Column justifyContent="space-between" height={'100%'}>
           <Column spacing={5}>
@@ -51,9 +57,9 @@ export const MigrationNoDataView = () => {
             </span>
 
             <Column component="span">
-              <StyledFormLabel sx={{ fontWeight: 700, color: theme.foreground }} required>
+              <FormLabel sx={{ fontWeight: 700, color: theme.foreground }} required>
                 {intl.formatMessage(messages.question)}
-              </StyledFormLabel>
+              </FormLabel>
               <Typography variant="caption">{intl.formatMessage(messages.questionCaption)}</Typography>
               <RadioGroup row value={getRadioValue()} onChange={handleRadioChange}>
                 <FormControlLabel
@@ -66,7 +72,9 @@ export const MigrationNoDataView = () => {
               </RadioGroup>
             </Column>
             {previouslyMapeoUser ? <YesInfoCallout /> : null}
-            {previouslyMapeoUser === false ? <NoCards /> : null}
+            {previouslyMapeoUser === false ? (
+              <NoCards onClickCreateProject={() => setCreateProjectModalOpen(true)} />
+            ) : null}
           </Column>
 
           {previouslyMapeoUser && (
@@ -110,12 +118,12 @@ const YesInfoCallout = () => {
   )
 }
 
-const NoCards = () => {
+const NoCards = ({ onClickCreateProject }: { onClickCreateProject: () => void }) => {
   const intl = useIntl()
 
   return (
     <Row>
-      <OptionCard sx={{ mr: 2 }}>
+      <OptionCard sx={{ mr: 2 }} onClick={onClickCreateProject}>
         <Column>
           <Typography variant="h3" component="label">
             {intl.formatMessage(messages.createProjectTitle)}
@@ -147,15 +155,7 @@ const OptionCard = styled(Card)`
   justify-content: center;
   align-items: center;
   border: 1px solid ${({ theme }) => theme.grey.light};
-`
-
-const StyledFormLabel = styled(FormLabel)`
-  font-weight: 700;
-  color: ${({ theme }) => theme.foreground};
-
-  .MuiFormLabel-asterisk {
-    color: ${({ theme }) => theme.warningRed};
-  }
+  cursor: pointer;
 `
 
 const A = styled('a')`
