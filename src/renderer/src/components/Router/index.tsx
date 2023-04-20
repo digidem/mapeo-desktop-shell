@@ -7,7 +7,8 @@ import { MigratingProjectView } from '@renderer/views/MigratingProject'
 export const Router = () => (
   <HashRouter>
     <Routes>
-      <Route path="/" element={<MigrationNoDataView />} />
+      <Route path="/" element={<IndexView />} />
+      <Route path="/migration-no-data" element={<MigrationNoDataView />} />
       <Route path="/init-migration" element={<MigrationView />} />
       <Route path="/migrating-project" element={<MigratingProjectView />} />
     </Routes>

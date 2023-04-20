@@ -20,102 +20,6 @@
   "components.skipMigrationModal.title": {
     "message": "Skip Migration"
   },
-  "modals.createProject.buttonClose": {
-    "message": "Close"
-  },
-  "modals.createProject.buttonCreateProject": {
-    "message": "Create Project"
-  },
-  "modals.createProject.deviceNameFieldLabel": {
-    "message": "Add a name for your device"
-  },
-  "modals.createProject.deviceNameFieldPlaceholder": {
-    "message": "Device Name"
-  },
-  "modals.createProject.no": {
-    "message": "No"
-  },
-  "modals.createProject.projectConfig": {
-    "message": "Project Config"
-  },
-  "modals.createProject.projectConfigCaption": {
-    "message": "Optional. You can import a config any time."
-  },
-  "modals.createProject.projectConfigImportButton": {
-    "message": "Import Config"
-  },
-  "modals.createProject.projectNameFieldLabel": {
-    "message": "Enter a name for the Project"
-  },
-  "modals.createProject.projectNameFieldPlaceholder": {
-    "message": "Project Name"
-  },
-  "modals.createProject.question1": {
-    "message": "Can Participants see other team members' observations?"
-  },
-  "modals.createProject.question2": {
-    "message": "Can Participants edit other team members' observations?"
-  },
-  "modals.createProject.title": {
-    "message": "Create a Project"
-  },
-  "modals.createProject.yes": {
-    "message": "Yes"
-  },
-  "views.Home.Sidebar.observations": {
-    "message": "Observations"
-  },
-  "views.Home.Sidebar.settings": {
-    "message": "Settings"
-  },
-  "views.Home.Sidebar.sync": {
-    "message": "Sync"
-  },
-  "views.Home.Sidebar.territory": {
-    "message": "Territory"
-  },
-  "modals.createProject.buttonClose": {
-    "message": "Close"
-  },
-  "modals.createProject.buttonCreateProject": {
-    "message": "Create Project"
-  },
-  "modals.createProject.deviceNameFieldLabel": {
-    "message": "Add a name for your device"
-  },
-  "modals.createProject.deviceNameFieldPlaceholder": {
-    "message": "Device Name"
-  },
-  "modals.createProject.no": {
-    "message": "No"
-  },
-  "modals.createProject.projectConfig": {
-    "message": "Project Config"
-  },
-  "modals.createProject.projectConfigCaption": {
-    "message": "Optional. You can import a config any time."
-  },
-  "modals.createProject.projectConfigImportButton": {
-    "message": "Import Config"
-  },
-  "modals.createProject.projectNameFieldLabel": {
-    "message": "Enter a name for the Project"
-  },
-  "modals.createProject.projectNameFieldPlaceholder": {
-    "message": "Project Name"
-  },
-  "modals.createProject.question1": {
-    "message": "Can Participants see other team members' observations?"
-  },
-  "modals.createProject.question2": {
-    "message": "Can Participants edit other team members' observations?"
-  },
-  "modals.createProject.title": {
-    "message": "Create a Project"
-  },
-  "modals.createProject.yes": {
-    "message": "Yes"
-  },
   "views.migratingProject.complete": {
     "message": "Migration complete!"
   },
@@ -185,35 +89,8 @@
   "views.migrationNoData.joinProjectTitle": {
     "message": "Join a Project"
   },
-  "views.migrationNoData.message": {
-    "message": "We are excited for you to experience the updated Mapeo."
-  },
-  "views.migrationNoData.message2": {
-    "message": "One quick question before you get started:"
-  },
-  "views.migrationNoData.no": {
-    "message": "No"
-  },
   "views.migrationNoData.noPathMessage": {
     "message": "Great, let's get started!"
-  },
-  "views.migrationNoData.question": {
-    "message": "Have you used a previous version of Mapeo?"
-  },
-  "views.migrationNoData.questionCaption": {
-    "message": "This could be an earlier version of Mapeo on deskop or mobile. Versions 5x and earlier."
-  },
-  "views.migrationNoData.seeMigrationSteps": {
-    "message": "See Migration Steps"
-  },
-  "views.migrationNoData.skipMigration": {
-    "message": "Skip Migration"
-  },
-  "views.migrationNoData.welcomeTitle": {
-    "message": "Welcome to"
-  },
-  "views.migrationNoData.yes": {
-    "message": "Yes"
   },
   "views.navigation.dataIsDetected": {
     "message": "Mapeo Data Is Detected"
@@ -232,12 +109,6 @@
   },
   "views.navigation.title": {
     "message": "Mapeo Desktop Testing"
-  },
-  "views.migrationNoData.calloutLink": {
-    "message": "Mapeo Support Materials"
-  },
-  "views.migrationNoData.calloutText": {
-    "message": "Your previous Mapeo data will not be visible in the new Mapeo applications until you migrate your data. To start, sync the data on your mobile device with the previous version of Mapeo."
   },
   "views.migrationNoData.message": {
     "message": "We are excited for you to experience the updated Mapeo."
