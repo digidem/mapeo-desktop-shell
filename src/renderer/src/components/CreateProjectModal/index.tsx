@@ -45,7 +45,7 @@ export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProp
   }
 
   return (
-    <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
+    <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth scroll="body">
       <Column justifyContent="space-between">
         <Container
           maxWidth="xl"
