@@ -6,7 +6,7 @@ export const useMapeoDeviceMembersListIds = () => {
     (oldVal, newVal) => {
       const oldValArray = Object.keys(oldVal).map((key) => key)
       const newValArray = Object.keys(newVal).map((key) => key)
-      return oldValArray !== newValArray
+      return JSON.stringify(oldValArray) !== JSON.stringify(newValArray)
     },
   )
 
@@ -19,7 +19,7 @@ export const useMapeoDeviceNonMembersListIds = () => {
     (oldVal, newVal) => {
       const oldValArray = Object.keys(oldVal).map((key) => key)
       const newValArray = Object.keys(newVal).map((key) => key)
-      return oldValArray !== newValArray
+      return JSON.stringify(oldValArray) !== JSON.stringify(newValArray)
     },
   )
 

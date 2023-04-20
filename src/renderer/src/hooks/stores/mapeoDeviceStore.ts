@@ -36,16 +36,14 @@ export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
           throw new Error(`Device is already part of the project`)
         }
 
-        const deviceToBeAdded = state.nonMemberDevices[deviceId]
+        const { [deviceId]: deviceToBeAdded, ...newNonMemberDevices } = state.nonMemberDevices
 
         if (!deviceToBeAdded) {
           throw new Error(`Device does not exist`)
         }
 
-        const { [deviceId]: key, ...rest } = state.nonMemberDevices
-
         return {
-          nonMemberDevices: rest,
+          nonMemberDevices: newNonMemberDevices,
           memberDevices: {
             ...state.memberDevices,
             [deviceId]: {
@@ -58,16 +56,17 @@ export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
       }),
     removeDeviceFromProject: (deviceId) =>
       set((state) => {
-        const deviceToBeRemoved = state.memberDevices[deviceId]
+        const { [deviceId]: deviceToBeRemoved, ...newMemberDevices } = state.memberDevices
+
         if (!deviceToBeRemoved) {
           throw new Error(`Device is not part of the project`)
         }
-        const { [deviceId]: key, ...newMemberDevices } = state.memberDevices
-        const { dateAdded, role, ...rest } = deviceToBeRemoved
+
+        const { dateAdded, role, ...nonMemberDevice } = deviceToBeRemoved
 
         return {
           memberDevices: newMemberDevices,
-          nonMemberDevices: { ...state.nonMemberDevices, [deviceId]: rest },
+          nonMemberDevices: { ...state.nonMemberDevices, [deviceId]: nonMemberDevice },
         }
       }),
     changeDeviceRole: (deviceId, newRole) =>
