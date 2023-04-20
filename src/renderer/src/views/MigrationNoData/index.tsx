@@ -156,6 +156,10 @@ const OptionCard = styled(Card)`
   align-items: center;
   border: 1px solid ${({ theme }) => theme.grey.light};
   cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
 `
 
 const A = styled('a')`
