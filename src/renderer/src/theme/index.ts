@@ -57,42 +57,36 @@ declare module '@mui/material/styles' {
   }
 }
 
-const defaultTextStyles = {
-  userSelect: 'none' as React.CSSProperties['userSelect'],
-}
-
 export const theme = createTheme({
   typography: {
     h1: {
       fontSize: 40,
-      fontWeight: 500,
+      fontWeight: 700,
       color: MIDNIGHT_BLUE,
-      ...defaultTextStyles,
     },
     h2: {
       fontSize: 30,
       fontWeight: 400,
       color: MIDNIGHT_BLUE,
-      ...defaultTextStyles,
     },
     h3: {
       fontSize: 26,
       fontWeight: 400,
       color: MIDNIGHT_BLUE,
-      ...defaultTextStyles,
     },
     h4: {
       fontSize: 24,
       fontWeight: 300,
       color: MIDNIGHT_BLUE,
-      ...defaultTextStyles,
     },
-    body1: {
-      ...defaultTextStyles,
+    h5: {
+      fontSize: 18,
+      fontWeight: 300,
+      color: MIDNIGHT_BLUE,
     },
+    body1: {},
     caption: {
       color: GREY,
-      ...defaultTextStyles,
     },
     fontFamily: [
       'Rubik',

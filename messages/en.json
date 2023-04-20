@@ -148,5 +148,23 @@
   },
   "views.migration.welcomeTitle": {
     "message": "Welcome to"
+  },
+  "views.navigation.dataIsDetected": {
+    "message": "Mapeo Data Is Detected"
+  },
+  "views.navigation.dataNotDetected": {
+    "message": "Mapeo Is <bold>Not</bold> Detected"
+  },
+  "views.navigation.invitation": {
+    "message": "Invitation"
+  },
+  "views.navigation.inviteDevice": {
+    "message": "Invite Device"
+  },
+  "views.navigation.migration": {
+    "message": "Migration"
+  },
+  "views.navigation.title": {
+    "message": "Mapeo Desktop Testing"
   }
 }
