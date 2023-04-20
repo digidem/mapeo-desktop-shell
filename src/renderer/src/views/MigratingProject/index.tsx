@@ -90,7 +90,7 @@ export const MigratingProjectView = () => {
                 {progress === 100 ? (
                   <CheckIcon sx={{ mr: 3, color: theme.successGreen, height: 30, width: 30 }} />
                 ) : null}
-                <Typography variant="h3" component="label" align="center">
+                <Typography variant="h3" component="label" fontWeight="700" align="center">
                   {intl.formatMessage(progress === 100 ? messages.complete : messages.migrating)}
                 </Typography>
               </Row>
@@ -121,7 +121,7 @@ export const MigratingProjectView = () => {
             borderColor: theme.grey.light,
           }}
         >
-          <Link to="/migration-complete">
+          <Link to="/home">
             <Button
               onClick={() => {}}
               variant="contained"
