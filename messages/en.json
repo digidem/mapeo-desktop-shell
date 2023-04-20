@@ -20,6 +20,66 @@
   "components.skipMigrationModal.title": {
     "message": "Skip Migration"
   },
+  "modals.createProject.buttonClose": {
+    "message": "Close"
+  },
+  "modals.createProject.buttonCreateProject": {
+    "message": "Create Project"
+  },
+  "modals.createProject.deviceNameFieldLabel": {
+    "message": "Add a name for your device"
+  },
+  "modals.createProject.deviceNameFieldPlaceholder": {
+    "message": "Device Name"
+  },
+  "modals.createProject.deviceNameRequired": {
+    "message": "Please enter a device name"
+  },
+  "modals.createProject.no": {
+    "message": "No"
+  },
+  "modals.createProject.projectConfig": {
+    "message": "Project Config"
+  },
+  "modals.createProject.projectConfigCaption": {
+    "message": "Optional. You can import a config any time."
+  },
+  "modals.createProject.projectConfigImportButton": {
+    "message": "Import Config"
+  },
+  "modals.createProject.projectNameFieldLabel": {
+    "message": "Enter a name for the Project"
+  },
+  "modals.createProject.projectNameFieldPlaceholder": {
+    "message": "Project Name"
+  },
+  "modals.createProject.projectNameRequired": {
+    "message": "Please enter a project name"
+  },
+  "modals.createProject.question1": {
+    "message": "Can Participants see other team members' observations?"
+  },
+  "modals.createProject.question2": {
+    "message": "Can Participants edit other team members' observations?"
+  },
+  "modals.createProject.title": {
+    "message": "Create a Project"
+  },
+  "modals.createProject.yes": {
+    "message": "Yes"
+  },
+  "views.Home.Sidebar.observations": {
+    "message": "Observations"
+  },
+  "views.Home.Sidebar.settings": {
+    "message": "Settings"
+  },
+  "views.Home.Sidebar.sync": {
+    "message": "Sync"
+  },
+  "views.Home.Sidebar.territory": {
+    "message": "Territory"
+  },
   "views.migratingProject.complete": {
     "message": "Migration complete!"
   },
