@@ -65,7 +65,7 @@ export const theme = createTheme({
   typography: {
     h1: {
       fontSize: 40,
-      fontWeight: 500,
+      fontWeight: 700,
       color: MIDNIGHT_BLUE,
       ...defaultTextStyles,
     },
@@ -83,6 +83,12 @@ export const theme = createTheme({
     },
     h4: {
       fontSize: 24,
+      fontWeight: 300,
+      color: MIDNIGHT_BLUE,
+      ...defaultTextStyles,
+    },
+    h5: {
+      fontSize: 18,
       fontWeight: 300,
       color: MIDNIGHT_BLUE,
       ...defaultTextStyles,
