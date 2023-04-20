@@ -5,7 +5,6 @@ import { Logo } from '@renderer/components/Logo'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
-import { Link } from 'react-router-dom'
 
 const NAME_MAX_CHARS = 30
 const CONFIG_NAME = 'my-special-config-20.mapeoconfig'
