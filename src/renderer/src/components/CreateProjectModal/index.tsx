@@ -16,6 +16,7 @@ import { Column, Row } from '../LayoutComponents'
 import { defineMessages, useIntl } from 'react-intl'
 import { Button } from '../Button'
 import { FormLabel } from '../FormLabel'
+import { useNavigate } from 'react-router-dom'
 
 const PROJECT_NAME_MAX_LENGTH = 100
 const DEVICE_NAME_MAX_LENGTH = 60
@@ -23,6 +24,7 @@ const DEVICE_NAME_MAX_LENGTH = 60
 export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProps) => {
   const intl = useIntl()
   const theme = useTheme()
+  const navigate = useNavigate()
   const [projectName, setProjectName] = useState('')
   const [deviceName, setDeviceName] = useState('')
   const [projectNameError, setProjectNameError] = useState('')
@@ -44,6 +46,32 @@ export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProp
     onClose()
   }
 
+  const handleClickCreateProject = () => {
+    if (!projectName) {
+      setProjectNameError(intl.formatMessage(messages.projectNameRequired))
+    }
+
+    if (!deviceName) {
+      setDeviceNameError(intl.formatMessage(messages.deviceNameRequired))
+    }
+
+    if (projectName && deviceName) {
+      navigate('/') // Should navigate to app in observation mode, but not available in this branch yet.
+    }
+  }
+
+  const handleProjectNameChange = (e) => {
+    if (projectNameError) setProjectNameError('')
+
+    setProjectName(e.target.value)
+  }
+
+  const handleDeviceNameChange = (e) => {
+    if (deviceNameError) setDeviceNameError('')
+
+    setDeviceName(e.target.value)
+  }
+
   return (
     <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth scroll="body">
       <Column justifyContent="space-between">
@@ -63,7 +91,7 @@ export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProp
                 label={intl.formatMessage(messages.projectNameFieldLabel)}
                 placeholder={intl.formatMessage(messages.projectNameFieldPlaceholder)}
                 value={projectName}
-                onChange={(e) => setProjectName(e.target.value)}
+                onChange={handleProjectNameChange}
                 maxLength={PROJECT_NAME_MAX_LENGTH}
                 error={projectNameError}
                 required
@@ -72,7 +100,7 @@ export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProp
                 label={intl.formatMessage(messages.deviceNameFieldLabel)}
                 placeholder={intl.formatMessage(messages.deviceNameFieldPlaceholder)}
                 value={deviceName}
-                onChange={(e) => setDeviceName(e.target.value)}
+                onChange={handleDeviceNameChange}
                 maxLength={DEVICE_NAME_MAX_LENGTH}
                 required
                 error={deviceNameError}
@@ -118,7 +146,12 @@ export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProp
           <Button variant="text" color="primary" sx={{ mr: 10, px: 5 }} onClick={() => handleCloseDialog()}>
             {intl.formatMessage(messages.buttonClose)}
           </Button>
-          <Button variant="contained" disableElevation sx={{ px: 5 }} onClick={() => null}>
+          <Button
+            variant="contained"
+            disableElevation
+            sx={{ px: 5 }}
+            onClick={() => handleClickCreateProject()}
+          >
             {intl.formatMessage(messages.buttonCreateProject)}
           </Button>
         </Row>
@@ -236,6 +269,14 @@ const messages = defineMessages({
   buttonCreateProject: {
     id: 'modals.createProject.buttonCreateProject',
     defaultMessage: 'Create Project',
+  },
+  projectNameRequired: {
+    id: 'modals.createProject.projectNameRequired',
+    defaultMessage: 'Please enter a project name',
+  },
+  deviceNameRequired: {
+    id: 'modals.createProject.deviceNameRequired',
+    defaultMessage: 'Please enter a device name',
   },
 })
 
