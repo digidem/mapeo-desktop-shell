@@ -1,27 +1,19 @@
 import { useMapeoDeviceStore } from './stores/mapeoDeviceStore'
 
 export const useMapeoDeviceMembersListIds = () => {
-  const devices = useMapeoDeviceStore(
-    (store) => store.memberDevices,
-    (oldVal, newVal) => {
-      const oldValArray = Object.keys(oldVal).map((key) => key)
-      const newValArray = Object.keys(newVal).map((key) => key)
-      return JSON.stringify(oldValArray) !== JSON.stringify(newValArray)
-    },
+  const deviceIds = useMapeoDeviceStore(
+    (store) => Object.keys(store.memberDevices).map((key) => key),
+    (oldVal, newVal) => JSON.stringify(oldVal) !== JSON.stringify(newVal),
   )
 
-  return Object.keys(devices).map(([key]) => key)
+  return deviceIds
 }
 
 export const useMapeoDeviceNonMembersListIds = () => {
-  const devices = useMapeoDeviceStore(
-    (store) => store.nonMemberDevices,
-    (oldVal, newVal) => {
-      const oldValArray = Object.keys(oldVal).map((key) => key)
-      const newValArray = Object.keys(newVal).map((key) => key)
-      return JSON.stringify(oldValArray) !== JSON.stringify(newValArray)
-    },
+  const deviceIds = useMapeoDeviceStore(
+    (store) => Object.keys(store.nonMemberDevices).map((key) => key),
+    (oldVal, newVal) => JSON.stringify(oldVal) !== JSON.stringify(newVal),
   )
 
-  return Object.keys(devices).map(([key]) => key)
+  return deviceIds
 }
