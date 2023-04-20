@@ -30,7 +30,8 @@
     "@mui/material": "^5.11.14",
     "electron-updater": "^5.3.0",
     "react-intl": "^6.3.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "zustand": "^4.3.7"
   },
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^1.0.1",
