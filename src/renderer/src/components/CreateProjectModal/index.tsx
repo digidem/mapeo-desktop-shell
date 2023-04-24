@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom'
 const PROJECT_NAME_MAX_LENGTH = 100
 const DEVICE_NAME_MAX_LENGTH = 60
 
-export const CreatProjectModal = ({ open, onClose }: SkipMigrationModalModalProps) => {
+export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) => {
   const intl = useIntl()
   const theme = useTheme()
   const navigate = useNavigate()
@@ -280,7 +280,7 @@ const messages = defineMessages({
   },
 })
 
-type SkipMigrationModalModalProps = {
+type CreateProjectModalProps = {
   onClose: () => void
   open: boolean
 }
