@@ -149,27 +149,6 @@
   "views.migrationNoData.joinProjectTitle": {
     "message": "Join a Project"
   },
-  "views.migrationNoData.noPathMessage": {
-    "message": "Great, let's get started!"
-  },
-  "views.navigation.dataIsDetected": {
-    "message": "Mapeo Data Is Detected"
-  },
-  "views.navigation.dataNotDetected": {
-    "message": "Mapeo Is <bold>Not</bold> Detected"
-  },
-  "views.navigation.invitation": {
-    "message": "Invitation"
-  },
-  "views.navigation.inviteDevice": {
-    "message": "Invite Device"
-  },
-  "views.navigation.migration": {
-    "message": "Migration"
-  },
-  "views.navigation.title": {
-    "message": "Mapeo Desktop Testing"
-  },
   "views.migrationNoData.message": {
     "message": "We are excited for you to experience the updated Mapeo."
   },
@@ -178,6 +157,9 @@
   },
   "views.migrationNoData.no": {
     "message": "No"
+  },
+  "views.migrationNoData.noPathMessage": {
+    "message": "Great, let's get started!"
   },
   "views.migrationNoData.question": {
     "message": "Have you used a previous version of Mapeo?"
@@ -196,5 +178,23 @@
   },
   "views.migrationNoData.yes": {
     "message": "Yes"
+  },
+  "views.navigation.dataIsDetected": {
+    "message": "Mapeo Data Is Detected"
+  },
+  "views.navigation.dataNotDetected": {
+    "message": "Mapeo Is <bold>Not</bold> Detected"
+  },
+  "views.navigation.invitation": {
+    "message": "Invitation"
+  },
+  "views.navigation.inviteDevice": {
+    "message": "Invite Device"
+  },
+  "views.navigation.migration": {
+    "message": "Migration"
+  },
+  "views.navigation.title": {
+    "message": "Mapeo Desktop Testing"
   }
 }
