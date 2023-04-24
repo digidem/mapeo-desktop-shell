@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import styled from '@emotion/styled'
 import { useTheme } from '@mui/material'
@@ -5,10 +6,11 @@ import PersonAddIcon from '@mui/icons-material/PersonAddAltOutlined'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { OFF_BLACK } from '@renderer/theme'
 import { spacing } from '@renderer/theme/spacing'
+import { MemberDevice } from '@renderer/hooks/stores/mapeoDeviceStore'
+import { useMapeoDeviceMembers } from '@renderer/hooks/useMapeoMembersList'
 
 import desktopImageUrl from '../../../../../assets/desktop.png'
 import mobileImageUrl from '../../../../../assets/mobile.png'
-import { Coordinator, Participant } from '.'
 import { PressableText } from './PressableText'
 import { Text } from './Text'
 import { Button, ButtonText } from './Button'
@@ -50,7 +52,7 @@ const BlackSquarePlaceholder = styled.div(
 `,
 )
 
-const MemberCard = ({ member }: { member: Coordinator | Participant }) => {
+const MemberCard = ({ member }: { member: MemberDevice }) => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
   return (
@@ -77,7 +79,7 @@ const MemberCard = ({ member }: { member: Coordinator | Participant }) => {
             {member.name}
           </Text>
           <Text size="small" color={theme.grey.main}>
-            {new Date(member.lastSynced).toLocaleDateString()}
+            {new Date(member.dateAdded).toLocaleDateString()}
           </Text>
         </Row>
         <Row justifyContent="space-between">
@@ -95,15 +97,26 @@ const MemberCard = ({ member }: { member: Coordinator | Participant }) => {
   )
 }
 
-export const ManageTeamSection = ({
-  coordinators,
-  participants,
-}: {
-  coordinators: Coordinator[]
-  participants: Participant[]
-}) => {
+export const ManageTeamSection = () => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
+
+  const members = useMapeoDeviceMembers()
+
+  const { coordinators, participants } = React.useMemo(() => {
+    const c: MemberDevice[] = []
+    const p: MemberDevice[] = []
+
+    for (const device of Object.values(members)) {
+      if (device.role === 'coordinator') {
+        c.push(device)
+      } else {
+        p.push(device)
+      }
+    }
+
+    return { coordinators: c, participants: p }
+  }, [members])
 
   return (
     <Column padding={spacing.large} sx={{ backgroundColor: theme.background }} flex={1}>
@@ -137,9 +150,9 @@ export const ManageTeamSection = ({
               {t(m.coordinators)}
             </Text>
           </Row>
-          <Column>
+          <Column spacing={spacing.medium}>
             {coordinators.map((c) => (
-              <MemberCard key={c.id} member={c} />
+              <MemberCard key={c.deviceId} member={c} />
             ))}
           </Column>
         </Column>
@@ -150,9 +163,9 @@ export const ManageTeamSection = ({
               {t(m.participants)}
             </Text>
           </Row>
-          <Column>
+          <Column spacing={spacing.medium}>
             {participants.map((p) => (
-              <MemberCard key={p.id} member={p} />
+              <MemberCard key={p.deviceId} member={p} />
             ))}
           </Column>
         </Column>

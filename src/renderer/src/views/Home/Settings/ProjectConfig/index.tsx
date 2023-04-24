@@ -20,23 +20,6 @@ const m = defineMessages({
   },
 })
 
-interface Member {
-  isSelf?: true
-  id: string
-  deviceType: 'mobile' | 'desktop'
-  lastSynced: number
-  name: string
-  deviceId: string
-}
-
-export interface Coordinator extends Member {
-  role: 'coordinator'
-}
-
-export interface Participant extends Member {
-  role: 'participant'
-}
-
 const HeaderSection = () => {
   const { formatMessage: t } = useIntl()
 
@@ -58,34 +41,11 @@ const HeaderSection = () => {
 }
 
 export const ProjectConfig = () => {
-  const [coordinators] = React.useState<Coordinator[]>([
-    {
-      id: 'me',
-      isSelf: true,
-      deviceType: 'desktop',
-      lastSynced: Date.now(),
-      name: 'My Computer',
-      deviceId: 'abc123',
-      role: 'coordinator',
-    },
-  ])
-
-  const [participants] = React.useState<Participant[]>([
-    {
-      id: 'peer 1',
-      deviceType: 'mobile',
-      lastSynced: Date.now(),
-      name: 'Peer 1 Android',
-      deviceId: '123abc',
-      role: 'participant',
-    },
-  ])
-
   return (
     <Box display="flex" justifyContent="flex-start" flexDirection="column" flex={1}>
       <HeaderSection />
       <ConfigSection />
-      <ManageTeamSection coordinators={coordinators} participants={participants} />
+      <ManageTeamSection />
     </Box>
   )
 }
