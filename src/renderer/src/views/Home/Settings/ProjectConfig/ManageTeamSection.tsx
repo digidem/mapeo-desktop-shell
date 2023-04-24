@@ -9,11 +9,10 @@ import { spacing } from '@renderer/theme/spacing'
 import { MemberDevice } from '@renderer/hooks/stores/mapeoDeviceStore'
 import { useMapeoDeviceMembers } from '@renderer/hooks/useMapeoMembersList'
 
-import desktopImageUrl from '../../../../../assets/desktop.png'
-import mobileImageUrl from '../../../../../assets/mobile.png'
 import { PressableText } from './PressableText'
 import { Text } from './Text'
 import { Button, ButtonText } from './Button'
+import { PeerCard } from './PeerCard'
 
 const m = defineMessages({
   title: {
@@ -58,50 +57,25 @@ const BlackSquarePlaceholder = styled.div(
 
 const MemberCard = ({ member }: { member: MemberDevice }) => {
   const { formatMessage: t } = useIntl()
-  const theme = useTheme()
+
   return (
-    <Row
-      padding={spacing.large}
-      alignItems="center"
-      sx={{
-        maxWidth: '400px',
-        minWidth: '300px',
-        backgroundColor: theme.white,
-        borderRadius: '6px',
-        border: `1px solid ${theme.grey.light}`,
-      }}
-    >
-      <Column marginRight={spacing.medium}>
-        <img
-          src={member.deviceType === 'desktop' ? desktopImageUrl : mobileImageUrl}
-          style={{ display: 'block', maxWidth: '100%', width: '40px' }}
-        />
-      </Column>
-      <Column flex={1}>
-        <Row justifyContent="space-between">
-          <Text size="small" fontWeight="600">
-            {member.name}
-          </Text>
-          <Text size="small" color={theme.grey.main}>
-            {new Date(member.dateAdded).toLocaleDateString()}
-          </Text>
-        </Row>
-        <Row justifyContent="space-between">
-          <Text size="small" color={theme.grey.main}>
-            {member.isSelf ? t(m.thisDevice) : member.deviceId}
-          </Text>
-          {member.isSelf && (
-            <PressableText destructive onClick={() => {}}>
-              {t(m.leaveProject)}
-            </PressableText>
-          )}
-        </Row>
-      </Column>
-    </Row>
+    <PeerCard
+      deviceType={member.deviceType}
+      title={member.name}
+      subtitle={member.isSelf ? t(m.thisDevice) : member.deviceId}
+      dateText={new Date(member.dateAdded).toLocaleDateString()}
+      pressableAction={
+        member.isSelf ? (
+          <PressableText destructive onClick={() => {}}>
+            {t(m.leaveProject)}
+          </PressableText>
+        ) : undefined
+      }
+    />
   )
 }
 
-export const ManageTeamSection = () => {
+export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void }) => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
 
@@ -138,7 +112,7 @@ export const ManageTeamSection = () => {
           </Row>
         </Column>
         <Row>
-          <Button variant="outlined" onClick={() => {}}>
+          <Button variant="outlined" onClick={onInviteClick}>
             <Row spacing={spacing.small} alignItems="center">
               <PersonAddIcon sx={{ fontSize: '18px' }} />
               <ButtonText>{t(m.invite)}</ButtonText>
