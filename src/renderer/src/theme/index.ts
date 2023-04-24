@@ -13,6 +13,9 @@ export const GREY_LIGHT = '#EEEEEE'
 export const GREY = '#707070'
 export const GREEN = '#59A553'
 
+export const FONT_FAM_TITLE = `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
+export const FONT_FAM_BODY = `Roboto, Rubik, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
+
 declare module '@mui/material/styles' {
   interface Theme {
     primary: React.CSSProperties['color']
@@ -57,36 +60,55 @@ declare module '@mui/material/styles' {
   }
 }
 
+const titleStyles = {
+  fontFamily: FONT_FAM_TITLE,
+  color: MIDNIGHT_BLUE,
+}
+
+const bodyStyles = {
+  fontFamily: FONT_FAM_BODY,
+}
+
 export const theme = createTheme({
   typography: {
     h1: {
       fontSize: 40,
       fontWeight: 700,
-      color: MIDNIGHT_BLUE,
+      ...titleStyles,
     },
     h2: {
       fontSize: 30,
-      fontWeight: 400,
-      color: MIDNIGHT_BLUE,
+      fontWeight: 500,
+      ...titleStyles,
     },
     h3: {
       fontSize: 26,
-      fontWeight: 400,
-      color: MIDNIGHT_BLUE,
+      fontWeight: 500,
+      ...titleStyles,
     },
     h4: {
       fontSize: 24,
-      fontWeight: 300,
-      color: MIDNIGHT_BLUE,
+      fontWeight: 400,
+      ...titleStyles,
     },
     h5: {
       fontSize: 18,
-      fontWeight: 300,
-      color: MIDNIGHT_BLUE,
+      fontWeight: 400,
+      ...titleStyles,
     },
-    body1: {},
+    body1: {
+      ...bodyStyles,
+    },
+    body2: {
+      ...bodyStyles,
+    },
+    button: {
+      textDecoration: 'none',
+      ...bodyStyles,
+    },
     caption: {
       color: GREY,
+      ...bodyStyles,
     },
     fontFamily: [
       'Rubik',
@@ -126,7 +148,6 @@ export const theme = createTheme({
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
-        // disableElevation: true,
       },
     },
   },
