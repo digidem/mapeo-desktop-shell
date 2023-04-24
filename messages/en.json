@@ -1,4 +1,16 @@
 {
+  "components.LeaveProjectModal.DeleteData.deletedData": {
+    "message": "Deleted {observations}/{observations} observations and {data}mb of data"
+  },
+  "components.LeaveProjectModal.DeleteData.deletingData": {
+    "message": "Deleting {data}mb of data"
+  },
+  "components.LeaveProjectModal.DeleteData.leaveProject": {
+    "message": "Leaving Project {projectName}"
+  },
+  "components.LeaveProjectModal.DeleteData.leftProject": {
+    "message": "You have left Project {projectName}"
+  },
   "components.LeaveProjectModal.cancel": {
     "message": "Cancel"
   },
