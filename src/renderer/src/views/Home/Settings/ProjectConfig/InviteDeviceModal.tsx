@@ -52,10 +52,9 @@ export const InviteDeviceModal = ({ open, onClose }: { open: boolean; onClose: (
           {t(m.title)}
         </DialogTitle>
         <Row>
-          {/* TODO: Use actual Wifi info */}
           <WifiIcon sx={{ marginInlineEnd: spacing.small }} />
           <Text size="small" fontWeight="500" color={theme.blue.dark}>
-            SpicyWifi - 5G
+            MiWifi - 5G
           </Text>
         </Row>
       </Row>
