@@ -19,7 +19,7 @@ export const IndexView = () => {
       <Typography variant="h1" color={'white'} align="center">
         {intl.formatMessage(messages.title)}
       </Typography>
-      <LeaveProjectModal projectName="Project Catapult" />
+      <LeaveProjectModal projectName="Catapult" />
 
       <Row sx={{ mt: 8 }} spacing={15}>
         <TestGroupColumn title={intl.formatMessage(messages.migration)}>
