@@ -65,10 +65,6 @@ const titleStyles = {
   color: MIDNIGHT_BLUE,
 }
 
-const bodyStyles = {
-  fontFamily: FONT_FAM_BODY,
-}
-
 export const theme = createTheme({
   typography: {
     h1: {
@@ -97,18 +93,19 @@ export const theme = createTheme({
       ...titleStyles,
     },
     body1: {
-      ...bodyStyles,
+      fontFamily: FONT_FAM_BODY,
     },
     body2: {
-      ...bodyStyles,
+      fontFamily: FONT_FAM_BODY,
     },
     button: {
       textDecoration: 'none',
-      ...bodyStyles,
+      fontWeight: 500,
+      fontFamily: FONT_FAM_BODY,
     },
     caption: {
       color: GREY,
-      ...bodyStyles,
+      fontFamily: FONT_FAM_BODY,
     },
     fontFamily: [
       'Rubik',
