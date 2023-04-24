@@ -40,6 +40,10 @@ const m = defineMessages({
     id: 'views.Home.Settings.ProjectConfig.ManageTeamSection.leaveProject',
     defaultMessage: 'Leave Project',
   },
+  thisDevice: {
+    id: 'views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice',
+    defaultMessage: 'This Device!',
+  },
 })
 
 const BlackSquarePlaceholder = styled.div(
@@ -84,7 +88,7 @@ const MemberCard = ({ member }: { member: MemberDevice }) => {
         </Row>
         <Row justifyContent="space-between">
           <Text size="small" color={theme.grey.main}>
-            {member.isSelf ? 'This Device!' : member.deviceId}
+            {member.isSelf ? t(m.thisDevice) : member.deviceId}
           </Text>
           {member.isSelf && (
             <PressableText destructive onClick={() => {}}>
