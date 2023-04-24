@@ -2,12 +2,12 @@ import * as React from 'react'
 import { useTheme } from '@mui/material'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { spacing } from '@renderer/theme/spacing'
+import { Device } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 import desktopImageUrl from '../../../../../assets/desktop.png'
 import mobileImageUrl from '../../../../../assets/mobile.png'
 import { Button } from './Button'
 import { Text } from './Text'
-import { Peer } from '.'
 
 const SHARED_CONTAINER_STYLES = {
   maxWidth: '400px',
@@ -38,7 +38,7 @@ const Container = ({ pressable, children }: React.PropsWithChildren<{ pressable?
 
 interface Props {
   dateText?: string
-  deviceType: Peer['deviceType']
+  deviceType: Device['deviceType']
   pressableAction?: React.ReactNode
   subtitle?: string
   title: string

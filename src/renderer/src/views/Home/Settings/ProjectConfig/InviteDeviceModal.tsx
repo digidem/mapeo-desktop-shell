@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import styled from '@emotion/styled'
 import { Dialog, DialogActions, DialogContent, DialogTitle, useTheme } from '@mui/material'
@@ -11,32 +10,27 @@ import { Text } from './Text'
 import { Button } from './Button'
 import { PeerCard } from './PeerCard'
 import { PressableText } from './PressableText'
-import { Peer } from '.'
+import { useMapeoDeviceNonMembersListIds } from '@renderer/hooks/useMapeoDeviceList'
+import { useMapeoDevice } from '@renderer/hooks/useMapeoDevice'
+import { Device } from '@renderer/hooks/stores/mapeoDeviceStore'
 
-interface Props {
-  open: boolean
-  onClose: () => void
+const NonMemberPeerCard = ({ id, onClick }: { id: string; onClick: (d: Device) => void }) => {
+  const { device } = useMapeoDevice(id)
+  return (
+    <PeerCard
+      title={device.name}
+      subtitle={device.deviceId}
+      deviceType={device.deviceType}
+      onClick={() => onClick(device)}
+    />
+  )
 }
 
-export const InviteDeviceModal = ({ open, onClose }: Props) => {
+export const InviteDeviceModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
 
-  const [peers] = React.useState<Peer[]>(() => {
-    return Array(10)
-      .fill(null)
-      .map((_, index) => {
-        const displayedNumber = index + 1
-        const deviceType = Math.random() > 0.75 ? 'desktop' : 'mobile'
-
-        return {
-          id: `peer-${displayedNumber}`,
-          deviceType,
-          name: `Peer ${displayedNumber} `,
-          deviceId: `${deviceType === 'desktop' ? 'Desktop' : 'Android'} Device ${displayedNumber}`,
-        }
-      })
-  })
+  const nonMemberDevices = useMapeoDeviceNonMembersListIds()
 
   return (
     <Dialog
@@ -94,14 +88,8 @@ export const InviteDeviceModal = ({ open, onClose }: Props) => {
             flex={1}
             spacing={spacing.medium}
           >
-            {peers.map((p) => (
-              <PeerCard
-                key={p.id}
-                title={p.name}
-                subtitle={p.deviceId}
-                deviceType={p.deviceType}
-                onClick={() => {}}
-              />
+            {nonMemberDevices.map((id) => (
+              <NonMemberPeerCard key={id} id={id} onClick={() => {}} />
             ))}
           </Column>
         </Row>
