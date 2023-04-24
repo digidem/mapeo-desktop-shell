@@ -7,6 +7,7 @@ import { defineMessages, useIntl } from 'react-intl'
 import { Link } from 'react-router-dom'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { Column, Row } from '@renderer/components/LayoutComponents'
+import { LeaveProjectModal } from '@renderer/components/LeaveProjectModal'
 
 export const IndexView = () => {
   const theme = useTheme()
@@ -18,6 +19,7 @@ export const IndexView = () => {
       <Typography variant="h1" color={'white'} align="center">
         {intl.formatMessage(messages.title)}
       </Typography>
+      <LeaveProjectModal projectName="Project Catapult" />
 
       <Row sx={{ mt: 8 }} spacing={15}>
         <TestGroupColumn title={intl.formatMessage(messages.migration)}>

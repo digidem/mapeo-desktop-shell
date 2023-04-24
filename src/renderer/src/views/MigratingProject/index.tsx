@@ -5,19 +5,16 @@ import { Logo, Mapeo5Logo } from '@renderer/components/Logo'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 
 const INTERVAL_DURATION = 250
 
-type LocationState = { observations: number; media: number }
-
 export const MigratingProjectView = () => {
   const theme = useTheme()
-  const { state } = useLocation()
-  const locationState = state as LocationState
   const intl = useIntl()
-  const observationsTotal = locationState.observations
-  const mediaTotal = locationState.media
+  const observationsTotal = OBSERVATIONS
+  const mediaTotal = MEDIA
   const total = observationsTotal + mediaTotal
   const [observationsMigrated, setObservationsMigrated] = useState(0)
   const [mediaMigrated, setMediaMigrated] = useState(0)

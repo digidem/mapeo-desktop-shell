@@ -3,13 +3,15 @@ import CategoryIcon from '@mui/icons-material/Category'
 import { Button } from '@renderer/components/Button'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'
 import { Column, Row } from '@renderer/components/LayoutComponents'
+import { DefaultLayout } from '@renderer/layouts/default'
 import { defineMessages, useIntl } from 'react-intl'
 import { appStrings } from '../../../../common/config/messages'
-import { BoldSpan } from './styles'
+import { Logo } from '../../components/Logo'
+import { BoldSpan, Contents } from './styles'
+import { OBSERVATIONS, MEDIA } from '@renderer/lib/Observations'
 import { useState } from 'react'
 import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 import { Link } from 'react-router-dom'
-import { OnboardingLayout } from '@renderer/layouts/Onboarding'
 
 const PROJECT_KEY = '2023R**********'
 const CONFIG_ADDRESS = 'mapeoconf.v3'
@@ -17,55 +19,72 @@ const CONFIG_ADDRESS = 'mapeoconf.v3'
 export const MigrationView = () => {
   const intl = useIntl()
   const theme = useTheme()
-  const observations = Math.floor(Math.random() * 100)
-  const media = Math.floor(Math.random() * 100)
   const [skipModalOpen, setSkipModalOpen] = useState(false)
 
   const appTitle = intl.formatMessage(appStrings.appTitle)
 
   return (
-    <OnboardingLayout>
+    <DefaultLayout langBackgroundVarient="dark">
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
-      <Column sx={{ bgcolor: theme.white, flex: 1 }} justifyContent={'space-between'}>
-        <Column spacing={3}>
-          <span>
-            <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
-            <Typography variant="h1">{appTitle}</Typography>
-          </span>
-          <Typography variant="h2">{intl.formatMessage(messages.migratePreviousTitle)}</Typography>
-        </Column>
-        <Column spacing={6}>
+      <Row sx={{ height: '100vh' }}>
+        <Column
+          sx={{ bgcolor: theme.background, flex: 1, padding: '6em 8em 3em 8em' }}
+          justifyContent={'space-between'}
+        >
           <Column spacing={3}>
-            <Typography variant="body1">{intl.formatMessage(messages.migratePreviousInstruction)}</Typography>
-            <Column component="ul" spacing={2}>
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction2, { appTitle })} />
+            <span>
+              <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
+              <Typography variant="h1">{appTitle}</Typography>
+            </span>
+            <Typography variant="h2">{intl.formatMessage(messages.migratePreviousTitle)}</Typography>
+          </Column>
+          <Column spacing={6}>
+            <Column spacing={3}>
+              <Typography variant="body1">
+                {intl.formatMessage(messages.migratePreviousInstruction)}
+              </Typography>
+              <Column component="ul" spacing={2}>
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction2, { appTitle })} />
+              </Column>
             </Column>
           </Column>
+          <DetailsCard
+            projectKey={PROJECT_KEY}
+            configAddress={CONFIG_ADDRESS}
+            observations={OBSERVATIONS}
+            images={MEDIA}
+          />
+          <Row justifyContent="space-between" alignItems="flex-start">
+            <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
+              {intl.formatMessage(messages.skipMigration)}
+            </Button>
+            <Column alignItems="flex-end" spacing={1}>
+              <Link to="/migrating-project">
+                <Button onClick={() => null} variant="contained" disableElevation>
+                  {intl.formatMessage(messages.migrate)}
+                </Button>
+              </Link>
+              <Typography variant="caption" component="label">
+                {intl.formatMessage(messages.migrateInfo)}
+              </Typography>
+            </Column>
+          </Row>
         </Column>
-        <DetailsCard
-          projectKey={PROJECT_KEY}
-          configAddress={CONFIG_ADDRESS}
-          observations={observations}
-          images={media}
-        />
-        <Row justifyContent="space-between" alignItems="flex-start">
-          <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
-            {intl.formatMessage(messages.skipMigration)}
-          </Button>
-          <Column alignItems="flex-end" spacing={1}>
-            <Link to="/migrating-project" state={{ observations: observations, media: media }}>
-              <Button onClick={() => null} variant="contained" disableElevation>
-                {intl.formatMessage(messages.migrate)}
-              </Button>
-            </Link>
-            <Typography variant="caption" component="label">
-              {intl.formatMessage(messages.migrateInfo)}
-            </Typography>
-          </Column>
-        </Row>
-      </Column>
-    </OnboardingLayout>
+
+        <Contents
+          sx={{
+            height: '100%',
+            flex: 1,
+            backgroundColor: theme.primary,
+            flexDirection: 'column',
+            padding: '6em 8em',
+          }}
+        >
+          <Logo />
+        </Contents>
+      </Row>
+    </DefaultLayout>
   )
 }
 
