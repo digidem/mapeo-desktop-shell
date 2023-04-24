@@ -15,8 +15,9 @@ import { appStrings } from '../../../../common/config/messages'
 import { OnboardingLayout } from '@renderer/layouts/Onboarding'
 import { useState } from 'react'
 import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
-import { CreatProjectModal } from '@renderer/components/CreateProjectModal'
+import { CreateProjectModal } from '@renderer/components/CreateProjectModal'
 import { FormLabel } from '@renderer/components/FormLabel'
+import { JoinProjectModal } from '@renderer/components/JoinProjectModal'
 
 export const MigrationNoDataView = () => {
   const intl = useIntl()
@@ -24,6 +25,7 @@ export const MigrationNoDataView = () => {
   const [previouslyMapeoUser, setIsPrevMapeoUser] = useState<boolean | undefined>()
   const [skipModalOpen, setSkipModalOpen] = useState(false)
   const [createProjectModalOpen, setCreateProjectModalOpen] = useState(false)
+  const [joinProjectModalOpen, setJoinProjectModalOpen] = useState(false)
 
   const getRadioValue = () => {
     if (previouslyMapeoUser === true) return 'yes'
@@ -40,10 +42,14 @@ export const MigrationNoDataView = () => {
   return (
     <>
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
-      <CreatProjectModal
+      <CreateProjectModal
         open={createProjectModalOpen}
         onClose={() => setCreateProjectModalOpen(false)}
-      ></CreatProjectModal>
+      ></CreateProjectModal>
+      <JoinProjectModal
+        open={joinProjectModalOpen}
+        onClose={() => setJoinProjectModalOpen(false)}
+      ></JoinProjectModal>
       <OnboardingLayout>
         <Column justifyContent="space-between" height={'100%'}>
           <Column spacing={5}>
@@ -73,7 +79,10 @@ export const MigrationNoDataView = () => {
             </Column>
             {previouslyMapeoUser ? <YesInfoCallout /> : null}
             {previouslyMapeoUser === false ? (
-              <NoCards onClickCreateProject={() => setCreateProjectModalOpen(true)} />
+              <NoCards
+                onClickJoinProject={() => setJoinProjectModalOpen(true)}
+                onClickCreateProject={() => setCreateProjectModalOpen(true)}
+              />
             ) : null}
           </Column>
 
@@ -118,7 +127,13 @@ const YesInfoCallout = () => {
   )
 }
 
-const NoCards = ({ onClickCreateProject }: { onClickCreateProject: () => void }) => {
+const NoCards = ({
+  onClickCreateProject,
+  onClickJoinProject,
+}: {
+  onClickCreateProject: () => void
+  onClickJoinProject: () => void
+}) => {
   const intl = useIntl()
 
   return (
@@ -133,7 +148,7 @@ const NoCards = ({ onClickCreateProject }: { onClickCreateProject: () => void })
           </Typography>
         </Column>
       </OptionCard>
-      <OptionCard>
+      <OptionCard onClick={onClickJoinProject}>
         <Column>
           <Typography variant="h3" component="label">
             {intl.formatMessage(messages.joinProjectTitle)}

@@ -68,6 +68,12 @@
   "modals.createProject.yes": {
     "message": "Yes"
   },
+  "modals.joinProject.buttonClose": {
+    "message": "Close"
+  },
+  "modals.joinProject.title": {
+    "message": "Join Project"
+  },
   "views.Home.Sidebar.observations": {
     "message": "Observations"
   },
