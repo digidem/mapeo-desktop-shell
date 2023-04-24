@@ -20,6 +20,75 @@
   "components.skipMigrationModal.title": {
     "message": "Skip Migration"
   },
+  "views.Home.Settings.ProjectConfig.ConfigSection.config": {
+    "message": "Config"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.edit": {
+    "message": "Edit"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.importConfig": {
+    "message": "Import Config"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.learnMore": {
+    "message": "Learn More"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.newProjectInfo": {
+    "message": "To create or join a new project you will have to leave your current project. Your data can not be transferred to the new project."
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
+    "message": "Project Name"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
+    "message": "Coordinators"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.description": {
+    "message": "Invite other devices to your project to start syncing and sharing data"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.invite": {
+    "message": "Invite"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.leaveProject": {
+    "message": "Leave Project"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.participants": {
+    "message": "Participants"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice": {
+    "message": "This Device!"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.title": {
+    "message": "Manage Team"
+  },
+  "views.Home.Settings.ProjectConfig.index.joinProject": {
+    "message": "Join Project"
+  },
+  "views.Home.Settings.ProjectConfig.index.title": {
+    "message": "Project Configuration"
+  },
+  "views.Home.Settings.index.aboutSubtitle": {
+    "message": "Version and build number"
+  },
+  "views.Home.Settings.index.aboutTitle": {
+    "message": "About"
+  },
+  "views.Home.Settings.index.coordinatesSubtitle": {
+    "message": "UTM, Lat/Long, DMS"
+  },
+  "views.Home.Settings.index.coordinatesTitle": {
+    "message": "Coordinate System"
+  },
+  "views.Home.Settings.index.languageSubtitle": {
+    "message": "Display language for App"
+  },
+  "views.Home.Settings.index.languageTitle": {
+    "message": "Language"
+  },
+  "views.Home.Settings.index.projectSubtitle": {
+    "message": "Categories, icons and questions"
+  },
+  "views.Home.Settings.index.projectTitle": {
+    "message": "Project Configuration"
+  },
   "views.Home.Sidebar.observations": {
     "message": "Observations"
   },
