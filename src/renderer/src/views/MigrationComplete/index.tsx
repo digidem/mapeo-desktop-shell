@@ -5,6 +5,7 @@ import { Logo } from '@renderer/components/Logo'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
+import { useNavigate } from 'react-router-dom'
 
 const NAME_MAX_CHARS = 30
 const CONFIG_NAME = 'my-special-config-20.mapeoconfig'
@@ -12,6 +13,7 @@ const CONFIG_NAME = 'my-special-config-20.mapeoconfig'
 export const MigrationCompleteView = () => {
   const theme = useTheme()
   const intl = useIntl()
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [formError, setFormError] = useState(false)
 
@@ -23,6 +25,9 @@ export const MigrationCompleteView = () => {
 
   const handleClickFinish = () => {
     if (!name) setFormError(true)
+    else {
+      navigate('/home', { state: { defaultTab: 'observations' } })
+    }
   }
 
   return (
