@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { defineMessages, useIntl } from 'react-intl'
-import styled from '@emotion/styled'
 import { useTheme } from '@mui/material'
 import PersonAddIcon from '@mui/icons-material/PersonAddAltOutlined'
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
+import GroupIcon from '@mui/icons-material/Group'
 import { Column, Row } from '@renderer/components/LayoutComponents'
-import { OFF_BLACK } from '@renderer/theme'
 import { spacing } from '@renderer/theme/spacing'
 import { MemberDevice } from '@renderer/hooks/stores/mapeoDeviceStore'
 import { useMapeoDeviceMembers } from '@renderer/hooks/useMapeoMembersList'
@@ -44,16 +44,6 @@ const m = defineMessages({
     defaultMessage: 'This Device!',
   },
 })
-
-const BlackSquarePlaceholder = styled.div(
-  ({ rotated }: { rotated?: boolean }) => `
-  width: 30px;
-  height: 30px;
-  background-color: ${OFF_BLACK};
-  margin-inline-end: ${spacing.medium};
-  ${rotated ? 'transform: rotate(45deg);' : undefined}
-`,
-)
 
 const MemberCard = ({ member }: { member: MemberDevice }) => {
   const { formatMessage: t } = useIntl()
@@ -122,8 +112,8 @@ export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void
       </Column>
       <Column paddingY={spacing.large} spacing={spacing.large}>
         <Column spacing={spacing.large}>
-          <Row alignItems="center">
-            <BlackSquarePlaceholder />
+          <Row alignItems="center" spacing={spacing.small}>
+            <ManageAccountsIcon fontSize="large" htmlColor={theme.black} />
             <Text size="medium" fontWeight="600">
               {t(m.coordinators)}
             </Text>
@@ -135,8 +125,8 @@ export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void
           </Column>
         </Column>
         <Column spacing={spacing.large}>
-          <Row alignItems="center">
-            <BlackSquarePlaceholder rotated />
+          <Row alignItems="center" spacing={spacing.small}>
+            <GroupIcon fontSize="large" htmlColor={theme.black} />
             <Text size="medium" fontWeight="600">
               {t(m.participants)}
             </Text>
