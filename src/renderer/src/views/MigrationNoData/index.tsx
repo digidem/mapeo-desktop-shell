@@ -82,7 +82,7 @@ export const MigrationNoDataView = () => {
                 </RadioGroup>
               </Column>
             )}
-            {shouldUsePreviousMapeoData && !hasLeftProject ? <YesInfoCallout /> : null}
+            {shouldUsePreviousMapeoData === 'yes' && !hasLeftProject ? <YesInfoCallout /> : null}
             {shouldUsePreviousMapeoData === 'no' ? (
               <NoCards
                 onClickJoinProject={() => setJoinProjectModalOpen(true)}
