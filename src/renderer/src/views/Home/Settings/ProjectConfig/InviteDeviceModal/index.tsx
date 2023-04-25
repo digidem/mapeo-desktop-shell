@@ -5,14 +5,14 @@ import LaunchIcon from '@mui/icons-material/Launch'
 import WifiIcon from '@mui/icons-material/Wifi'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { spacing } from '@renderer/theme/spacing'
-
-import { Text } from './Text'
-import { Button } from './Button'
-import { PeerCard } from './PeerCard'
-import { PressableText } from './PressableText'
 import { useMapeoDeviceNonMembersListIds } from '@renderer/hooks/useMapeoDeviceList'
 import { useMapeoDevice } from '@renderer/hooks/useMapeoDevice'
 import { Device } from '@renderer/hooks/stores/mapeoDeviceStore'
+
+import { Text } from '../Text'
+import { Button } from '../Button'
+import { PeerCard } from '../PeerCard'
+import { PressableText } from '../PressableText'
 
 const NonMemberPeerCard = ({ id, onClick }: { id: string; onClick: (d: Device) => void }) => {
   const { device } = useMapeoDevice(id)
