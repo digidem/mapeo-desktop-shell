@@ -24,7 +24,7 @@ export const IndexView = () => {
           <CardLink number={1} to="/init-migration" title={intl.formatMessage(messages.dataIsDetected)} />
           <CardLink
             number={2}
-            to="/"
+            to="/migration-no-data"
             title={intl.formatMessage<ReactNode>(messages.dataNotDetected, {
               bold: (str) => <strong>{str}</strong>,
             })}

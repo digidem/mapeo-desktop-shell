@@ -5,8 +5,7 @@ import { Logo, Mapeo5Logo } from '@renderer/components/Logo'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
-import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const INTERVAL_DURATION = 250
 
@@ -122,8 +121,9 @@ export const MigratingProjectView = () => {
             borderColor: theme.grey.light,
           }}
         >
-          <Link to="/migration-complete">
+          <Link to="/home">
             <Button
+              onClick={() => {}}
               variant="contained"
               color="secondary"
               disableElevation
