@@ -1,4 +1,7 @@
 {
+  "components.LeaveProjectModal.DeleteData.close": {
+    "message": "Close"
+  },
   "components.LeaveProjectModal.DeleteData.deletedData": {
     "message": "Deleted {observations}/{observations} observations and {data}mb of data"
   },
@@ -53,6 +56,60 @@
   "components.skipMigrationModal.title": {
     "message": "Skip Migration"
   },
+  "modals.createProject.buttonClose": {
+    "message": "Close"
+  },
+  "modals.createProject.buttonCreateProject": {
+    "message": "Create Project"
+  },
+  "modals.createProject.deviceNameFieldLabel": {
+    "message": "Add a name for your device"
+  },
+  "modals.createProject.deviceNameFieldPlaceholder": {
+    "message": "Device Name"
+  },
+  "modals.createProject.deviceNameRequired": {
+    "message": "Please enter a device name"
+  },
+  "modals.createProject.no": {
+    "message": "No"
+  },
+  "modals.createProject.projectConfig": {
+    "message": "Project Config"
+  },
+  "modals.createProject.projectConfigCaption": {
+    "message": "Optional. You can import a config any time."
+  },
+  "modals.createProject.projectConfigImportButton": {
+    "message": "Import Config"
+  },
+  "modals.createProject.projectNameFieldLabel": {
+    "message": "Enter a name for the Project"
+  },
+  "modals.createProject.projectNameFieldPlaceholder": {
+    "message": "Project Name"
+  },
+  "modals.createProject.projectNameRequired": {
+    "message": "Please enter a project name"
+  },
+  "modals.createProject.question1": {
+    "message": "Can Participants see other team members' observations?"
+  },
+  "modals.createProject.question2": {
+    "message": "Can Participants edit other team members' observations?"
+  },
+  "modals.createProject.title": {
+    "message": "Create a Project"
+  },
+  "modals.createProject.yes": {
+    "message": "Yes"
+  },
+  "modals.joinProject.buttonClose": {
+    "message": "Close"
+  },
+  "modals.joinProject.title": {
+    "message": "Join Project"
+  },
   "views.Home.Settings.ProjectConfig.ConfigSection.config": {
     "message": "Config"
   },
@@ -70,6 +127,27 @@
   },
   "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
     "message": "Project Name"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.cancel": {
+    "message": "Cancel"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.learnMore": {
+    "message": "Learn more"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.noDevicePrompt": {
+    "message": "Not seeing a device?"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.noDeviceSuggestion1": {
+    "message": "Make sure both devices are on the same wifi network"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.noDeviceSuggestion2": {
+    "message": "Make sure both devices are on the same version of Mapeo"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.selectDevice": {
+    "message": "Select a device to invite"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.title": {
+    "message": "Invite Device"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
     "message": "Coordinators"
@@ -181,5 +259,89 @@
   },
   "views.migration.welcomeTitle": {
     "message": "Welcome to"
+  },
+  "views.migrationComplete.enterProjectName": {
+    "message": "Enter a name for your Project"
+  },
+  "views.migrationComplete.finish": {
+    "message": "Finish"
+  },
+  "views.migrationComplete.importedConfig": {
+    "message": "Imported Config"
+  },
+  "views.migrationComplete.importedConfigCaption": {
+    "message": "You will be able to update the config after you migrate."
+  },
+  "views.migrationComplete.noNameErrorMessage": {
+    "message": "Please enter a name for your project"
+  },
+  "views.migrationComplete.projectNamePlaceholder": {
+    "message": "Project Name"
+  },
+  "views.migrationNoData.calloutLink": {
+    "message": "Mapeo Support Materials"
+  },
+  "views.migrationNoData.calloutText": {
+    "message": "Your previous Mapeo data will not be visible in the new Mapeo applications until you migrate your data. To start, sync the data on your mobile device with the previous version of Mapeo."
+  },
+  "views.migrationNoData.createProjectSubtitle": {
+    "message": "Start a new Mapeo Project"
+  },
+  "views.migrationNoData.createProjectTitle": {
+    "message": "Create a Project"
+  },
+  "views.migrationNoData.joinProjectSubtitle": {
+    "message": "Join an existing Mapeo Project"
+  },
+  "views.migrationNoData.joinProjectTitle": {
+    "message": "Join a Project"
+  },
+  "views.migrationNoData.message": {
+    "message": "We are excited for you to experience the updated Mapeo."
+  },
+  "views.migrationNoData.message2": {
+    "message": "One quick question before you get started:"
+  },
+  "views.migrationNoData.no": {
+    "message": "No"
+  },
+  "views.migrationNoData.noPathMessage": {
+    "message": "Great, let's get started!"
+  },
+  "views.migrationNoData.question": {
+    "message": "Have you used a previous version of Mapeo?"
+  },
+  "views.migrationNoData.questionCaption": {
+    "message": "This could be an earlier version of Mapeo on deskop or mobile. Versions 5x and earlier."
+  },
+  "views.migrationNoData.seeMigrationSteps": {
+    "message": "See Migration Steps"
+  },
+  "views.migrationNoData.skipMigration": {
+    "message": "Skip Migration"
+  },
+  "views.migrationNoData.welcomeTitle": {
+    "message": "Welcome to"
+  },
+  "views.migrationNoData.yes": {
+    "message": "Yes"
+  },
+  "views.navigation.dataIsDetected": {
+    "message": "Mapeo Data Is Detected"
+  },
+  "views.navigation.dataNotDetected": {
+    "message": "Mapeo Is <bold>Not</bold> Detected"
+  },
+  "views.navigation.invitation": {
+    "message": "Invitation"
+  },
+  "views.navigation.inviteDevice": {
+    "message": "Invite Device"
+  },
+  "views.navigation.migration": {
+    "message": "Migration"
+  },
+  "views.navigation.title": {
+    "message": "Mapeo Desktop Testing"
   }
 }
