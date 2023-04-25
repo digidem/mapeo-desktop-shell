@@ -9,8 +9,9 @@ export const OFF_BLACK = '#333333'
 export const MIDNIGHT_BLUE = '#000033'
 export const MID_BLUE = '#19337F'
 export const WARNING_RED = '#D92222'
-export const GREY_LIGHT = '#EEEEEE'
+export const GREY_LIGHT = '#E6E6E6'
 export const GREY = '#707070'
+export const GREY_BLUE = '#CCCCD6'
 export const GREEN = '#59A553'
 
 export const FONT_FAM_TITLE = `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
@@ -30,6 +31,7 @@ declare module '@mui/material/styles' {
     grey: {
       light: React.CSSProperties['color']
       main: React.CSSProperties['color']
+      mid: React.CSSProperties['color']
     }
     blue: {
       main: React.CSSProperties['color']
@@ -51,6 +53,7 @@ declare module '@mui/material/styles' {
     grey: {
       light: React.CSSProperties['color']
       main: React.CSSProperties['color']
+      mid: React.CSSProperties['color']
     }
     blue: {
       main: React.CSSProperties['color']
@@ -106,6 +109,7 @@ export const theme = createTheme({
     caption: {
       color: GREY,
       fontFamily: FONT_FAM_BODY,
+      fontSize: 14,
     },
     fontFamily: [
       'Rubik',
@@ -136,10 +140,12 @@ export const theme = createTheme({
   grey: {
     light: GREY_LIGHT,
     main: GREY,
+    mid: GREY_BLUE,
   },
   palette: {
     primary: { main: MAPEO_BLUE },
     secondary: { main: MID_BLUE },
+    warning: { main: WARNING_RED },
   },
   components: {
     MuiButtonBase: {

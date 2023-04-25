@@ -4,16 +4,17 @@ type DeviceType = 'mobile' | 'desktop'
 
 export type Role = 'coordinator' | 'participant'
 
-type Device = {
+export type Device = {
   name: string
   deviceId: string
   deviceType: DeviceType
   pastDeviceNames?: string[]
+  isSelf?: true
 }
 
-type MemberDevice = {
+export type MemberDevice = {
   role: Role
-  dateAdded: Date
+  dateAdded: number
 } & Device
 
 type MapeoDeviceState = {
@@ -27,8 +28,8 @@ type MapeoDeviceState = {
 }
 
 export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
-  nonMemberDevices: createRandomDevices(),
-  memberDevices: {},
+  nonMemberDevices: createRandomDevices(4, 10),
+  memberDevices: createRandomMembers(createRandomDevices(3, 5, true)),
   actions: {
     addDeviceToProject: (deviceId, role) =>
       set((state) => {
@@ -49,7 +50,7 @@ export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
             [deviceId]: {
               ...deviceToBeAdded,
               role,
-              dateAdded: new Date(),
+              dateAdded: Date.now(),
             },
           },
         }
@@ -86,8 +87,8 @@ export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
 
 export const useMapeoDeviceStoreAction = () => useMapeoDeviceStore((store) => store.actions)
 
-function createRandomDevices() {
-  const numberOfDevices = Math.floor(Math.random() * (15 - 4 + 1)) + 4
+function createRandomDevices(min: number, max: number, includeSelf = false) {
+  const numberOfDevices = randomInteger(min, max)
   let mapeoDevices: Record<string, Device> = {}
 
   for (let i = 1; i <= numberOfDevices; i++) {
@@ -95,8 +96,28 @@ function createRandomDevices() {
       name: `Peer ${i}`,
       deviceId: i.toString(),
       deviceType: Math.random() > 0.6 ? 'desktop' : 'mobile',
+      isSelf: (includeSelf && i === 1) || undefined,
     }
   }
 
   return mapeoDevices
+}
+
+function createRandomMembers(devices: Record<string, Device>) {
+  const members: Record<string, MemberDevice> = {}
+
+  for (const id of Object.keys(devices)) {
+    const device = devices[id]
+    members[id] = {
+      ...device,
+      role: device.isSelf || Math.random() > 0.8 ? 'coordinator' : 'participant',
+      dateAdded: Date.now(),
+    }
+  }
+
+  return members
+}
+
+function randomInteger(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
