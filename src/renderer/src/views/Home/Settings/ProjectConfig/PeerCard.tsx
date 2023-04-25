@@ -16,11 +16,17 @@ const SHARED_CONTAINER_STYLES = {
   padding: spacing.large,
 }
 
-const Container = ({ pressable, children }: React.PropsWithChildren<{ pressable?: boolean }>) => {
+const Container = ({
+  pressable,
+  onClick,
+  children,
+}: React.PropsWithChildren<{ pressable?: boolean; onClick?: () => void }>) => {
   const theme = useTheme()
 
   return pressable ? (
-    <Button sx={SHARED_CONTAINER_STYLES}>{children}</Button>
+    <Button sx={SHARED_CONTAINER_STYLES} onClick={onClick}>
+      {children}
+    </Button>
   ) : (
     <Row
       padding={spacing.large}
@@ -48,7 +54,7 @@ interface Props {
 export const PeerCard = ({ dateText, deviceType, pressableAction, subtitle, title, onClick }: Props) => {
   const theme = useTheme()
   return (
-    <Container pressable={!!onClick}>
+    <Container pressable={!!onClick} onClick={onClick}>
       <Column marginRight={spacing.medium}>
         <img
           src={deviceType === 'desktop' ? desktopImageUrl : mobileImageUrl}

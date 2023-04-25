@@ -92,26 +92,26 @@
   "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
     "message": "Project Name"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.cancel": {
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.cancel": {
     "message": "Cancel"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.learnMore": {
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
+    "message": "Invite Device"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.learnMore": {
     "message": "Learn more"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.noDevicePrompt": {
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDevicePrompt": {
     "message": "Not seeing a device?"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.noDeviceSuggestion1": {
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDeviceSuggestion1": {
     "message": "Make sure both devices are on the same wifi network"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.noDeviceSuggestion2": {
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDeviceSuggestion2": {
     "message": "Make sure both devices are on the same version of Mapeo"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.selectDevice": {
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.selectDevice": {
     "message": "Select a device to invite"
-  },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.title": {
-    "message": "Invite Device"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
     "message": "Coordinators"
