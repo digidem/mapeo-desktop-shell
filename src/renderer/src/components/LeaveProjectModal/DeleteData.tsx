@@ -27,8 +27,6 @@ export const DeleteData = ({ setToSuccess, projectName }: DeleteDataProps) => {
 
   const completed = progress >= 100
 
-  console.log(progress)
-
   useEffect(() => {
     interval.current = setInterval(() => {
       setProgress((value) => value + 1)
@@ -39,14 +37,13 @@ export const DeleteData = ({ setToSuccess, projectName }: DeleteDataProps) => {
     }
   }, [])
 
-  useEffect(() => {
-    if (completed) {
-      clearInterval(interval.current)
-      setTimeout(() => {
-        setToSuccess()
-      }, 1000)
-    }
-  }, [completed])
+  if (completed && interval.current) {
+    clearInterval(interval.current)
+    interval.current = undefined
+    setTimeout(() => {
+      setToSuccess()
+    }, 1000)
+  }
 
   return (
     <Column sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
