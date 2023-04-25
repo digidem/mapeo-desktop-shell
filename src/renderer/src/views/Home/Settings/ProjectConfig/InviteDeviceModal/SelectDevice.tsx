@@ -12,7 +12,7 @@ import { Text } from '../Text'
 import { PeerCard } from '../PeerCard'
 import { PressableText } from '../PressableText'
 
-export const SelectDevice = ({ onDeviceClick }: { onDeviceClick: (device: Device) => void }) => {
+export const SelectDevice = ({ onDeviceClick }: { onDeviceClick: (deviceId: string) => void }) => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
   const nonMemberDeviceIds = useMapeoDeviceNonMembersListIds()
@@ -46,7 +46,7 @@ export const SelectDevice = ({ onDeviceClick }: { onDeviceClick: (device: Device
         spacing={spacing.medium}
       >
         {nonMemberDeviceIds.map((id) => (
-          <NonMemberPeerCard key={id} id={id} onClick={onDeviceClick} />
+          <NonMemberPeerCard key={id} id={id} onClick={() => onDeviceClick(id)} />
         ))}
       </Column>
     </Row>

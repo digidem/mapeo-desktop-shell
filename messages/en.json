@@ -113,6 +113,21 @@
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.selectDevice": {
     "message": "Select a device to invite"
   },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.coordinatorDescription": {
+    "message": "As a Coordinator this device can invite and remove users, and manage project details."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.coordinatorTitle": {
+    "message": "Coordinator"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantDescription": {
+    "message": "As a Participant this device can take and share observations. They cannot manage users or project details."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantTitle": {
+    "message": "Participant"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.selectRole": {
+    "message": "Select a Role for this Device"
+  },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
     "message": "Coordinators"
   },
