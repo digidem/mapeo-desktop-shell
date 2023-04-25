@@ -164,6 +164,9 @@
   "views.Home.Settings.ProjectConfig.ManageTeamSection.participants": {
     "message": "Participants"
   },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice": {
+    "message": "This Device!"
+  },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.title": {
     "message": "Manage Team"
   },
