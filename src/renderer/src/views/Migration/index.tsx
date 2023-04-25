@@ -3,16 +3,14 @@ import CategoryIcon from '@mui/icons-material/Category'
 import { Button } from '@renderer/components/Button'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'
 import { Column, Row } from '@renderer/components/LayoutComponents'
-import { DefaultLayout } from '@renderer/layouts/default'
 import { defineMessages, useIntl } from 'react-intl'
 import { appStrings } from '../../../../common/config/messages'
-import { Logo } from '../../components/Logo'
 import { BoldSpan } from './styles'
-import { OBSERVATIONS, MEDIA } from '@renderer/lib/Observations'
 import { useState } from 'react'
 import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 import { Link } from 'react-router-dom'
-import { Contents } from '@renderer/layouts/Onboarding'
+import { OnboardingLayout } from '@renderer/layouts/Onboarding'
+import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 
 const PROJECT_KEY = '2023R**********'
 const CONFIG_ADDRESS = 'mapeoconf.v3'
@@ -25,67 +23,43 @@ export const MigrationView = () => {
   const appTitle = intl.formatMessage(appStrings.appTitle)
 
   return (
-    <DefaultLayout langBackgroundVarient="dark">
+    <OnboardingLayout>
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
-      <Row sx={{ height: '100vh' }}>
-        <Column
-          sx={{ bgcolor: theme.background, flex: 1, padding: '6em 8em 3em 8em' }}
-          justifyContent={'space-between'}
-        >
-          <Column spacing={3}>
-            <span>
-              <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
-              <Typography variant="h1">{appTitle}</Typography>
-            </span>
-            <Typography variant="h2">{intl.formatMessage(messages.migratePreviousTitle)}</Typography>
-          </Column>
-          <Column spacing={6}>
-            <Column spacing={3}>
-              <Typography variant="body1">
-                {intl.formatMessage(messages.migratePreviousInstruction)}
-              </Typography>
-              <Column component="ul" spacing={2}>
-                <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
-                <CheckItem message={intl.formatMessage(messages.migrateInstruction2, { appTitle })} />
-              </Column>
-            </Column>
-          </Column>
-          <DetailsCard
-            projectKey={PROJECT_KEY}
-            configAddress={CONFIG_ADDRESS}
-            observations={OBSERVATIONS}
-            images={MEDIA}
-          />
-          <Row justifyContent="space-between" alignItems="flex-start">
-            <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
-              {intl.formatMessage(messages.skipMigration)}
-            </Button>
-            <Column alignItems="flex-end" spacing={1}>
-              <Link to="/migrating-project">
-                <Button onClick={() => null} variant="contained" disableElevation>
-                  {intl.formatMessage(messages.migrate)}
-                </Button>
-              </Link>
-              <Typography variant="caption" component="label">
-                {intl.formatMessage(messages.migrateInfo)}
-              </Typography>
-            </Column>
-          </Row>
+      <Column sx={{ bgcolor: theme.white, flex: 1 }} justifyContent={'space-between'}>
+        <Column spacing={3}>
+          <span>
+            <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
+            <Typography variant="h1">{appTitle}</Typography>
+          </span>
+          <Typography variant="h2">{intl.formatMessage(messages.migratePreviousTitle)}</Typography>
         </Column>
-
-        <Contents
-          sx={{
-            height: '100%',
-            flex: 1,
-            backgroundColor: theme.primary,
-            flexDirection: 'column',
-            padding: '6em 8em',
-          }}
-        >
-          <Logo />
-        </Contents>
-      </Row>
-    </DefaultLayout>
+        <Column spacing={6}>
+          <Column spacing={3}>
+            <Typography variant="body1">{intl.formatMessage(messages.migratePreviousInstruction)}</Typography>
+            <Column component="ul" spacing={2}>
+              <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
+              <CheckItem message={intl.formatMessage(messages.migrateInstruction2, { appTitle })} />
+            </Column>
+          </Column>
+        </Column>
+        <DetailsCard projectKey={PROJECT_KEY} configAddress={CONFIG_ADDRESS} />
+        <Row justifyContent="space-between" alignItems="flex-start">
+          <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
+            {intl.formatMessage(messages.skipMigration)}
+          </Button>
+          <Column alignItems="flex-end" spacing={1}>
+            <Link to="/migrating-project">
+              <Button onClick={() => null} variant="contained" disableElevation>
+                {intl.formatMessage(messages.migrate)}
+              </Button>
+            </Link>
+            <Typography variant="caption" component="label">
+              {intl.formatMessage(messages.migrateInfo)}
+            </Typography>
+          </Column>
+        </Row>
+      </Column>
+    </OnboardingLayout>
   )
 }
 
@@ -101,10 +75,6 @@ const CheckItem = ({ message }: { message: string }) => {
 type DetailsHeaderProps = {
   projectKey: string
   configAddress: string
-}
-type DetailProps = DetailsHeaderProps & {
-  observations: number
-  images: number
 }
 
 const DetailsCardHeader = ({ projectKey, configAddress }: DetailsHeaderProps) => {
@@ -126,7 +96,7 @@ const DetailsCardHeader = ({ projectKey, configAddress }: DetailsHeaderProps) =>
   )
 }
 
-const DetailsCard = ({ projectKey, configAddress, observations, images }: DetailProps) => {
+const DetailsCard = ({ projectKey, configAddress }: DetailsHeaderProps) => {
   const theme = useTheme()
   const intl = useIntl()
 
@@ -141,13 +111,13 @@ const DetailsCard = ({ projectKey, configAddress, observations, images }: Detail
           <Row spacing={3} alignItems="center">
             <CategoryIcon fontSize="large" />
             <Typography variant="body1" fontSize="large" sx={{ color: theme.grey.main }}>
-              {observations} {intl.formatMessage(messages.observations)}
+              {OBSERVATIONS} {intl.formatMessage(messages.observations)}
             </Typography>
           </Row>
           <Row spacing={3} alignItems="center">
             <PhotoCameraIcon fontSize="large" />
             <Typography variant="body1" fontSize="large" sx={{ color: theme.grey.main }}>
-              {images} {intl.formatMessage(messages.images)}
+              {MEDIA} {intl.formatMessage(messages.images)}
             </Typography>
           </Row>
         </Column>
