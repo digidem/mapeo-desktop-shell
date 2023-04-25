@@ -14,6 +14,7 @@ import mobileImageUrl from '../../../../../assets/mobile.png'
 import { PressableText } from './PressableText'
 import { Text } from './Text'
 import { Button, ButtonText } from './Button'
+import { LeaveProjectModal } from '@renderer/components/LeaveProjectModal'
 
 const m = defineMessages({
   title: {
@@ -52,7 +53,13 @@ const BlackSquarePlaceholder = styled.div(
 `,
 )
 
-const MemberCard = ({ member }: { member: MemberDevice }) => {
+const MemberCard = ({
+  member,
+  openLeaveProjectModal,
+}: {
+  member: MemberDevice
+  openLeaveProjectModal: () => void
+}) => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
   return (
@@ -87,7 +94,7 @@ const MemberCard = ({ member }: { member: MemberDevice }) => {
             {member.isSelf ? 'This Device!' : member.deviceId}
           </Text>
           {member.isSelf && (
-            <PressableText destructive onClick={() => {}}>
+            <PressableText destructive onClick={openLeaveProjectModal}>
               {t(m.leaveProject)}
             </PressableText>
           )}
@@ -100,6 +107,7 @@ const MemberCard = ({ member }: { member: MemberDevice }) => {
 export const ManageTeamSection = () => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
+  const [leaveProjectModalOpen, setLeaveProjectModalOpen] = React.useState(false)
 
   const members = useMapeoDeviceMembers()
 
@@ -119,57 +127,72 @@ export const ManageTeamSection = () => {
   }, [members])
 
   return (
-    <Column padding={spacing.large} sx={{ backgroundColor: theme.background }} flex={1}>
-      <Column spacing={spacing.medium}>
-        <Column spacing={spacing.small}>
-          <Row>
-            <Text variant="h2" size="medium" fontWeight="600">
-              {t(m.title)}
-            </Text>
-          </Row>
-          <Row>
-            <Text size="medium" variant="body1">
-              {t(m.description)}
-            </Text>
-          </Row>
-        </Column>
-        <Row>
-          <Button variant="outlined" onClick={() => {}}>
-            <Row spacing={spacing.small} alignItems="center">
-              <PersonAddIcon sx={{ fontSize: '18px' }} />
-              <ButtonText>{t(m.invite)}</ButtonText>
+    <React.Fragment>
+      <Column padding={spacing.large} sx={{ backgroundColor: theme.background }} flex={1}>
+        <Column spacing={spacing.medium}>
+          <Column spacing={spacing.small}>
+            <Row>
+              <Text variant="h2" size="medium" fontWeight="600">
+                {t(m.title)}
+              </Text>
             </Row>
-          </Button>
-        </Row>
-      </Column>
-      <Column paddingY={spacing.large} spacing={spacing.large}>
-        <Column spacing={spacing.large}>
-          <Row alignItems="center">
-            <BlackSquarePlaceholder />
-            <Text size="medium" fontWeight="600">
-              {t(m.coordinators)}
-            </Text>
+            <Row>
+              <Text size="medium" variant="body1">
+                {t(m.description)}
+              </Text>
+            </Row>
+          </Column>
+          <Row>
+            <Button variant="outlined" onClick={() => {}}>
+              <Row spacing={spacing.small} alignItems="center">
+                <PersonAddIcon sx={{ fontSize: '18px' }} />
+                <ButtonText>{t(m.invite)}</ButtonText>
+              </Row>
+            </Button>
           </Row>
-          <Column spacing={spacing.medium}>
-            {coordinators.map((c) => (
-              <MemberCard key={c.deviceId} member={c} />
-            ))}
+        </Column>
+        <Column paddingY={spacing.large} spacing={spacing.large}>
+          <Column spacing={spacing.large}>
+            <Row alignItems="center">
+              <BlackSquarePlaceholder />
+              <Text size="medium" fontWeight="600">
+                {t(m.coordinators)}
+              </Text>
+            </Row>
+            <Column spacing={spacing.medium}>
+              {coordinators.map((c) => (
+                <MemberCard
+                  key={c.deviceId}
+                  member={c}
+                  openLeaveProjectModal={() => setLeaveProjectModalOpen(true)}
+                />
+              ))}
+            </Column>
+          </Column>
+          <Column spacing={spacing.large}>
+            <Row alignItems="center">
+              <BlackSquarePlaceholder rotated />
+              <Text size="medium" fontWeight="600">
+                {t(m.participants)}
+              </Text>
+            </Row>
+            <Column spacing={spacing.medium}>
+              {participants.map((p) => (
+                <MemberCard
+                  key={p.deviceId}
+                  openLeaveProjectModal={() => setLeaveProjectModalOpen(true)}
+                  member={p}
+                />
+              ))}
+            </Column>
           </Column>
         </Column>
-        <Column spacing={spacing.large}>
-          <Row alignItems="center">
-            <BlackSquarePlaceholder rotated />
-            <Text size="medium" fontWeight="600">
-              {t(m.participants)}
-            </Text>
-          </Row>
-          <Column spacing={spacing.medium}>
-            {participants.map((p) => (
-              <MemberCard key={p.deviceId} member={p} />
-            ))}
-          </Column>
-        </Column>
       </Column>
-    </Column>
+      <LeaveProjectModal
+        closeModal={() => setLeaveProjectModalOpen(false)}
+        isOpen={leaveProjectModalOpen}
+        projectName="catapult"
+      />
+    </React.Fragment>
   )
 }

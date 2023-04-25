@@ -5,15 +5,15 @@ import { DeleteData } from './DeleteData'
 import { SuccessfulLeave } from './SuccessfulLeave'
 
 type LeaveProjectModalProps = {
-  isOpen?: boolean
-  close?: () => void
+  isOpen: boolean
+  closeModal: () => void
   projectName: string
 }
 
-export const LeaveProjectModal = ({ projectName }: LeaveProjectModalProps) => {
+export const LeaveProjectModal = ({ isOpen, closeModal, projectName }: LeaveProjectModalProps) => {
   function handleCloseDialog(event?: Record<string, never>, reason?: 'escapeKeyDown' | 'backdropClick') {
     if (reason === 'backdropClick' || reason === 'escapeKeyDown') return
-    //close()
+    closeModal()
   }
 
   const [modalContent, setModalContent] = useState<'confirmation' | 'deleteData' | 'successfulLeave'>(
@@ -21,7 +21,7 @@ export const LeaveProjectModal = ({ projectName }: LeaveProjectModalProps) => {
   )
 
   return (
-    <Dialog open={true} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
+    <Dialog open={isOpen} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
       {modalContent === 'confirmation' && (
         <LeaveProjectConfirmation
           projectName={projectName}
