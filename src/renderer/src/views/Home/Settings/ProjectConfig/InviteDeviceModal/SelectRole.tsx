@@ -70,9 +70,15 @@ const RoleSelectionButton = ({
   return (
     <Button onClick={onClick} variant="outlined" sx={{ padding: 0 }}>
       <Column>
-        <Row spacing={spacing.large} justifyContent="center" alignItems="center" padding={spacing.large}>
-          <RoleIcon fontSize="large" htmlColor={theme.black} />
-          <Column maxWidth="500px" justifyContent="flex-start" textAlign="start">
+        <Row
+          spacing={spacing.large}
+          justifyContent="center"
+          alignItems="center"
+          paddingY={spacing.large}
+          paddingX="72px"
+        >
+          <RoleIcon sx={{ fontSize: '48px' }} htmlColor={theme.black} />
+          <Column maxWidth="400px" justifyContent="flex-start" textAlign="start">
             <Text size="large" fontWeight="500">
               {title}
             </Text>
