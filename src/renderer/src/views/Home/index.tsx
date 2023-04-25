@@ -7,6 +7,7 @@ import { Box } from '@mui/material'
 import { Sidebar } from './Sidebar'
 import { TabPanel } from './TabPanel'
 import { Settings } from './Settings'
+import { useLocation } from 'react-router-dom'
 
 const GridContainer = styled.div(`
   flex: 1;
@@ -37,8 +38,12 @@ interface Props {
   showBottomBar?: boolean
 }
 
+type LocationState = { defaultTab: PanelName }
+
 export const Home = ({ showBottomBar }: Props) => {
-  const [activePanel, setPanelName] = React.useState<PanelName>('territory')
+  const { state } = useLocation()
+  const tabState = state as LocationState
+  const [activePanel, setPanelName] = React.useState<PanelName>(tabState?.defaultTab || 'territory')
 
   return (
     <Box minHeight="100vh" display="flex" flex={1}>
