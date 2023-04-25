@@ -90,6 +90,7 @@ export const theme = createTheme({
     body1: {},
     caption: {
       color: GREY,
+      fontSize: 14,
     },
     fontFamily: [
       'Rubik',

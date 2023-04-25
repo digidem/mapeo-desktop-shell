@@ -227,6 +227,24 @@
   "views.migration.welcomeTitle": {
     "message": "Welcome to"
   },
+  "views.migrationComplete.enterProjectName": {
+    "message": "Enter a name for your Project"
+  },
+  "views.migrationComplete.finish": {
+    "message": "Finish"
+  },
+  "views.migrationComplete.importedConfig": {
+    "message": "Imported Config"
+  },
+  "views.migrationComplete.importedConfigCaption": {
+    "message": "You will be able to update the config after you migrate."
+  },
+  "views.migrationComplete.noNameErrorMessage": {
+    "message": "Please enter a name for your project"
+  },
+  "views.migrationComplete.projectNamePlaceholder": {
+    "message": "Project Name"
+  },
   "views.migrationNoData.calloutLink": {
     "message": "Mapeo Support Materials"
   },
