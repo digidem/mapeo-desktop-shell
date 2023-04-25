@@ -17,7 +17,7 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
   }
 
   return (
-    <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
+    <Dialog open={open} onClose={handleCloseDialog} maxWidth="xl" fullWidth scroll="body">
       <Column justifyContent="space-between" alignItems="stretch">
         <Column sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
           <Row justifyContent="center">
