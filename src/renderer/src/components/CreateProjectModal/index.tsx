@@ -29,15 +29,19 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
   const [deviceName, setDeviceName] = useState('')
   const [projectNameError, setProjectNameError] = useState('')
   const [deviceNameError, setDeviceNameError] = useState('')
+  const [shouldBeVisibleError, setShouldBeVisibleError] = useState('')
+  const [observationsEditableError, setObservationsEditableError] = useState('')
   const [teamMembersShouldBeVisible, setTeamMembersShouldBeVisible] = useState<boolean | undefined>()
   const [teamMembersObservationsEditable, setTeamMembersObservationsEditable] = useState<
     boolean | undefined
   >()
 
   const handleTeamMembersVisibleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setShouldBeVisibleError('')
     setTeamMembersShouldBeVisible((event.target as HTMLInputElement).value === 'yes' ? true : false)
   }
   const handleObservationsEditableChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setObservationsEditableError('')
     setTeamMembersObservationsEditable((event.target as HTMLInputElement).value === 'yes' ? true : false)
   }
 
@@ -55,7 +59,23 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
       setDeviceNameError(intl.formatMessage(messages.deviceNameRequired))
     }
 
-    if (projectName && deviceName) {
+    const teamMembersShouldBeVisibleIsSet = typeof teamMembersShouldBeVisible !== 'undefined'
+    const teamMembersObservationsEditableIsSet = typeof teamMembersObservationsEditable !== 'undefined'
+
+    if (!teamMembersShouldBeVisibleIsSet) {
+      setShouldBeVisibleError(intl.formatMessage(messages.deviceNameRequired))
+    }
+
+    if (!teamMembersObservationsEditableIsSet) {
+      setObservationsEditableError(intl.formatMessage(messages.deviceNameRequired))
+    }
+
+    if (
+      projectName &&
+      deviceName &&
+      teamMembersShouldBeVisibleIsSet &&
+      teamMembersObservationsEditableIsSet
+    ) {
       navigate('/') // Should navigate to app in observation mode, but not available in this branch yet.
     }
   }
@@ -110,15 +130,32 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
             <Column component="span">
               <FormLabel required>{intl.formatMessage(messages.question1)}</FormLabel>
               <RadioGroup value={teamMembersShouldBeVisible} onChange={handleTeamMembersVisibleChange}>
-                <FormControlLabel value="yes" control={<Radio />} label={intl.formatMessage(messages.yes)} />
-                <FormControlLabel value="no" control={<Radio />} label={intl.formatMessage(messages.no)} />
+                <FormControlLabel
+                  color="error"
+                  value="yes"
+                  control={<Radio sx={shouldBeVisibleError ? { color: theme.warningRed } : {}} />}
+                  label={intl.formatMessage(messages.yes)}
+                />
+                <FormControlLabel
+                  value="no"
+                  control={<Radio sx={shouldBeVisibleError ? { color: theme.warningRed } : {}} />}
+                  label={intl.formatMessage(messages.no)}
+                />
               </RadioGroup>
             </Column>
             <Column component="span">
               <FormLabel required>{intl.formatMessage(messages.question2)}</FormLabel>
               <RadioGroup value={teamMembersObservationsEditable} onChange={handleObservationsEditableChange}>
-                <FormControlLabel value="yes" control={<Radio />} label={intl.formatMessage(messages.yes)} />
-                <FormControlLabel value="no" control={<Radio />} label={intl.formatMessage(messages.no)} />
+                <FormControlLabel
+                  value="yes"
+                  control={<Radio sx={observationsEditableError ? { color: theme.warningRed } : {}} />}
+                  label={intl.formatMessage(messages.yes)}
+                />
+                <FormControlLabel
+                  value="no"
+                  control={<Radio sx={observationsEditableError ? { color: theme.warningRed } : {}} />}
+                  label={intl.formatMessage(messages.no)}
+                />
               </RadioGroup>
             </Column>
 
