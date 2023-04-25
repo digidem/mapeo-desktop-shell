@@ -3,6 +3,7 @@ import { Column, Row } from '../LayoutComponents'
 import { defineMessages, useIntl } from 'react-intl'
 import { MEDIA } from '@renderer/lib/Observations'
 import { useEffect, useRef, useState } from 'react'
+import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const m = defineMessages({
   leaveProject: {
@@ -17,13 +18,13 @@ const m = defineMessages({
 
 type DeleteDataProps = {
   setToSuccess: () => void
-  projectName: string
 }
 
-export const DeleteData = ({ setToSuccess, projectName }: DeleteDataProps) => {
+export const DeleteData = ({ setToSuccess }: DeleteDataProps) => {
   const { formatMessage: t } = useIntl()
   const [progress, setProgress] = useState(0)
   const interval = useRef<NodeJS.Timeout>()
+  const projectName = useMapeoDeviceStore((store) => store.projectName)
 
   const completed = progress >= 100
 

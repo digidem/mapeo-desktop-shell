@@ -20,16 +20,19 @@ export type MemberDevice = {
 type MapeoDeviceState = {
   nonMemberDevices: Record<Device['deviceId'], Device>
   memberDevices: Record<MemberDevice['deviceId'], MemberDevice>
+  projectName: string
   actions: {
     addDeviceToProject: (deviceId: string, role: Role) => void
     removeDeviceFromProject: (deviceId: string) => void
     changeDeviceRole: (deviceId: string, newRole: Role) => void
+    setProjectName: (name: string) => void
   }
 }
 
 export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
   nonMemberDevices: createRandomDevices(4, 10),
   memberDevices: createRandomMembers(createRandomDevices(3, 5, true)),
+  projectName: 'Catapult',
   actions: {
     addDeviceToProject: (deviceId, role) =>
       set((state) => {
@@ -82,6 +85,7 @@ export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => ({
           memberDevices: { ...state.memberDevices, [deviceId]: { ...deviceToBeChanged, role: newRole } },
         }
       }),
+    setProjectName: (name) => set(() => ({ projectName: name })),
   },
 }))
 

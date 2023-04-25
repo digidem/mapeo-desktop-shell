@@ -6,6 +6,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { theme } from '@renderer/theme'
 import { Button } from '../Button'
 import { Link, redirect } from 'react-router-dom'
+import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const m = defineMessages({
   leftProject: {
@@ -22,12 +23,9 @@ const m = defineMessages({
   },
 })
 
-type SuccessfulLeaveProps = {
-  projectName: string
-}
-
-export const SuccessfulLeave = ({ projectName }: SuccessfulLeaveProps) => {
+export const SuccessfulLeave = () => {
   const { formatMessage: t } = useIntl()
+  const projectName = useMapeoDeviceStore((store) => store.projectName)
 
   return (
     <Column

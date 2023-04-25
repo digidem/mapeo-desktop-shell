@@ -7,11 +7,12 @@ import { Button } from '../Button'
 import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 import { useState } from 'react'
 import { theme } from '@renderer/theme'
+import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const m = defineMessages({
   leaveConfirmation: {
     id: 'components.LeaveProjectModal.leaveConfirmation',
-    defaultMessage: 'Are you sure you want to leave {projectName}',
+    defaultMessage: 'Are you sure you want to leave project {projectName}',
   },
   deleteWarning: {
     id: 'components.LeaveProjectModal.deleteWarning',
@@ -28,7 +29,7 @@ const m = defineMessages({
   },
   checkConfirmation: {
     id: 'components.LeaveProjectModal.checkConfirmation',
-    defaultMessage: 'I understand I will be deleting all data from Project Catapult from my device',
+    defaultMessage: 'I understand I will be deleting all data from Project {name} from my device',
   },
   leaveProject: {
     id: 'components.LeaveProjectModal.leaveProject',
@@ -42,17 +43,14 @@ const m = defineMessages({
 
 type LeaveProjectModalProps = {
   close?: () => void
-  projectName: string
   moveToDeleteDataContent: () => void
 }
 
-export const LeaveProjectConfirmation = ({
-  projectName,
-  moveToDeleteDataContent,
-}: LeaveProjectModalProps) => {
+export const LeaveProjectConfirmation = ({ moveToDeleteDataContent }: LeaveProjectModalProps) => {
   const { formatMessage: t } = useIntl()
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [error, setError] = useState(false)
+  const projectName = useMapeoDeviceStore((store) => store.projectName)
 
   function validateAndLeaveProject() {
     if (!confirmDelete) {
@@ -104,7 +102,7 @@ export const LeaveProjectConfirmation = ({
         </Column>
         <Column>
           <Typography style={error ? { color: theme.warningRed } : undefined} variant="body1" fontSize={16}>
-            {t(m.checkConfirmation)}
+            {t(m.checkConfirmation, { name: projectName })}
           </Typography>
         </Column>
       </Row>

@@ -7,10 +7,9 @@ import { SuccessfulLeave } from './SuccessfulLeave'
 type LeaveProjectModalProps = {
   isOpen: boolean
   closeModal: () => void
-  projectName: string
 }
 
-export const LeaveProjectModal = ({ isOpen, closeModal, projectName }: LeaveProjectModalProps) => {
+export const LeaveProjectModal = ({ isOpen, closeModal }: LeaveProjectModalProps) => {
   function handleCloseDialog(event?: Record<string, never>, reason?: 'escapeKeyDown' | 'backdropClick') {
     if (reason === 'backdropClick' || reason === 'escapeKeyDown') return
     closeModal()
@@ -24,7 +23,6 @@ export const LeaveProjectModal = ({ isOpen, closeModal, projectName }: LeaveProj
     <Dialog open={isOpen} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
       {modalContent === 'confirmation' && (
         <LeaveProjectConfirmation
-          projectName={projectName}
           moveToDeleteDataContent={() => {
             setModalContent('deleteData')
           }}
@@ -36,11 +34,10 @@ export const LeaveProjectModal = ({ isOpen, closeModal, projectName }: LeaveProj
           setToSuccess={() => {
             setModalContent('successfulLeave')
           }}
-          projectName={projectName}
         />
       )}
 
-      {modalContent === 'successfulLeave' && <SuccessfulLeave projectName={projectName} />}
+      {modalContent === 'successfulLeave' && <SuccessfulLeave />}
     </Dialog>
   )
 }
