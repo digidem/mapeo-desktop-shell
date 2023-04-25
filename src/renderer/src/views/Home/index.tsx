@@ -2,12 +2,13 @@ import * as React from 'react'
 
 import styled from '@emotion/styled'
 import { theme } from '@renderer/theme'
+import { Box } from '@mui/material'
 
 import { Sidebar } from './Sidebar'
 import { TabPanel } from './TabPanel'
-import { DefaultLayout } from '@renderer/layouts/default'
+import { Settings } from './Settings'
 
-const Container = styled.div(`
+const GridContainer = styled.div(`
   flex: 1;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -40,8 +41,8 @@ export const Home = ({ showBottomBar }: Props) => {
   const [activePanel, setPanelName] = React.useState<PanelName>('territory')
 
   return (
-    <DefaultLayout sx={{ display: 'flex', position: 'relative' }}>
-      <Container>
+    <Box minHeight="100vh" display="flex" flex={1}>
+      <GridContainer>
         <SidebarGridSection>
           <Sidebar activeTab={activePanel} onChangeTab={setPanelName} />
         </SidebarGridSection>
@@ -49,14 +50,16 @@ export const Home = ({ showBottomBar }: Props) => {
           <TabPanel active={activePanel === 'territory'}>Territory</TabPanel>
           <TabPanel active={activePanel === 'observations'}>Observations</TabPanel>
           <TabPanel active={activePanel === 'sync'}>Sync</TabPanel>
-          <TabPanel active={activePanel === 'settings'}>Settings</TabPanel>
+          <TabPanel active={activePanel === 'settings'}>
+            <Settings />
+          </TabPanel>
         </MainGridSection>
         {showBottomBar && (
           <BottomBarGridSection>
             <div style={{ height: 30 }} />
           </BottomBarGridSection>
         )}
-      </Container>
-    </DefaultLayout>
+      </GridContainer>
+    </Box>
   )
 }
