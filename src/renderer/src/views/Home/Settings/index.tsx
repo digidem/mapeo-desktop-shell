@@ -71,7 +71,7 @@ const SettingsPanelContainer = styled.div(`
 `)
 
 export const Settings = () => {
-  const [activeTab, setActiveTab] = React.useState<SettingsTabName>('project')
+  const [activeTab, setActiveTab] = React.useState<SettingsTabName>('language')
 
   const { formatMessage: t } = useIntl()
 
