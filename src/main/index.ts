@@ -1,11 +1,13 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
+let mainWindow
+
 const createWindow = (): void => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     minWidth: 400,
@@ -34,6 +36,8 @@ const createWindow = (): void => {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  mainWindow.webContents.send
 }
 
 // This method will be called when Electron has finished
@@ -57,6 +61,9 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+  const menu = Menu.buildFromTemplate(menuTemplate)
+  Menu.setApplicationMenu(menu)
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -76,3 +83,74 @@ ipcMain.handle('get-locale', () => {
 
   return lang
 })
+
+const menuTemplate = [
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Testing Home',
+        click() {
+          navigate('/')
+        },
+      },
+      { type: 'separator' },
+      {
+        label: 'Mapeo Data Is Detected',
+        click() {
+          navigate('/init-migration')
+        },
+      },
+      {
+        label: 'Mapeo Is Not Detected',
+        click() {
+          navigate('/migration-no-data')
+        },
+      },
+      {
+        label: 'Invite Device',
+        click() {
+          navigate('/home')
+        },
+      },
+    ],
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      {
+        label: 'Cut',
+        accelerator: 'CmdOrCtrl+X',
+        role: 'cut',
+      },
+      {
+        label: 'Copy',
+        accelerator: 'CmdOrCtrl+C',
+        role: 'copy',
+      },
+      {
+        label: 'Paste',
+        accelerator: 'CmdOrCtrl+V',
+        role: 'paste',
+      },
+    ],
+  },
+  {
+    label: 'View',
+    submenu: [
+      { role: 'reload' },
+      { role: 'forceReload' },
+      { role: 'toggleDevTools' },
+      { type: 'separator' },
+      { role: 'resetZoom' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' },
+      { type: 'separator' },
+      { role: 'togglefullscreen' },
+    ],
+  },
+] as MenuItemConstructorOptions[]
+
+const navigate = (to: string) => {
+  mainWindow.webContents.send('navigate', to)
+}
