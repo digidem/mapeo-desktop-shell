@@ -36,7 +36,6 @@ export type PanelName = 'territory' | 'observations' | 'sync' | 'settings'
 
 interface Props {
   showBottomBar?: boolean
-  defaultTab: PanelName
 }
 
 type LocationState = { defaultTab: PanelName }

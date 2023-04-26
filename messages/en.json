@@ -1,4 +1,40 @@
 {
+  "components.LeaveProjectModal.DeleteData.close": {
+    "message": "Close"
+  },
+  "components.LeaveProjectModal.DeleteData.deletedData": {
+    "message": "Deleted {observations}/{observations} observations and {data}mb of data"
+  },
+  "components.LeaveProjectModal.DeleteData.deletingData": {
+    "message": "Deleting {data}mb of data"
+  },
+  "components.LeaveProjectModal.DeleteData.leaveProject": {
+    "message": "Leaving Project {projectName}"
+  },
+  "components.LeaveProjectModal.DeleteData.leftProject": {
+    "message": "You have left Project {projectName}"
+  },
+  "components.LeaveProjectModal.cancel": {
+    "message": "Cancel"
+  },
+  "components.LeaveProjectModal.checkConfirmation": {
+    "message": "I understand I will be deleting all data from Project {name} from my device"
+  },
+  "components.LeaveProjectModal.deleteWarning": {
+    "message": "This will delete {observations} observations and {mediaSize}mb of data from this device."
+  },
+  "components.LeaveProjectModal.leaveConfirmation": {
+    "message": "Are you sure you want to leave project {projectName}"
+  },
+  "components.LeaveProjectModal.leaveProject": {
+    "message": "Leave Project"
+  },
+  "components.LeaveProjectModal.unsyncedWarningMessage": {
+    "message": "Sync with a team member so you don’t lose these edits or observations"
+  },
+  "components.LeaveProjectModal.unsyncedWarningTitle": {
+    "message": "5 unsynced changes"
+  },
   "components.skipMigrationModal.buttonCancel": {
     "message": "Cancel"
   },

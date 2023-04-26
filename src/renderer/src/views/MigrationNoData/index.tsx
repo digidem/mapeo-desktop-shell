@@ -18,23 +18,26 @@ import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 import { CreateProjectModal } from '@renderer/components/CreateProjectModal'
 import { FormLabel } from '@renderer/components/FormLabel'
 import { JoinProjectModal } from '@renderer/components/JoinProjectModal'
+import { useLocation } from 'react-router-dom'
+
+type LocationState = { hasLeftProject?: boolean }
+
+type ShouldUsePreviousMapeoData = 'yes' | 'no'
 
 export const MigrationNoDataView = () => {
   const intl = useIntl()
   const theme = useTheme()
-  const [previouslyMapeoUser, setIsPrevMapeoUser] = useState<boolean | undefined>()
+  const { state } = useLocation()
+  const { hasLeftProject } = state as LocationState
+  const [shouldUsePreviousMapeoData, setShouldUsePreviousMapeoData] = useState<
+    ShouldUsePreviousMapeoData | undefined
+  >(hasLeftProject ? 'no' : undefined)
   const [skipModalOpen, setSkipModalOpen] = useState(false)
   const [createProjectModalOpen, setCreateProjectModalOpen] = useState(false)
   const [joinProjectModalOpen, setJoinProjectModalOpen] = useState(false)
 
-  const getRadioValue = () => {
-    if (previouslyMapeoUser === true) return 'yes'
-    if (previouslyMapeoUser === false) return 'no'
-    return null
-  }
-
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsPrevMapeoUser((event.target as HTMLInputElement).value === 'yes' ? true : false)
+    setShouldUsePreviousMapeoData(event.target.value as ShouldUsePreviousMapeoData)
   }
 
   const appTitle = intl.formatMessage(appStrings.appTitle)
@@ -62,23 +65,25 @@ export const MigrationNoDataView = () => {
               <Typography variant="body1">{intl.formatMessage(messages.message2)}</Typography>
             </span>
 
-            <Column component="span">
-              <FormLabel sx={{ fontWeight: 700, color: theme.foreground }} required>
-                {intl.formatMessage(messages.question)}
-              </FormLabel>
-              <Typography variant="caption">{intl.formatMessage(messages.questionCaption)}</Typography>
-              <RadioGroup row value={getRadioValue()} onChange={handleRadioChange}>
-                <FormControlLabel
-                  value="yes"
-                  sx={{ mr: 4 }}
-                  control={<Radio />}
-                  label={intl.formatMessage(messages.yes)}
-                />
-                <FormControlLabel value="no" control={<Radio />} label={intl.formatMessage(messages.no)} />
-              </RadioGroup>
-            </Column>
-            {previouslyMapeoUser ? <YesInfoCallout /> : null}
-            {previouslyMapeoUser === false ? (
+            {!hasLeftProject && (
+              <Column component="span">
+                <FormLabel sx={{ fontWeight: 700, color: theme.foreground }} required>
+                  {intl.formatMessage(messages.question)}
+                </FormLabel>
+                <Typography variant="caption">{intl.formatMessage(messages.questionCaption)}</Typography>
+                <RadioGroup row value={shouldUsePreviousMapeoData} onChange={handleRadioChange}>
+                  <FormControlLabel
+                    value="yes"
+                    sx={{ mr: 4 }}
+                    control={<Radio />}
+                    label={intl.formatMessage(messages.yes)}
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label={intl.formatMessage(messages.no)} />
+                </RadioGroup>
+              </Column>
+            )}
+            {shouldUsePreviousMapeoData === 'yes' && !hasLeftProject ? <YesInfoCallout /> : null}
+            {shouldUsePreviousMapeoData === 'no' ? (
               <NoCards
                 onClickJoinProject={() => setJoinProjectModalOpen(true)}
                 onClickCreateProject={() => setCreateProjectModalOpen(true)}
@@ -86,7 +91,7 @@ export const MigrationNoDataView = () => {
             ) : null}
           </Column>
 
-          {previouslyMapeoUser && (
+          {shouldUsePreviousMapeoData === 'yes' && (
             <Row justifyContent="space-between" alignItems="flex-start">
               <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
                 {intl.formatMessage(messages.skipMigration)}

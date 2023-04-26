@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { SkipMigrationModal } from '@renderer/components/SkipMigrationModal'
 import { Link } from 'react-router-dom'
 import { OnboardingLayout } from '@renderer/layouts/Onboarding'
+import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 
 const PROJECT_KEY = '2023R**********'
 const CONFIG_ADDRESS = 'mapeoconf.v3'
@@ -17,8 +18,6 @@ const CONFIG_ADDRESS = 'mapeoconf.v3'
 export const MigrationView = () => {
   const intl = useIntl()
   const theme = useTheme()
-  const observations = Math.floor(Math.random() * 100)
-  const media = Math.floor(Math.random() * 100)
   const [skipModalOpen, setSkipModalOpen] = useState(false)
 
   const appTitle = intl.formatMessage(appStrings.appTitle)
@@ -43,18 +42,13 @@ export const MigrationView = () => {
             </Column>
           </Column>
         </Column>
-        <DetailsCard
-          projectKey={PROJECT_KEY}
-          configAddress={CONFIG_ADDRESS}
-          observations={observations}
-          images={media}
-        />
+        <DetailsCard projectKey={PROJECT_KEY} configAddress={CONFIG_ADDRESS} />
         <Row justifyContent="space-between" alignItems="flex-start">
           <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
             {intl.formatMessage(messages.skipMigration)}
           </Button>
           <Column alignItems="flex-end" spacing={1}>
-            <Link to="/migrating-project" state={{ observations: observations, media: media }}>
+            <Link to="/migrating-project">
               <Button onClick={() => null} variant="contained" disableElevation>
                 {intl.formatMessage(messages.migrate)}
               </Button>
@@ -82,10 +76,6 @@ type DetailsHeaderProps = {
   projectKey: string
   configAddress: string
 }
-type DetailProps = DetailsHeaderProps & {
-  observations: number
-  images: number
-}
 
 const DetailsCardHeader = ({ projectKey, configAddress }: DetailsHeaderProps) => {
   const intl = useIntl()
@@ -106,7 +96,7 @@ const DetailsCardHeader = ({ projectKey, configAddress }: DetailsHeaderProps) =>
   )
 }
 
-const DetailsCard = ({ projectKey, configAddress, observations, images }: DetailProps) => {
+const DetailsCard = ({ projectKey, configAddress }: DetailsHeaderProps) => {
   const theme = useTheme()
   const intl = useIntl()
 
@@ -121,13 +111,13 @@ const DetailsCard = ({ projectKey, configAddress, observations, images }: Detail
           <Row spacing={3} alignItems="center">
             <CategoryIcon fontSize="large" />
             <Typography variant="body1" fontSize="large" sx={{ color: theme.grey.main }}>
-              {observations} {intl.formatMessage(messages.observations)}
+              {OBSERVATIONS} {intl.formatMessage(messages.observations)}
             </Typography>
           </Row>
           <Row spacing={3} alignItems="center">
             <PhotoCameraIcon fontSize="large" />
             <Typography variant="body1" fontSize="large" sx={{ color: theme.grey.main }}>
-              {images} {intl.formatMessage(messages.images)}
+              {MEDIA} {intl.formatMessage(messages.images)}
             </Typography>
           </Row>
         </Column>
