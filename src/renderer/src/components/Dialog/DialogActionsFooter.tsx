@@ -5,8 +5,8 @@ import { spacing } from '@renderer/theme/spacing'
 
 type Props = {
   justifyContent?: React.CSSProperties['justifyContent']
-} & // At least one of leftButton or rightButton must be provided
-(| {
+} & ( // At least one of leftButton or rightButton must be provided
+  | {
       leftButton?: React.ReactNode
       rightButton: React.ReactNode
     }
@@ -15,6 +15,7 @@ type Props = {
       leftButton: React.ReactNode
     }
 )
+
 export const DialogActionsFooter = ({ justifyContent = 'flex-end', leftButton, rightButton }: Props) => {
   const theme = useTheme()
 
