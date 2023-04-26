@@ -51,7 +51,7 @@ const CardLink = ({ number, title, to }: { number: number; title: string | React
   <StyledLink to={to}>
     <StyledCard>
       <StyledNumBox>
-        <Typography variant="h2" fontWeight={700}>
+        <Typography variant="h2" fontWeight={500}>
           {number}
         </Typography>
       </StyledNumBox>

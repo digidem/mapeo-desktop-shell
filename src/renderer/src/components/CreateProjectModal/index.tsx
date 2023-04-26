@@ -21,6 +21,8 @@ import { useNavigate } from 'react-router-dom'
 const PROJECT_NAME_MAX_LENGTH = 100
 const DEVICE_NAME_MAX_LENGTH = 60
 
+type CheckType = 'yes' | 'no'
+
 export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) => {
   const intl = useIntl()
   const theme = useTheme()
@@ -31,22 +33,32 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
   const [deviceNameError, setDeviceNameError] = useState('')
   const [shouldBeVisibleError, setShouldBeVisibleError] = useState('')
   const [observationsEditableError, setObservationsEditableError] = useState('')
-  const [teamMembersShouldBeVisible, setTeamMembersShouldBeVisible] = useState<boolean | undefined>()
-  const [teamMembersObservationsEditable, setTeamMembersObservationsEditable] = useState<
-    boolean | undefined
-  >()
+  const [teamMembersShouldBeVisible, setTeamMembersShouldBeVisible] = useState<CheckType>()
+  const [teamMembersObservationsEditable, setTeamMembersObservationsEditable] = useState<CheckType>()
 
   const handleTeamMembersVisibleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShouldBeVisibleError('')
-    setTeamMembersShouldBeVisible((event.target as HTMLInputElement).value === 'yes' ? true : false)
+    setTeamMembersShouldBeVisible(event.target.value as CheckType)
   }
   const handleObservationsEditableChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setObservationsEditableError('')
-    setTeamMembersObservationsEditable((event.target as HTMLInputElement).value === 'yes' ? true : false)
+    setTeamMembersObservationsEditable((event.target as HTMLInputElement).value as CheckType)
+  }
+
+  const resetState = () => {
+    setProjectName('')
+    setDeviceName('')
+    setProjectNameError('')
+    setDeviceNameError('')
+    setShouldBeVisibleError('')
+    setObservationsEditableError('')
+    setTeamMembersShouldBeVisible(undefined)
+    setTeamMembersObservationsEditable(undefined)
   }
 
   const handleCloseDialog = (event?: Record<string, never>, reason?: 'escapeKeyDown' | 'backdropClick') => {
     if (reason === 'backdropClick' || reason === 'escapeKeyDown') return
+    resetState()
     onClose()
   }
 
