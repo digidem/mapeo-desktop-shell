@@ -53,14 +53,14 @@ export const SelectDevice = ({ onDeviceClick }: { onDeviceClick: (deviceId: stri
   )
 }
 
-const NonMemberPeerCard = ({ id, onClick }: { id: string; onClick: (d: Device) => void }) => {
+const NonMemberPeerCard = ({ id, onClick }: { id: string; onClick: () => void }) => {
   const { device } = useMapeoDevice(id)
   return (
     <PeerCard
       title={device.name}
       subtitle={device.deviceId}
       deviceType={device.deviceType}
-      onClick={() => onClick(device)}
+      onClick={onClick}
     />
   )
 }
