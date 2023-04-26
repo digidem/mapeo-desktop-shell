@@ -42,11 +42,11 @@ const m = defineMessages({
 })
 
 type LeaveProjectModalProps = {
-  close?: () => void
+  closeModal: () => void
   moveToDeleteDataContent: () => void
 }
 
-export const LeaveProjectConfirmation = ({ moveToDeleteDataContent }: LeaveProjectModalProps) => {
+export const LeaveProjectConfirmation = ({ moveToDeleteDataContent, closeModal }: LeaveProjectModalProps) => {
   const { formatMessage: t } = useIntl()
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [error, setError] = useState(false)
@@ -67,43 +67,56 @@ export const LeaveProjectConfirmation = ({ moveToDeleteDataContent }: LeaveProje
   }
 
   return (
-    <Column sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
-      <ErrorIcon style={{ fontSize: 100 }} />
+    <Column
+      sx={{ padding: 4, pt: '10vh' }}
+      justifyContent="space-between"
+      alignItems="center"
+      height={'100%'}
+    >
       <Row>
-        <Typography variant="h1" fontSize={24} align="center">
-          {t(m.leaveConfirmation, { projectName })}
-        </Typography>
-      </Row>
-      <Row>
-        <Typography variant="h2" fontSize={22} align="center">
-          {t(m.deleteWarning, { observations: OBSERVATIONS, mediaSize: MEDIA * 3 })}
-        </Typography>
-      </Row>
-      <Row alignItems={'center'} padding={2} style={{ backgroundColor: '#F6F6F6' }}>
-        <Column>
-          <WarningAmberIcon style={{ marginRight: 20 }} fontSize="large" />
-        </Column>
-        <Column>
-          <Typography variant="body1" fontSize={16} fontWeight={700}>
-            {t(m.unsyncedWarningTitle)}
-          </Typography>
-          <Typography variant="body1" fontSize={16}>
-            {t(m.unsyncedWarningMessage)}
-          </Typography>
-        </Column>
-      </Row>
-      <Row alignItems={'center'}>
-        <Column>
-          <Checkbox
-            style={error ? { color: theme.warningRed } : undefined}
-            onClick={onClickCheckbox}
-            value={confirmDelete}
-          />
-        </Column>
-        <Column>
-          <Typography style={error ? { color: theme.warningRed } : undefined} variant="body1" fontSize={16}>
-            {t(m.checkConfirmation, { name: projectName })}
-          </Typography>
+        <Column alignItems="center" spacing={4}>
+          <ErrorIcon style={{ fontSize: 100 }} />
+          <Row>
+            <Typography variant="h1" fontSize={24} align="center">
+              {t(m.leaveConfirmation, { projectName })}
+            </Typography>
+          </Row>
+          <Row>
+            <Typography variant="h2" fontSize={22} align="center">
+              {t(m.deleteWarning, { observations: OBSERVATIONS, mediaSize: MEDIA * 3 })}
+            </Typography>
+          </Row>
+          <Row alignItems={'center'} padding={2} style={{ backgroundColor: '#F6F6F6' }}>
+            <Column>
+              <WarningAmberIcon style={{ marginRight: 20 }} fontSize="large" />
+            </Column>
+            <Column>
+              <Typography variant="body1" fontSize={16} fontWeight={700}>
+                {t(m.unsyncedWarningTitle)}
+              </Typography>
+              <Typography variant="body1" fontSize={16}>
+                {t(m.unsyncedWarningMessage)}
+              </Typography>
+            </Column>
+          </Row>
+          <Row alignItems={'center'}>
+            <Column>
+              <Checkbox
+                style={error ? { color: theme.warningRed } : undefined}
+                onClick={onClickCheckbox}
+                value={confirmDelete}
+              />
+            </Column>
+            <Column>
+              <Typography
+                style={error ? { color: theme.warningRed } : undefined}
+                variant="body1"
+                fontSize={16}
+              >
+                {t(m.checkConfirmation, { name: projectName })}
+              </Typography>
+            </Column>
+          </Row>
         </Column>
       </Row>
 
@@ -121,7 +134,7 @@ export const LeaveProjectConfirmation = ({ moveToDeleteDataContent }: LeaveProje
           {t(m.leaveProject)}
         </Button>
 
-        <Button variant="text" onClick={close}>
+        <Button variant="text" onClick={closeModal}>
           {t(m.cancel)}
         </Button>
       </Row>

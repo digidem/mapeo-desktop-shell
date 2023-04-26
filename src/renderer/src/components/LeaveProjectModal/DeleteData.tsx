@@ -47,7 +47,7 @@ export const DeleteData = ({ setToSuccess }: DeleteDataProps) => {
   }
 
   return (
-    <Column sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
+    <Column sx={{ padding: 4, pt: '10vh' }} spacing={6} alignItems="center">
       <Row>
         <Typography variant="h1" fontWeight={500} fontSize={24}>
           {t(m.leaveProject, { projectName })}

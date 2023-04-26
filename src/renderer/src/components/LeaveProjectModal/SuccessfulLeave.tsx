@@ -5,7 +5,7 @@ import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { theme } from '@renderer/theme'
 import { Button } from '../Button'
-import { Link, redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const m = defineMessages({
@@ -29,7 +29,8 @@ export const SuccessfulLeave = () => {
 
   return (
     <Column
-      sx={{ minHeight: '85vh', padding: 4, pt: '10vh' }}
+      sx={{ padding: 4, pt: '10vh' }}
+      height={'100%'}
       spacing={6}
       alignItems="center"
       justifyContent={'space-between'}

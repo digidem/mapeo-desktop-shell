@@ -20,9 +20,17 @@ export const LeaveProjectModal = ({ isOpen, closeModal }: LeaveProjectModalProps
   )
 
   return (
-    <Dialog open={isOpen} onClose={handleCloseDialog} maxWidth="xl" fullWidth>
+    <Dialog
+      open={isOpen}
+      onClose={handleCloseDialog}
+      maxWidth="xl"
+      fullScreen
+      fullWidth
+      sx={{ margin: '24px' }}
+    >
       {modalContent === 'confirmation' && (
         <LeaveProjectConfirmation
+          closeModal={closeModal}
           moveToDeleteDataContent={() => {
             setModalContent('deleteData')
           }}
