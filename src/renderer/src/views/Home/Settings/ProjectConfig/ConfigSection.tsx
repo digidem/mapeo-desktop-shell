@@ -11,6 +11,7 @@ import { spacing } from '@renderer/theme/spacing'
 
 import { Text } from './Text'
 import { PressableText } from './PressableText'
+import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const m = defineMessages({
   projectName: {
@@ -52,6 +53,7 @@ const QuestionIconContainer = styled.div(
 
 export const ConfigSection = () => {
   const { formatMessage: t } = useIntl()
+  const projectName = useMapeoDeviceStore((store) => store.projectName)
   const theme = useTheme()
 
   return (
@@ -69,7 +71,7 @@ export const ConfigSection = () => {
             </Text>
           </Row>
           <Row>
-            <Text size="medium">Catapult</Text>
+            <Text size="medium">{projectName}</Text>
           </Row>
           <Row>
             <PressableText onClick={() => {}} Icon={EditIcon}>
