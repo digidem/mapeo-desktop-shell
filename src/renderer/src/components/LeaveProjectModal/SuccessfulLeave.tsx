@@ -28,14 +28,8 @@ export const SuccessfulLeave = () => {
   const projectName = useMapeoDeviceStore((store) => store.projectName)
 
   return (
-    <Column
-      sx={{ padding: 4, pt: '10vh' }}
-      height={'100%'}
-      spacing={6}
-      alignItems="center"
-      justifyContent={'space-between'}
-    >
-      <Row>
+    <Column height={'100%'} spacing={6} alignItems="center" justifyContent={'space-between'}>
+      <Row sx={{ padding: 4, pt: '10vh' }}>
         <Column spacing={6} alignItems="center">
           <CheckCircleIcon style={{ fontSize: 100 }} />
           <Row>
@@ -53,6 +47,7 @@ export const SuccessfulLeave = () => {
 
       <Row
         justifyContent="flex-end"
+        alignItems="center"
         sx={{
           paddingY: 2,
           paddingX: 4,
@@ -61,7 +56,7 @@ export const SuccessfulLeave = () => {
           width: '100%',
         }}
       >
-        <Link to="/migration-no-data" state={{ hasLeftProject: true }}>
+        <Link to="/migration-no-data" style={{ textDecoration: 'none' }} state={{ hasLeftProject: true }}>
           <Button variant="text" onClick={() => {}}>
             {t(m.close)}
           </Button>

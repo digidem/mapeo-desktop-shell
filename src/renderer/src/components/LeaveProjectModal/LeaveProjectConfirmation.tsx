@@ -67,13 +67,8 @@ export const LeaveProjectConfirmation = ({ moveToDeleteDataContent, closeModal }
   }
 
   return (
-    <Column
-      sx={{ padding: 4, pt: '10vh' }}
-      justifyContent="space-between"
-      alignItems="center"
-      height={'100%'}
-    >
-      <Row>
+    <Column justifyContent="space-between" alignItems="center" height={'100%'}>
+      <Row sx={{ padding: 4, pt: '10vh' }}>
         <Column alignItems="center" spacing={4}>
           <ErrorIcon style={{ fontSize: 100 }} />
           <Row>
@@ -122,6 +117,7 @@ export const LeaveProjectConfirmation = ({ moveToDeleteDataContent, closeModal }
 
       <Row
         justifyContent="space-between"
+        alignItems="center"
         sx={{
           paddingY: 2,
           paddingX: 4,
