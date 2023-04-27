@@ -110,6 +110,9 @@
   "modals.joinProject.title": {
     "message": "Join Project"
   },
+  "view.Home.Settings.ProjectConfig.InviteDeviceModal.index.addAnotherDevice": {
+    "message": "Add Another Device"
+  },
   "views.Home.Settings.ProjectConfig.ConfigSection.config": {
     "message": "Config"
   },
@@ -127,9 +130,6 @@
   },
   "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
     "message": "Project Name"
-  },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.cancel": {
-    "message": "Cancel"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
     "message": "Invite Device"
@@ -163,6 +163,51 @@
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.selectRole": {
     "message": "Select a Role for this Device"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.acceptedMessage": {
+    "message": "Invite Accepted"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.asA": {
+    "message": "as a"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.coordinator": {
+    "message": "Coordinator"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.device": {
+    "message": "Device"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.inviting": {
+    "message": "You are inviting..."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.participant": {
+    "message": "Participant"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.pendingMessage": {
+    "message": "Waiting for Device to Accept Invite"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.role": {
+    "message": "Role"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.sendInvite": {
+    "message": "Send Invite"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.status": {
+    "message": "Status"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.statusAccepted": {
+    "message": "Accepted!"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.statusPending": {
+    "message": "Pending..."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.cancel": {
+    "message": "Cancel"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.cancelInvitation": {
+    "message": "Cancel Invitation"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.close": {
+    "message": "Close"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
     "message": "Coordinators"
