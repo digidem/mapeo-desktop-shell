@@ -2,7 +2,7 @@ import { app, shell, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions } 
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import { createIntl, createIntlCache, defineMessages } from 'react-intl'
+import { createIntl, createIntlCache, defineMessages } from '@formatjs/intl'
 import translations from '../renderer/translations/messages.json'
 
 // This is optional but highly recommended
@@ -141,7 +141,7 @@ const getMenuTemplate = () => {
     cache,
   )
 
-  return [
+  const menuBase = [
     {
       label: intl.formatMessage(messages.file),
       submenu: [
@@ -207,6 +207,17 @@ const getMenuTemplate = () => {
       ],
     },
   ] as MenuItemConstructorOptions[]
+
+  // https://www.electronjs.org/docs/latest/api/menu#main-menus-name
+  // MacOS has this weird thing where it will ignore the first item's label and use
+  // the app title instead. including a dummy menu item on mac will get around this issue
+  const MACOS_DUMMY_ITEM = { label: '' }
+
+  if (process.platform === 'darwin') {
+    menuBase.unshift(MACOS_DUMMY_ITEM)
+  }
+
+  return menuBase
 }
 
 const navigate = (to: string, state?: object) => {
