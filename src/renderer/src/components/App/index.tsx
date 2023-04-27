@@ -1,17 +1,17 @@
+import { CssBaseline, GlobalStyles } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 
+import { theme, OFF_BLACK, WHITE } from '../../theme'
 import { IntlProvider } from '../IntlProvider'
 import { Router } from '../Router'
-import { theme, OFF_BLACK as black, OFF_WHITE as white } from '../../theme'
-import { CssBaseline, GlobalStyles } from '@mui/material'
 import { fontFace } from './fontface'
 
 const GLOBAL_STYLES: React.ComponentProps<typeof GlobalStyles>['styles'] = [
   fontFace,
   {
     body: {
-      color: black,
-      backgroundColor: white,
+      color: OFF_BLACK,
+      backgroundColor: WHITE,
       fontFamily: `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`,
     },
     svg: {
