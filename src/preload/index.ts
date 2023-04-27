@@ -6,9 +6,12 @@ const api = {
   // Example api method:
   log: (message: string): void => console.log(message),
   getLocale: (): Promise<string> => ipcRenderer.invoke('get-locale'),
-  // on: (channel, callback) => {
-  //   ipcRenderer.on(channel, (event, data) => callback(data))
-  // },
+  setLocale: (locale): Promise<string> => ipcRenderer.invoke('set-locale', locale),
+  on: (channel: string, callback: (data: unknown) => void) => {
+    ipcRenderer.on(channel, (event, data) => {
+      callback(data)
+    })
+  },
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
