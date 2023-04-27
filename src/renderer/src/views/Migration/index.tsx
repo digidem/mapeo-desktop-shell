@@ -176,7 +176,7 @@ const messages = defineMessages({
   migrateInstruction6: {
     id: 'views.migration.migrateInstruction6',
     defaultMessage:
-      'If another device has been designated as the migration device you need to skip migration.  You will start with a empty database. You will need to be invited by the migration device to the new enhanced project in new Mapeo and sync to get prior Mapeo data  back on your device',
+      'If another device has been designated as the migration device you need to skip migration. You will start with an empty database. You will need to be invited by the migration device to the new enhanced project in new Mapeo and sync to get prior Mapeo data back on your device',
   },
   migrateInstruction7: {
     id: 'views.migration.migrateInstruction7',
