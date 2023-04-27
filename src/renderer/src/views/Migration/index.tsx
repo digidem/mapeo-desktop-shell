@@ -171,7 +171,7 @@ const messages = defineMessages({
   migrateInstruction5: {
     id: 'views.migration.migrateInstruction5',
     defaultMessage:
-      'Once you have syncronized with all or most devices in your old Mapeo project you are ready to Migrate data. It is easy. Let new Mapeo do the work for you by clicking migrate',
+      'Once you have synchronized with all or most devices in your old Mapeo project you are ready to Migrate data. It is easy. Let new Mapeo do the work for you by clicking Migrate',
   },
   migrateInstruction6: {
     id: 'views.migration.migrateInstruction6',
