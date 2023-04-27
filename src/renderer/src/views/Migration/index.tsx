@@ -48,7 +48,7 @@ export const MigrationView = () => {
             {intl.formatMessage(messages.skipMigration)}
           </Button>
           <Column alignItems="flex-end" spacing={1}>
-            <Link to="/migrating-project">
+            <Link to="/migrating-project" style={{ textDecoration: 'none' }}>
               <Button onClick={() => null} variant="contained" disableElevation>
                 {intl.formatMessage(messages.migrate)}
               </Button>
