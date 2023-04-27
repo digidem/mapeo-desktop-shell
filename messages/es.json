@@ -1,4 +1,43 @@
 {
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.cancel": {
+    "message": "Anular"
+  },
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.removeConfirmation": {
+    "message": "¿Estás seguro de que quieres eliminar {name} ({id})?"
+  },
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.removeDevice": {
+    "message": "Eliminar dispositivo"
+  },
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.subtitle": {
+    "message": "Sus datos permanecerán con el proyecto y los datos del proyecto en su dispositivo permanecerán en su dispositivo, pero su dispositivo no podrá sincronizar nuevos datos."
+  },
+  "app.menu.copy": {
+    "message": "Copiar"
+  },
+  "app.menu.cut": {
+    "message": "Cortar"
+  },
+  "app.menu.edit": {
+    "message": "Editar"
+  },
+  "app.menu.file": {
+    "message": "Archivo"
+  },
+  "app.menu.inviteDevice": {
+    "message": "Invitar dispositivo"
+  },
+  "app.menu.mapeoDataIsDetected": {
+    "message": "Se detectan datos de Mapeo"
+  },
+  "app.menu.mapeoDataNotDetected": {
+    "message": "No se han detectado datos de Mapeo"
+  },
+  "app.menu.paste": {
+    "message": "Pegar"
+  },
+  "app.menu.testingHome": {
+    "message": "Test Inicio"
+  },
   "components.LeaveProjectModal.DeleteData.close": {
     "message": "Cerrar"
   },
@@ -43,5 +82,116 @@
   },
   "components.skipMigrationModal.buttonSkip": {
     "message": "Omitir Migración"
+  },
+  "components.skipMigrationModal.message1": {
+    "message": "Iniciarás Mapeo SuperS con un nuevo proyecto vacío."
+  },
+  "components.skipMigrationModal.message2": {
+    "message": "Si has sincronizado tus datos con otro equipo que está realizando migraciones de datos y deseas continuar colaborando, debes recibir una invitación de ese dispositivo para unirte a su proyecto. Después de unirte al proyecto y sincronizarlo, podrás ver tus datos anteriores y agregar nuevos datos usando MapeoSuperS."
+  },
+  "components.skipMigrationModal.message3": {
+    "message": "Si no has sincronizado tus datos con otra computadora y deseas seguir viendo tus datos con MapeoSuperS, deberás volver atrás y migrar tus datos o usar Mapeo 5 para sincronizar primero con la computadora designada para la migración."
+  },
+  "components.skipMigrationModal.message4": {
+    "message": "Puedes omitir esto ahora y los datos no se perderán. No será visible en MapeopleSuperS. Para migrar tus datos más tarde, descubre más"
+  },
+  "components.skipMigrationModal.skippedMessage": {
+    "message": "Unirte a un proyecto o crear un proyecto"
+  },
+  "components.skipMigrationModal.title": {
+    "message": "Omitir Migración"
+  },
+  "modals.createProject.buttonClose": {
+    "message": "Cerrar"
+  },
+  "modals.createProject.buttonCreateProject": {
+    "message": "Crear proyecto"
+  },
+  "modals.createProject.deviceNameFieldLabel": {
+    "message": "Añade un nombre para tu dispositivo"
+  },
+  "modals.createProject.deviceNameFieldPlaceholder": {
+    "message": "Nombre del dispositivo"
+  },
+  "modals.createProject.deviceNameRequired": {
+    "message": "Por favor, introduce un nombre de dispositivo"
+  },
+  "modals.createProject.no": {
+    "message": "No"
+  },
+  "modals.createProject.projectConfig": {
+    "message": "Configuración del proyecto"
+  },
+  "modals.createProject.projectConfigCaption": {
+    "message": "Opcional. Puedes importar una configuración en cualquier momento."
+  },
+  "modals.createProject.projectConfigImportButton": {
+    "message": "Importar configuración"
+  },
+  "modals.createProject.projectNameFieldLabel": {
+    "message": "Pon nombre a tu proyecto"
+  },
+  "modals.createProject.projectNameFieldPlaceholder": {
+    "message": "Nombre del proyecto"
+  },
+  "modals.createProject.projectNameRequired": {
+    "message": "Por favor, pon nombre a tu proyecto"
+  },
+  "modals.createProject.question1": {
+    "message": "¿Pueden los participantes ver las observaciones de otros miembros del equipo?"
+  },
+  "modals.createProject.question2": {
+    "message": "¿Pueden los participantes editar las observaciones de otros miembros del equipo?"
+  },
+  "modals.createProject.title": {
+    "message": "Crear un proyecto"
+  },
+  "modals.createProject.yes": {
+    "message": "Sí"
+  },
+  "modals.joinProject.buttonClose": {
+    "message": "Cerrar"
+  },
+  "modals.joinProject.title": {
+    "message": "Unirte a un proyecto"
+  },
+  "view.Home.Settings.ProjectConfig.InviteDeviceModal.index.addAnotherDevice": {
+    "message": "Añade Otro Dispositivo"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.config": {
+    "message": "Configuración"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.edit": {
+    "message": "Editar"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.importConfig": {
+    "message": "Importar configuración"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.learnMore": {
+    "message": "Aprender más"
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.newProjectInfo": {
+    "message": "Para crear o unirte a un nuevo proyecto tendrás que dejar tu proyecto actual. Tus datos no pueden ser transferidos al nuevo proyecto."
+  },
+  "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
+    "message": "Nombre del proyecto"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.changeRole": {
+    "message": "Cambiar Rol"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.close": {
+    "message": "Cerrar"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.coordinator": {
+    "message": "Coordinador"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.dateAdded": {
+    "message": "Fecha añadida"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.participant": {
+    "message": "Participante"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.pastDeviceNames": {
+    "message": "Nombres de dispositivos anteriores:"
   }
 }
