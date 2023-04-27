@@ -193,5 +193,53 @@
   },
   "views.Home.Settings.ProjectConfig.DeviceInfoContent.pastDeviceNames": {
     "message": "Nombres de dispositivos anteriores:"
+  },
+  "views.home.tabs.successfullyInstalled": {
+    "message": "Mapeo SuperS se ha instalado correctamente"
+  },
+  "views.migratingProject.complete": {
+    "message": "¡Migración completada!"
+  },
+  "views.migratingProject.media": {
+    "message": "archivos de media"
+  },
+  "views.migratingProject.migrating": {
+    "message": "Migrando el proyecto..."
+  },
+  "views.migratingProject.next": {
+    "message": "Siguiente"
+  },
+  "views.migratingProject.observations": {
+    "message": "observaciones"
+  },
+  "views.migration.configTitle": {
+    "message": "Configuración"
+  },
+  "views.migration.images": {
+    "message": "Imágenes"
+  },
+  "views.migration.migrate": {
+    "message": "Migrar"
+  },
+  "views.migration.migrateInfo": {
+    "message": "¡Debería tomar menos de 5 minutos!"
+  },
+  "views.migration.migrateInstruction1": {
+    "message": "La migración de Mapeo5 a MapeoSuperS agregará funciones de seguridad adicionales, incluido el cifrado"
+  },
+  "views.migration.migrateInstruction2": {
+    "message": "Si ya tienes pares con los que sincronizar Mapeo, es importante que todos estén listos para actualizar juntos. No podrás sincronizar tus nuevos datos de Mapeo con un dispositivo que tenga Mapeo antiguo"
+  },
+  "views.migration.migrateInstruction3": {
+    "message": "MapeoSuperS introduce una nueva forma de gestionar la seguridad de los datos con tus pares a través de Proyectos"
+  },
+  "views.migration.migrateInstruction4": {
+    "message": "Solo un dispositivo del grupo de pares de Mapeo puede migrar los datos al nuevo Mapeo. Se recomienda que antes de que comience la migración, todos los pares se sincronicen con el antiguo Mapeo. Este dispositivo seleccionado puede migrar más datos más adelante si es necesario"
+  },
+  "views.migration.migrateInstruction5": {
+    "message": "Una vez que hayas sincronizado con todos o la mayoría de los dispositivos en tu antiguo proyecto de Mapeo, estarás listo para migrar datos. Es fácil. Deja que el nuevo Mapeo haga el trabajo para ti haciendo clic en Migrar"
+  },
+  "views.migration.migrateInstruction6": {
+    "message": "Si se ha designado otro dispositivo como dispositivo de migración, deberás omitir la migración. Comenzarás con una base de datos vacía. Deberás ser invitado por el dispositivo de migración al nuevo proyecto mejorado en el nuevo Mapeo y sincronizar para obtener datos anteriores de Mapeo en tu dispositivo"
   }
 }
