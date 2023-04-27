@@ -84,7 +84,7 @@ const messages = defineMessages({
   message3: {
     id: 'components.skipMigrationModal.message3',
     defaultMessage:
-      'If you have not syncronized you data to another computer and you want to continue seeing your data with MapeoSuperS You will need to go back and migrate your data or use Mapoeo5 to syncronize with the computer designated for migration first.',
+      'If you have not synchronized your data to another computer and you want to continue seeing your data with MapeoSuperS, you will need to go back and migrate your data or use Mapeo 5 to synchronize with the computer designated for migration first.',
   },
   message4: {
     id: 'components.skipMigrationModal.message4',
