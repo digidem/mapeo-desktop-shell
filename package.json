@@ -14,7 +14,6 @@
     "dev": "electron-vite dev",
     "build": "npm run extract-messages && npm run typecheck && electron-vite build",
     "extract-messages": "formatjs extract --format crowdin 'src/{renderer,main}/**/*.{ts,tsx,js,jsx}' --ignore='**/*.d.ts' --out-file messages/en.json",
-    "extract-messages:main": "formatjs extract --format crowdin 'src/main/index.ts' --out-file messages/en.json",
     "build:translations": "node \"./scripts/compile.js\" ",
     "postinstall": "electron-builder install-app-deps",
     "build:win": "npm run build && electron-builder --win --config",
