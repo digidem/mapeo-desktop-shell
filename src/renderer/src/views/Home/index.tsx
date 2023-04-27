@@ -40,13 +40,16 @@ const BottomBarGridSection = styled.div(`
 export type PanelName = 'territory' | 'observations' | 'sync' | 'settings'
 
 type LocationState = {
+  defaultTab?: PanelName
   showSnackBar?: boolean
 }
 
 export const Home = () => {
   const location = useLocation()
   const state = location.state as LocationState
-  const [activePanel, setPanelName] = React.useState<PanelName>('observations')
+  const [activePanel, setPanelName] = React.useState<PanelName>(
+    !state || !state.defaultTab ? 'observations' : state.defaultTab,
+  )
   const intl = useIntl()
   const [snackbarMessageOpen, setSnackbarMessageOpen] = React.useState(
     !state || !state.showSnackBar ? false : state.showSnackBar,
