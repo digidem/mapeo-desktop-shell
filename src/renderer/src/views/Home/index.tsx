@@ -40,19 +40,18 @@ const BottomBarGridSection = styled.div(`
 export type PanelName = 'territory' | 'observations' | 'sync' | 'settings'
 
 type LocationState = {
-  defaultTab?: PanelName
-  showBottomBar?: boolean
+  showSnackBar?: boolean
 }
 
 export const Home = () => {
   const location = useLocation()
   const state = location.state as LocationState
-  const [activePanel, setPanelName] = React.useState<PanelName>(state?.defaultTab || 'territory')
+  const [activePanel, setPanelName] = React.useState<PanelName>('observations')
   const intl = useIntl()
-  const [snackbarMessageOpen, setSnackbarMessageOpen] = React.useState(!!state.showBottomBar)
+  const [snackbarMessageOpen, setSnackbarMessageOpen] = React.useState(
+    !state || !state.showSnackBar ? false : state.showSnackBar,
+  )
   const projectName = useMapeoDeviceStore((store) => store.projectName)
-
-  console.log({ snackbarMessageOpen })
 
   return (
     <>
@@ -73,19 +72,18 @@ export const Home = () => {
               <Settings />
             </TabPanel>
           </MainGridSection>
-          {state.showBottomBar && (
-            <BottomBarGridSection>
-              <Typography
-                variant="body1"
-                fontWeight={500}
-                color="white"
-                align="center"
-                sx={{ width: '100%', py: '3px' }}
-              >
-                {projectName}
-              </Typography>
-            </BottomBarGridSection>
-          )}
+
+          <BottomBarGridSection>
+            <Typography
+              variant="body1"
+              fontWeight={500}
+              color="white"
+              align="center"
+              sx={{ width: '100%', py: '3px' }}
+            >
+              {projectName}
+            </Typography>
+          </BottomBarGridSection>
         </GridContainer>
       </Box>
       <Snackbar

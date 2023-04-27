@@ -29,7 +29,7 @@ export const MigrationCompleteView = () => {
     if (!name) setFormError(true)
     else {
       setProjectName(name)
-      navigate('/home', { state: { defaultTab: 'observations', showBottomBar: true } })
+      navigate('/home', { state: { showSnackBar: true } })
     }
   }
 
