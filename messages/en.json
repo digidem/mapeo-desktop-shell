@@ -11,6 +11,33 @@
   "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.subtitle": {
     "message": "Their data will remain with the project but their device will be unable to sync or add new observations"
   },
+  "app.menu.copy": {
+    "message": "Copy"
+  },
+  "app.menu.cut": {
+    "message": "Cut"
+  },
+  "app.menu.edit": {
+    "message": "Edit"
+  },
+  "app.menu.file": {
+    "message": "File"
+  },
+  "app.menu.inviteDevice": {
+    "message": "Invite Device"
+  },
+  "app.menu.mapeoDataIsDetected": {
+    "message": "Mapeo Data Is Detected"
+  },
+  "app.menu.mapeoDataNotDetected": {
+    "message": "Mapeo Data Is Not Detected"
+  },
+  "app.menu.paste": {
+    "message": "Paste"
+  },
+  "app.menu.testingHome": {
+    "message": "Testing Home"
+  },
   "components.LeaveProjectModal.DeleteData.close": {
     "message": "Close"
   },
