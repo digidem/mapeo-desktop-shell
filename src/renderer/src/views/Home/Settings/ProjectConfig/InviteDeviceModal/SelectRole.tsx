@@ -124,7 +124,7 @@ const m = defineMessages({
   participantDescription: {
     id: 'views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantDescription',
     defaultMessage:
-      'As a Participant this device can take and share observations. They cannot manage users or project details.',
+      'As a Participant this device can create, edit, sync and share observations. They cannot manage users or project details.',
   },
   coordinatorTitle: {
     id: 'views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.coordinatorTitle',
@@ -132,6 +132,7 @@ const m = defineMessages({
   },
   coordinatorDescription: {
     id: 'views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.coordinatorDescription',
-    defaultMessage: 'As a Coordinator this device can invite and remove users, and manage project details.',
+    defaultMessage:
+      'As a Coordinator this device can invite and remove devices from this project, and manage project details.',
   },
 })

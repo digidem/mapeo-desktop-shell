@@ -17,25 +17,29 @@ export const IndexView = () => {
   return (
     <DefaultLayout sx={{ backgroundColor: theme.blue.mid, padding: 8 }}>
       <LanguageSwitcher />
-      <Typography variant="h1" color={'white'} align="center">
-        {intl.formatMessage(messages.title)}
-      </Typography>
+      <Column>
+        <Row justifyContent={'center'}>
+          <Typography variant="h1" color={'white'} align="center">
+            {intl.formatMessage(messages.title)}
+          </Typography>
+        </Row>
 
-      <Row sx={{ mt: 8 }} spacing={15}>
-        <TestGroupColumn title={intl.formatMessage(messages.migration)}>
-          <CardLink number={1} to="/init-migration" title={intl.formatMessage(messages.dataIsDetected)} />
-          <CardLink
-            number={2}
-            to="/migration-no-data"
-            title={intl.formatMessage<ReactNode>(messages.dataNotDetected, {
-              bold: (str) => <strong>{str}</strong>,
-            })}
-          />
-        </TestGroupColumn>
-        <TestGroupColumn title={intl.formatMessage(messages.invitation)}>
-          <CardLink number={3} to="/" title={intl.formatMessage(messages.inviteDevice)} />
-        </TestGroupColumn>
-      </Row>
+        <Row sx={{ mt: 8 }} spacing={15}>
+          <TestGroupColumn title={intl.formatMessage(messages.migration)}>
+            <CardLink number={1} to="/init-migration" title={intl.formatMessage(messages.dataIsDetected)} />
+            <CardLink
+              number={2}
+              to="/migration-no-data"
+              title={intl.formatMessage<ReactNode>(messages.dataNotDetected, {
+                bold: (str) => <strong>{str}</strong>,
+              })}
+            />
+          </TestGroupColumn>
+          <TestGroupColumn title={intl.formatMessage(messages.invitation)}>
+            <CardLink number={3} to="/" title={intl.formatMessage(messages.inviteDevice)} />
+          </TestGroupColumn>
+        </Row>
+      </Column>
     </DefaultLayout>
   )
 }

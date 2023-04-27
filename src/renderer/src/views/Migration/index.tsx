@@ -34,12 +34,21 @@ export const MigrationView = () => {
           <Typography variant="h2">{intl.formatMessage(messages.migratePreviousTitle)}</Typography>
         </Column>
         <Column spacing={6}>
-          <Column spacing={3}>
+          <Column spacing={3} marginBottom={1}>
             <Typography variant="body1">{intl.formatMessage(messages.migratePreviousInstruction)}</Typography>
-            <Column component="ul" spacing={2}>
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction2, { appTitle })} />
-            </Column>
+            <Row maxHeight={500}>
+              <Column spacing={1}>
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction2)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction3)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction4)} />
+              </Column>
+              <Column spacing={1}>
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction5)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction6)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction7)} />
+              </Column>
+            </Row>
           </Column>
         </Column>
         <DetailsCard projectKey={PROJECT_KEY} configAddress={CONFIG_ADDRESS} />
@@ -138,15 +147,41 @@ const messages = defineMessages({
   migratePreviousInstruction: {
     id: 'views.migration.migratePreviousInstruction',
     defaultMessage:
-      'We have found a previous Mapeo project. Follow the steps below to begin migrating to the new Mapeo:',
+      'We have found a previous Mapeo project. To begin using MapeoSuperS with the data you have on Mapeo 5, data migration is required. Once you are ready to migrate your data to MapeoSuperS, follow the steps below.',
   },
   migrateInstruction1: {
     id: 'views.migration.migrateInstruction1',
-    defaultMessage: 'Migrating from [x] to [y]',
+    defaultMessage:
+      'Migrating from Mapeo5 to MapeoSuperS will add additional security features including encryption',
   },
   migrateInstruction2: {
     id: 'views.migration.migrateInstruction2',
-    defaultMessage: 'You will have to coordinated with your team to upgrade each mobile device to {appTitle}',
+    defaultMessage:
+      'If you already have peers to synchronize Mapeo with, it is important that you are all ready to update together. You will not be able to synchronize your new Mapeo data with a device that has old Mapeo',
+  },
+  migrateInstruction3: {
+    id: 'views.migration.migrateInstruction3',
+    defaultMessage: 'MapeoSuperS introduces a new way to manage data security with your peers through Projects',
+  },
+  migrateInstruction4: {
+    id: 'views.migration.migrateInstruction4',
+    defaultMessage:
+      'Only one device in your Mapeo peer group can migrate the data to new Mapeo. It is recommended that before migration begins, all peers synchronize with old Mapeo. This selected device can migrate more data later if needed',
+  },
+  migrateInstruction5: {
+    id: 'views.migration.migrateInstruction5',
+    defaultMessage:
+      'Once you have synchronized with all or most devices in your old Mapeo project you are ready to Migrate data. It is easy. Let new Mapeo do the work for you by clicking Migrate',
+  },
+  migrateInstruction6: {
+    id: 'views.migration.migrateInstruction6',
+    defaultMessage:
+      'If another device has been designated as the migration device you need to skip migration. You will start with an empty database. You will need to be invited by the migration device to the new enhanced project in new Mapeo and sync to get prior Mapeo data back on your device',
+  },
+  migrateInstruction7: {
+    id: 'views.migration.migrateInstruction7',
+    defaultMessage:
+      'Have you decided you want a fresh start? You can skip migration. You can always migrate your data later',
   },
   projectKeyTitle: {
     id: 'views.migration.projectKeyTitle',

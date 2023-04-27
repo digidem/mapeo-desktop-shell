@@ -166,7 +166,7 @@ const messages = defineMessages({
   },
   media: {
     id: 'views.migratingProject.media',
-    defaultMessage: 'media',
+    defaultMessage: 'media files',
   },
   next: {
     id: 'views.migratingProject.next',
