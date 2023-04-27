@@ -21,7 +21,7 @@ export const IndexView = () => {
 
       <Row sx={{ mt: 8 }} spacing={15}>
         <TestGroupColumn title={intl.formatMessage(messages.migration)}>
-          <CardLink number={1} to="/init-migration" title={intl.formatMessage(messages.dataIsDetected)} />
+          <CardLink number={1} to="/home" title={intl.formatMessage(messages.dataIsDetected)} />
           <CardLink
             number={2}
             to="/migration-no-data"
