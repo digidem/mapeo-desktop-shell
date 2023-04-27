@@ -11,7 +11,7 @@ import mapeoLogoUrl from '../../../assets/mapeo-sidebar-logo.svg'
 
 import { PanelName } from '.'
 
-const m = defineMessages({
+export const sidebarMessages = defineMessages({
   territory: {
     id: 'views.Home.Sidebar.territory',
     defaultMessage: 'Territory',
@@ -56,22 +56,22 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
   const tabsData: React.ComponentProps<typeof Tabs<PanelName>>['data'] = [
     {
       icon: <MapIcon />,
-      title: t(m.territory),
+      title: t(sidebarMessages.territory),
       value: 'territory',
     },
     {
       icon: <ObservationsIcon />,
-      title: t(m.observations),
+      title: t(sidebarMessages.observations),
       value: 'observations',
     },
     {
       icon: <SyncIcon />,
-      title: t(m.sync),
+      title: t(sidebarMessages.sync),
       value: 'sync',
     },
     {
       icon: <SettingsIcon />,
-      title: t(m.settings),
+      title: t(sidebarMessages.settings),
       value: 'settings',
       sx: { position: 'absolute', bottom: 0, right: 0, left: 0 },
     },
