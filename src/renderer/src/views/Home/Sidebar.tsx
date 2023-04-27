@@ -85,7 +85,7 @@ export const Sidebar = ({ activeTab, onChangeTab }: Props) => {
       <Tabs
         activeTab={activeTab}
         onChangeTab={onChangeTab}
-        selectedColor={`${theme.blue.dark}33`}
+        selectedColor={`${theme.black}33`}
         titleColor={theme.white}
         data={tabsData}
       />

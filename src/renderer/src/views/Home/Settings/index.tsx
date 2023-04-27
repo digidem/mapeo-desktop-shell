@@ -110,7 +110,7 @@ export const Settings = () => {
         <Tabs<SettingsTabName>
           activeTab={activeTab}
           onChangeTab={setActiveTab}
-          selectedColor={theme.background}
+          selectedColor={theme.grey.light}
           titleColor={theme.black}
           subtitleColor={theme.grey.main}
           data={tabsData}
