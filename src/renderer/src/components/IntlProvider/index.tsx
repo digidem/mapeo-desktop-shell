@@ -1,5 +1,5 @@
 import { IntlProvider as ReactIntlProvider } from 'react-intl'
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import translations from '../../../translations/messages.json'
 import languages from '../../../../common/config/languages.json'
 import { SplashView } from '../../views/SplashScreen'
@@ -46,7 +46,7 @@ const isTranslation = (langugage?: string): langugage is AvailableLocales => {
   return Object.keys(translations).includes(langugage)
 }
 
-type IntlSetContextType = Readonly<[string, Dispatch<SetStateAction<AvailableLocales | undefined>>]>
+type IntlSetContextType = Readonly<[string, (lang: AvailableLocales | undefined) => void]>
 
 export const IntlSwitchConext = createContext<IntlSetContextType>([DEFAULT_LOCALE, (): void => {}])
 
@@ -60,6 +60,11 @@ const getSupportedLocale = (locale: SupportedLanguageLocales): keyof typeof lang
 export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element | null => {
   const [appLocale, setAppLocale] = useState<AvailableLocales>()
   const [minLoadTimePassed, setMinLoadTimePassed] = useState(false)
+
+  const changeAppLocale = (lang: AvailableLocales | undefined) => {
+    window.api.setLocale(lang)
+    setAppLocale(lang)
+  }
 
   const timeout = setTimeout(() => {
     setMinLoadTimePassed(true)
@@ -97,7 +102,7 @@ export const IntlProvider = ({ children }: { children: ReactNode }): JSX.Element
   ) : (
     <ReactIntlProvider messages={localeMessages} locale={appLocale} defaultLocale={DEFAULT_LOCALE}>
       {minLoadTimePassed ? (
-        <IntlSwitchConext.Provider value={[appLocale, setAppLocale]}>{children}</IntlSwitchConext.Provider>
+        <IntlSwitchConext.Provider value={[appLocale, changeAppLocale]}>{children}</IntlSwitchConext.Provider>
       ) : (
         <SplashView />
       )}
