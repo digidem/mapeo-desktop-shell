@@ -6,6 +6,7 @@ import { DefaultLayout } from '@renderer/layouts/default'
 import { useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { useNavigate } from 'react-router-dom'
+import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const NAME_MAX_CHARS = 30
 const CONFIG_NAME = 'my-special-config-20.mapeoconfig'
@@ -14,19 +15,20 @@ export const MigrationCompleteView = () => {
   const theme = useTheme()
   const intl = useIntl()
   const navigate = useNavigate()
-  const [name, setName] = useState('')
+  const projectName = useMapeoDeviceStore((store) => store.projectName)
+  const setProjectName = useMapeoDeviceStore((store) => store.actions.setProjectName)
   const [formError, setFormError] = useState(false)
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (formError) setFormError(false)
 
-    setName(event.target.value)
+    setProjectName(event.target.value)
   }
 
   const handleClickFinish = () => {
-    if (!name) setFormError(true)
+    if (!projectName) setFormError(true)
     else {
-      navigate('/home', { state: { defaultTab: 'observations' } })
+      navigate('/home', { state: { defaultTab: 'observations', showBottomBar: true } })
     }
   }
 
@@ -67,7 +69,7 @@ export const MigrationCompleteView = () => {
                 variant="outlined"
                 size="small"
                 onChange={handleNameChange}
-                value={name}
+                value={projectName}
               />
 
               <Row justifyContent="space-between" sx={{ width: '100%' }}>
@@ -79,7 +81,7 @@ export const MigrationCompleteView = () => {
                   <span />
                 )}
                 <Typography variant="caption" align="right">
-                  {name.length} / {NAME_MAX_CHARS}
+                  {projectName.length} / {NAME_MAX_CHARS}
                 </Typography>
               </Row>
             </Column>
