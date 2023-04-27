@@ -161,7 +161,7 @@ const messages = defineMessages({
   },
   migrateInstruction3: {
     id: 'views.migration.migrateInstruction3',
-    defaultMessage: 'New Mapeo introduces a new way to manage data security with your peers through Projects',
+    defaultMessage: 'MapeoSuperS introduces a new way to manage data security with your peers through Projects',
   },
   migrateInstruction4: {
     id: 'views.migration.migrateInstruction4',
