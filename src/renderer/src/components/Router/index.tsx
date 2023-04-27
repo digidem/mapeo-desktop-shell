@@ -30,8 +30,8 @@ export const Router = () => {
 const MenuNavigationProvider = () => {
   const navigate = useNavigate()
   useEffect(() => {
-    window.electron.ipcRenderer.on('navigate', (args, to) => {
-      navigate(to)
+    window.api.on('navigate', (data: { to: string; state: object }) => {
+      navigate(data.to, { state: data.state })
     })
   }, [])
 
