@@ -181,7 +181,7 @@ const messages = defineMessages({
   migrateInstruction7: {
     id: 'views.migration.migrateInstruction7',
     defaultMessage:
-      'Have you decided you want a fresh start? You can skip migration.  You can always migrate you data later',
+      'Have you decided you want a fresh start? You can skip migration. You can always migrate your data later',
   },
   projectKeyTitle: {
     id: 'views.migration.projectKeyTitle',
