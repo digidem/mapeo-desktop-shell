@@ -1,18 +1,21 @@
 import { createTheme } from '@mui/material'
 import React from 'react'
 
-export const MAPEO_BLUE = '#0066FF'
-export const MAPEO_ORANGE = '#E86826'
 export const OFF_WHITE = '#F6F6F6'
 export const WHITE = '#FFFFFF'
 export const OFF_BLACK = '#333333'
-export const MIDNIGHT_BLUE = '#000033'
-export const MID_BLUE = '#19337F'
-export const WARNING_RED = '#D92222'
 export const GREY_LIGHT = '#E6E6E6'
 export const GREY = '#707070'
 export const GREY_BLUE = '#CCCCD6'
-export const GREEN = '#59A553'
+
+export const MAPEO_BLUE = GREY // '#0066FF'
+export const MAPEO_ORANGE = GREY // '#E86826'
+
+export const MIDNIGHT_BLUE = GREY // '#000033'
+export const MID_BLUE = GREY // '#19337F'
+export const WARNING_RED = '#D92222'
+
+export const GREEN = GREY // '#59A553'
 
 export const FONT_FAM_TITLE = `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
 export const FONT_FAM_BODY = `Roboto, Rubik, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
