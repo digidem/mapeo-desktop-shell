@@ -147,7 +147,7 @@ const messages = defineMessages({
   migratePreviousInstruction: {
     id: 'views.migration.migratePreviousInstruction',
     defaultMessage:
-      'We have found a previous Mapeo project. To begin using New Mapeo with the data you have on old Mapeo, data migration is required. Once you are ready to migrate your data to new Mapeo, follow the steps below.',
+      'We have found a previous Mapeo project. To begin using MapeoSuperS with the data you have on Mapeo 5, data migration is required. Once you are ready to migrate your data to MapeoSuperS, follow the steps below.',
   },
   migrateInstruction1: {
     id: 'views.migration.migrateInstruction1',
