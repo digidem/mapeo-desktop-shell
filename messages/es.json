@@ -1,1 +1,47 @@
-{}
+{
+  "components.LeaveProjectModal.DeleteData.close": {
+    "message": "Cerrar"
+  },
+  "components.LeaveProjectModal.DeleteData.deletedData": {
+    "message": "Se eliminaron {observations}/{observations} observaciones y {data}mb de datos"
+  },
+  "components.LeaveProjectModal.DeleteData.deletingData": {
+    "message": "Eliminando {data}mb de datos"
+  },
+  "components.LeaveProjectModal.DeleteData.leaveProject": {
+    "message": "Abandonando proyecto {projectName}"
+  },
+  "components.LeaveProjectModal.DeleteData.leftProject": {
+    "message": "Has abandonado el proyecto {projectName}"
+  },
+  "components.LeaveProjectModal.cancel": {
+    "message": "Cancelar"
+  },
+  "components.LeaveProjectModal.checkConfirmation": {
+    "message": "Entiendo que eliminaré todos los datos del proyecto {name} de mi dispositivo"
+  },
+  "components.LeaveProjectModal.deleteWarning": {
+    "message": "Esto eliminará {observations} observaciones y {mediaSize}mb de datos de este dispositivo."
+  },
+  "components.LeaveProjectModal.leaveConfirmation": {
+    "message": "¿Estás seguro de que deseas salir de este proyecto?"
+  },
+  "components.LeaveProjectModal.leaveProject": {
+    "message": "Dejar el proyecto"
+  },
+  "components.LeaveProjectModal.unsyncedWarningMessage": {
+    "message": "Sincroniza con alguien del equipo para que no pierdas etas ediciones o observaciones"
+  },
+  "components.LeaveProjectModal.unsyncedWarningTitle": {
+    "message": "5 cambios no sincronizados"
+  },
+  "components.skipMigrationModal.buttonCancel": {
+    "message": "Anular"
+  },
+  "components.skipMigrationModal.buttonClose": {
+    "message": "Cerrar"
+  },
+  "components.skipMigrationModal.buttonSkip": {
+    "message": "Omitir Migración"
+  }
+}
