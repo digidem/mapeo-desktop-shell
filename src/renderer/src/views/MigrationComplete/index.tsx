@@ -6,6 +6,7 @@ import { DefaultLayout } from '@renderer/layouts/default'
 import { useState } from 'react'
 import { defineMessages, useIntl } from 'react-intl'
 import { useNavigate } from 'react-router-dom'
+import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const NAME_MAX_CHARS = 30
 const CONFIG_NAME = 'my-special-config-20.mapeoconfig'
@@ -15,6 +16,7 @@ export const MigrationCompleteView = () => {
   const intl = useIntl()
   const navigate = useNavigate()
   const [name, setName] = useState('')
+  const setProjectName = useMapeoDeviceStore((store) => store.actions.setProjectName)
   const [formError, setFormError] = useState(false)
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +28,8 @@ export const MigrationCompleteView = () => {
   const handleClickFinish = () => {
     if (!name) setFormError(true)
     else {
-      navigate('/home', { state: { defaultTab: 'observations' } })
+      setProjectName(name)
+      navigate('/home', { state: { showSnackBar: true } })
     }
   }
 

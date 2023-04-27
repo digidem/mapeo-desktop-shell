@@ -17,6 +17,7 @@ import { defineMessages, useIntl } from 'react-intl'
 import { Button } from '../Button'
 import { FormLabel } from '../FormLabel'
 import { useNavigate } from 'react-router-dom'
+import { useMapeoDeviceStoreAction } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const PROJECT_NAME_MAX_LENGTH = 100
 const DEVICE_NAME_MAX_LENGTH = 60
@@ -35,6 +36,7 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
   const [observationsEditableError, setObservationsEditableError] = useState('')
   const [teamMembersShouldBeVisible, setTeamMembersShouldBeVisible] = useState<CheckType>()
   const [teamMembersObservationsEditable, setTeamMembersObservationsEditable] = useState<CheckType>()
+  const setProjectStoreName = useMapeoDeviceStoreAction().setProjectName
 
   const handleTeamMembersVisibleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShouldBeVisibleError('')
@@ -88,7 +90,8 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
       teamMembersShouldBeVisibleIsSet &&
       teamMembersObservationsEditableIsSet
     ) {
-      navigate('/') // Should navigate to app in observation mode, but not available in this branch yet.
+      setProjectStoreName(projectName)
+      navigate('/home', { state: { showSnackBar: true } })
     }
   }
 
@@ -116,7 +119,7 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
           </Typography>
         </Container>
 
-        <Container maxWidth="xl" sx={{ paddingY: 4, mb: 8 }}>
+        <Container maxWidth="xl" sx={{ paddingY: 4 }}>
           <Column spacing={4}>
             <Row>
               <InputField

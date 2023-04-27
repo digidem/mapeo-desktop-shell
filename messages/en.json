@@ -308,6 +308,12 @@
   "views.Home.Sidebar.territory": {
     "message": "Territory"
   },
+  "views.home.tabs.learnMore": {
+    "message": "Learn more"
+  },
+  "views.home.tabs.successfullyInstalled": {
+    "message": "Mapeo SuperS was successfully installed"
+  },
   "views.migratingProject.complete": {
     "message": "Migration complete!"
   },

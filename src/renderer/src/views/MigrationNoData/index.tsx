@@ -20,15 +20,16 @@ import { FormLabel } from '@renderer/components/FormLabel'
 import { JoinProjectModal } from '@renderer/components/JoinProjectModal'
 import { useLocation } from 'react-router-dom'
 
-type LocationState = { hasLeftProject?: boolean }
-
 type ShouldUsePreviousMapeoData = 'yes' | 'no'
 
 export const MigrationNoDataView = () => {
   const intl = useIntl()
   const theme = useTheme()
   const { state } = useLocation()
-  const { hasLeftProject } = state as LocationState
+  const hasLeftProject =
+    !state || !state.hasLeftProject || typeof state.hasLeftProject !== 'boolean'
+      ? undefined
+      : (state.hasLeftProject as boolean)
   const [shouldUsePreviousMapeoData, setShouldUsePreviousMapeoData] = useState<
     ShouldUsePreviousMapeoData | undefined
   >(hasLeftProject ? 'no' : undefined)
