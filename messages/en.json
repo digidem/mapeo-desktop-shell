@@ -87,13 +87,13 @@
     "message": "You will start Mapeo SuperS with a new empty project."
   },
   "components.skipMigrationModal.message2": {
-    "message": "If you have synchronized you data to another computer that is performing data migrations, and you want to continue colaborating, you need to receive an invitation from that device to join it's project. After joining the project and synchronizing you will be able to see your previous data and add new data using MapeoSuperS."
+    "message": "If you have synchronized you data to another computer that is performing data migrations, and you want to continue colaborating, you need to receive an invitation from that device to join its project. After joining the project and synchronizing you will be able to see your previous data and add new data using MapeoSuperS."
   },
   "components.skipMigrationModal.message3": {
-    "message": "If you have not syncronized you data to another computer and you want to continue seeing your data with MapeoSuperS You will need to go back and migrate your data or use Mapoeo5 to syncronize with the computer designated for migration first."
+    "message": "If you have not synchronized your data to another computer and you want to continue seeing your data with MapeoSuperS, you will need to go back and migrate your data or use Mapeo 5 to synchronize with the computer designated for migration first."
   },
   "components.skipMigrationModal.message4": {
-    "message": "You can skip this now, and data will not be lost. it will just not be visible to MapeoSuperS. To migrate your data later, find out more"
+    "message": "You can skip this now and data will not be lost. It will just not be visible in MapeoSuperS. To migrate your data later, find out more"
   },
   "components.skipMigrationModal.skippedMessage": {
     "message": "Join a project or create a project"
@@ -213,7 +213,7 @@
     "message": "Make sure both devices are on the same wifi network"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDeviceSuggestion2": {
-    "message": "Make sure both devices are using new Mapeo"
+    "message": "Make sure both devices are using MapeoSuperS"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.selectDevice": {
     "message": "Select a device to invite"
@@ -225,7 +225,7 @@
     "message": "Coordinator"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantDescription": {
-    "message": "As a Participant this device can create, edit, sync and share obervations. They cannot manage users or project details."
+    "message": "As a Participant this device can create, edit, sync and share observations. They cannot manage users or project details."
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantTitle": {
     "message": "Participant"
@@ -378,25 +378,25 @@
     "message": "Migrating from Mapeo5 to MapeoSuperS will add additional security features including encryption"
   },
   "views.migration.migrateInstruction2": {
-    "message": "If you already have peer you sycronize Mapeo with, it is important that you are all ready to update together. You will not be able to syncronize your new mapeo data with a devise thet has old Mapeo"
+    "message": "If you already have peers to synchronize Mapeo with, it is important that you are all ready to update together. You will not be able to synchronize your new Mapeo data with a device that has old Mapeo"
   },
   "views.migration.migrateInstruction3": {
-    "message": "New Mapeo introduces a new way to manage data security with your peers through Projects"
+    "message": "MapeoSuperS introduces a new way to manage data security with your peers through Projects"
   },
   "views.migration.migrateInstruction4": {
-    "message": "Only one device in your Mapeo peer group can migrate the data to new Mapeo. It is recommended that before migration begins, that all peers sychronize with old Mapeo. This selected device can migrate more data later if needed"
+    "message": "Only one device in your Mapeo peer group can migrate the data to new Mapeo. It is recommended that before migration begins, all peers synchronize with old Mapeo. This selected device can migrate more data later if needed"
   },
   "views.migration.migrateInstruction5": {
-    "message": "Once you have syncronized with all or most devices in your old Mapeo project you are ready to Migrate data. It is easy. Let new Mapeo do the work for you by clicking migrate"
+    "message": "Once you have synchronized with all or most devices in your old Mapeo project you are ready to Migrate data. It is easy. Let new Mapeo do the work for you by clicking Migrate"
   },
   "views.migration.migrateInstruction6": {
-    "message": "If another device has been designated as the migration device you need to skip migration. You will start with a empty database. You will need to be invited by the migration device to the new enhanced project in new Mapeo and sync to get prior Mapeo data back on your device"
+    "message": "If another device has been designated as the migration device you need to skip migration. You will start with an empty database. You will need to be invited by the migration device to the new enhanced project in new Mapeo and sync to get prior Mapeo data back on your device"
   },
   "views.migration.migrateInstruction7": {
-    "message": "Have you decided you want a fresh start? You can skip migration. You can always migrate you data later"
+    "message": "Have you decided you want a fresh start? You can skip migration. You can always migrate your data later"
   },
   "views.migration.migratePreviousInstruction": {
-    "message": "We have found a previous Mapeo project. To begin using New Mapeo with the data you have on old Mapeo, data migration is required. Once you are ready to migrate your data to new Mapeo, follow the steps below."
+    "message": "We have found a previous Mapeo project. To begin using MapeoSuperS with the data you have on Mapeo 5, data migration is required. Once you are ready to migrate your data to MapeoSuperS, follow the steps below."
   },
   "views.migration.migratePreviousTitle": {
     "message": "Migrate your previous Mapeo data"
