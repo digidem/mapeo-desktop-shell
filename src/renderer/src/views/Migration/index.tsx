@@ -157,7 +157,7 @@ const messages = defineMessages({
   migrateInstruction2: {
     id: 'views.migration.migrateInstruction2',
     defaultMessage:
-      'If you already have peer you sycronize Mapeo with, it is important that you are all ready to update together. You will not be able to syncronize your new mapeo data with a devise thet has old Mapeo',
+      'If you already have peers to synchronize Mapeo with, it is important that you are all ready to update together. You will not be able to synchronize your new Mapeo data with a device that has old Mapeo',
   },
   migrateInstruction3: {
     id: 'views.migration.migrateInstruction3',
