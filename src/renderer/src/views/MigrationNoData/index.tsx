@@ -37,8 +37,6 @@ export const MigrationNoDataView = () => {
   const [createProjectModalOpen, setCreateProjectModalOpen] = useState(false)
   const [joinProjectModalOpen, setJoinProjectModalOpen] = useState(false)
 
-  console.log(state)
-
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShouldUsePreviousMapeoData(event.target.value as ShouldUsePreviousMapeoData)
   }
