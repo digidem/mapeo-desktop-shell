@@ -34,17 +34,21 @@ export const MigrationView = () => {
           <Typography variant="h2">{intl.formatMessage(messages.migratePreviousTitle)}</Typography>
         </Column>
         <Column spacing={6}>
-          <Column spacing={3}>
+          <Column spacing={3} marginBottom={1}>
             <Typography variant="body1">{intl.formatMessage(messages.migratePreviousInstruction)}</Typography>
-            <Column maxHeight={500} style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction2)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction3)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction4)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction5)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction6)} />
-              <CheckItem message={intl.formatMessage(messages.migrateInstruction7)} />
-            </Column>
+            <Row maxHeight={500}>
+              <Column spacing={1}>
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction1)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction2)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction3)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction4)} />
+              </Column>
+              <Column spacing={1}>
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction5)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction6)} />
+                <CheckItem message={intl.formatMessage(messages.migrateInstruction7)} />
+              </Column>
+            </Row>
           </Column>
         </Column>
         <DetailsCard projectKey={PROJECT_KEY} configAddress={CONFIG_ADDRESS} />
@@ -70,7 +74,7 @@ export const MigrationView = () => {
 
 const CheckItem = ({ message }: { message: string }) => {
   return (
-    <Row component="li" alignItems="flex-start" maxWidth="50%" marginRight={1} marginBottom={1}>
+    <Row component="li" alignItems="flex-start">
       <Checkbox checked={false} disableRipple sx={{ padding: 0, paddingRight: 1, cursor: 'default' }} />
       <Typography variant="body1">{message}</Typography>
     </Row>
