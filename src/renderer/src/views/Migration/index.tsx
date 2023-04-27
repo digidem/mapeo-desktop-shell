@@ -166,7 +166,7 @@ const messages = defineMessages({
   migrateInstruction4: {
     id: 'views.migration.migrateInstruction4',
     defaultMessage:
-      'Only one device in your Mapeo peer group can migrate  the data to new Mapeo. It is recommended that before migration begins, that all peers sychronize with old Mapeo. This selected device can migrate more data later if needed',
+      'Only one device in your Mapeo peer group can migrate the data to new Mapeo. It is recommended that before migration begins, all peers synchronize with old Mapeo. This selected device can migrate more data later if needed',
   },
   migrateInstruction5: {
     id: 'views.migration.migrateInstruction5',
