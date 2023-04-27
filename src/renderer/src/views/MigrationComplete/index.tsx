@@ -15,19 +15,20 @@ export const MigrationCompleteView = () => {
   const theme = useTheme()
   const intl = useIntl()
   const navigate = useNavigate()
-  const projectName = useMapeoDeviceStore((store) => store.projectName)
+  const [name, setName] = useState('')
   const setProjectName = useMapeoDeviceStore((store) => store.actions.setProjectName)
   const [formError, setFormError] = useState(false)
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (formError) setFormError(false)
 
-    setProjectName(event.target.value)
+    setName(event.target.value)
   }
 
   const handleClickFinish = () => {
-    if (!projectName) setFormError(true)
+    if (!name) setFormError(true)
     else {
+      setProjectName(name)
       navigate('/home', { state: { defaultTab: 'observations', showBottomBar: true } })
     }
   }
@@ -69,7 +70,7 @@ export const MigrationCompleteView = () => {
                 variant="outlined"
                 size="small"
                 onChange={handleNameChange}
-                value={projectName}
+                value={name}
               />
 
               <Row justifyContent="space-between" sx={{ width: '100%' }}>
@@ -81,7 +82,7 @@ export const MigrationCompleteView = () => {
                   <span />
                 )}
                 <Typography variant="caption" align="right">
-                  {projectName.length} / {NAME_MAX_CHARS}
+                  {name.length} / {NAME_MAX_CHARS}
                 </Typography>
               </Row>
             </Column>
