@@ -84,11 +84,7 @@ app.on('window-all-closed', () => {
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.
 
-ipcMain.handle('get-locale', () => {
-  const lang = app.getLocale()
-
-  return lang
-})
+ipcMain.handle('get-locale', () => locale)
 
 ipcMain.handle('set-locale', (event, lang) => {
   locale = lang
