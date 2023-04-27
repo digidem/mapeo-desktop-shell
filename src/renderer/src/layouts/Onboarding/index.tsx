@@ -1,33 +1,26 @@
 import { ReactNode } from 'react'
 import { DefaultLayout } from '../default'
 import { Column, Row } from '@renderer/components/LayoutComponents'
-import { styled, useTheme } from '@mui/material'
+import { useTheme } from '@mui/material'
 import { Logo } from '@renderer/components/Logo'
+import { spacing } from '@renderer/theme/spacing'
 
 export const OnboardingLayout = ({ children }: { children: ReactNode }) => {
   const theme = useTheme()
   return (
     <DefaultLayout>
-      <Row flex={1} sx={{ height: '100vh' }}>
-        <Column sx={{ bgcolor: theme.white, padding: '4em 3em', maxWidth: '60%' }}>{children}</Column>
+      <Row>
+        <Column sx={{ bgcolor: theme.white, padding: spacing.large, maxWidth: '60%' }}>{children}</Column>
 
-        <Contents
-          sx={{
-            flex: 1,
-            height: '100%',
-            backgroundColor: theme.primary,
-            flexDirection: 'column',
-            overflow: 'auto',
-          }}
+        <Column
+          flex={1}
+          justifyContent="center"
+          alignItems="center"
+          sx={{ flex: 1, backgroundColor: theme.primary }}
         >
           <Logo />
-        </Contents>
+        </Column>
       </Row>
     </DefaultLayout>
   )
 }
-
-export const Contents = styled(Column)`
-  justify-content: center;
-  align-items: center;
-`
