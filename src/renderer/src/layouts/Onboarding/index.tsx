@@ -7,7 +7,7 @@ import { Logo } from '@renderer/components/Logo'
 export const OnboardingLayout = ({ children }: { children: ReactNode }) => {
   const theme = useTheme()
   return (
-    <DefaultLayout langBackgroundVarient="dark">
+    <DefaultLayout>
       <Row sx={{ height: '100vh' }}>
         <Column sx={{ bgcolor: theme.white, flex: 5, padding: '6em 5em 3em 5em' }}>{children}</Column>
 

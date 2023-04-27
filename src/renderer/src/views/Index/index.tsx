@@ -7,6 +7,7 @@ import { defineMessages, useIntl } from 'react-intl'
 import { Link } from 'react-router-dom'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { Column, Row } from '@renderer/components/LayoutComponents'
+import { LanguageSwitcher } from '@renderer/components/LanguageSwitch'
 
 export const IndexView = () => {
   const theme = useTheme()
@@ -14,7 +15,8 @@ export const IndexView = () => {
   const intl = useIntl()
 
   return (
-    <DefaultLayout sx={{ backgroundColor: theme.blue.mid, padding: 8 }} langBackgroundVarient="dark">
+    <DefaultLayout sx={{ backgroundColor: theme.blue.mid, padding: 8 }}>
+      <LanguageSwitcher />
       <Typography variant="h1" color={'white'} align="center">
         {intl.formatMessage(messages.title)}
       </Typography>
