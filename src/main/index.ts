@@ -93,8 +93,6 @@ ipcMain.handle('get-locale', () => {
 ipcMain.handle('set-locale', (event, lang) => {
   locale = lang
 
-  console.log({ locale })
-
   const menu = Menu.buildFromTemplate(getMenuTemplate())
   Menu.setApplicationMenu(menu)
 })
@@ -216,6 +214,5 @@ const getMenuTemplate = () => {
 }
 
 const navigate = (to: string, state?: object) => {
-  console.log({ state })
   mainWindow.webContents.send('navigate', { to, state })
 }
