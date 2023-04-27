@@ -89,7 +89,7 @@ const messages = defineMessages({
   message4: {
     id: 'components.skipMigrationModal.message4',
     defaultMessage:
-      'You can skip this now, and data will not be lost. it will just not be visible to MapeoSuperS.  To migrate your data later, find out more',
+      'You can skip this now and data will not be lost. It will just not be visible in MapeoSuperS. To migrate your data later, find out more',
   },
   skippedMessage: {
     id: 'components.skipMigrationModal.skippedMessage',
