@@ -131,9 +131,6 @@
   "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
     "message": "Project Name"
   },
-  "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
-    "message": "Invite Device"
-  },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.learnMore": {
     "message": "Learn more"
   },
@@ -208,6 +205,9 @@
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.close": {
     "message": "Close"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.title": {
+    "message": "Invite Device"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
     "message": "Coordinators"
