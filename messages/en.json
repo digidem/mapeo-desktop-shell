@@ -1,4 +1,16 @@
 {
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.cancel": {
+    "message": "Cancel"
+  },
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.removeConfirmation": {
+    "message": "Are you sure you want to remove {name} ({id})?"
+  },
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.removeDevice": {
+    "message": "Remove Device"
+  },
+  "Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.subtitle": {
+    "message": "Their data will remain with the project but their device will be unable to sync or add new observations"
+  },
   "components.LeaveProjectModal.DeleteData.close": {
     "message": "Close"
   },
@@ -130,6 +142,30 @@
   },
   "views.Home.Settings.ProjectConfig.ConfigSection.projectName": {
     "message": "Project Name"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.changeRole": {
+    "message": "Change Role"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.close": {
+    "message": "Close"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.coordinator": {
+    "message": "Coordinator"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.dateAdded": {
+    "message": "Added: {date}"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.participant": {
+    "message": "Participant"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.pastDeviceNames": {
+    "message": "Past Device Names:"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.removeDevice": {
+    "message": "Remove Device"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.role": {
+    "message": "Role:"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
     "message": "Invite Device"

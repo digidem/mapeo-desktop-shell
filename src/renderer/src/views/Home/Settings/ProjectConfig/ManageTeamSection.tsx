@@ -13,7 +13,10 @@ import { PressableText } from './PressableText'
 import { Text } from './Text'
 import { Button, ButtonText } from './Button'
 import { PeerCard } from './PeerCard'
-import { LeaveProjectModal } from '@renderer/components/LeaveProjectModal'
+import {
+  MemberManagementModal,
+  MemberManagementModalContent,
+} from '@renderer/views/Home/Settings/ProjectConfig/MemberManagmentModal'
 
 const m = defineMessages({
   title: {
@@ -46,12 +49,19 @@ const m = defineMessages({
   },
 })
 
-const MemberCard = ({ member, openLeaveModal }: { member: MemberDevice; openLeaveModal: () => void }) => {
+type MemberCardProps = {
+  member: MemberDevice
+  openLeaveModal: () => void
+  openMemberInfoModal: () => void
+}
+
+const MemberCard = ({ member, openLeaveModal, openMemberInfoModal }: MemberCardProps) => {
   const { formatMessage: t } = useIntl()
 
   return (
     <PeerCard
       deviceType={member.deviceType}
+      onClick={member.isSelf ? undefined : openMemberInfoModal}
       title={member.name}
       subtitle={member.isSelf ? t(m.thisDevice) : member.deviceId}
       dateText={new Date(member.dateAdded).toLocaleDateString()}
@@ -69,7 +79,9 @@ const MemberCard = ({ member, openLeaveModal }: { member: MemberDevice; openLeav
 export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void }) => {
   const { formatMessage: t } = useIntl()
   const theme = useTheme()
-  const [leaveModalOpen, setLeaveModalOpen] = React.useState(false)
+  const [memberManagementModalOpen, setMemberManagementModalOpen] = React.useState(false)
+  const [memberManagementModalContent, setMemberManagementModalContent] =
+    React.useState<MemberManagementModalContent>({ type: 'leaveProject' })
 
   const members = useMapeoDeviceMembers()
 
@@ -87,6 +99,16 @@ export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void
 
     return { coordinators: c, participants: p }
   }, [members])
+
+  function setAndOpenLeaveProject() {
+    setMemberManagementModalContent({ type: 'leaveProject' })
+    setMemberManagementModalOpen(true)
+  }
+
+  function setAndOpenDeviceInfo(deviceId: string) {
+    setMemberManagementModalContent({ type: 'memberInfo', deviceId })
+    setMemberManagementModalOpen(true)
+  }
 
   return (
     <React.Fragment>
@@ -123,7 +145,12 @@ export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void
             </Row>
             <Column spacing={spacing.medium}>
               {coordinators.map((c) => (
-                <MemberCard openLeaveModal={() => setLeaveModalOpen(true)} key={c.deviceId} member={c} />
+                <MemberCard
+                  openLeaveModal={setAndOpenLeaveProject}
+                  key={c.deviceId}
+                  member={c}
+                  openMemberInfoModal={() => setAndOpenDeviceInfo(c.deviceId)}
+                />
               ))}
             </Column>
           </Column>
@@ -136,13 +163,25 @@ export const ManageTeamSection = ({ onInviteClick }: { onInviteClick: () => void
             </Row>
             <Column spacing={spacing.medium}>
               {participants.map((p) => (
-                <MemberCard openLeaveModal={() => setLeaveModalOpen(true)} key={p.deviceId} member={p} />
+                <MemberCard
+                  openLeaveModal={setAndOpenLeaveProject}
+                  key={p.deviceId}
+                  member={p}
+                  openMemberInfoModal={() => setAndOpenDeviceInfo(p.deviceId)}
+                />
               ))}
             </Column>
           </Column>
         </Column>
       </Column>
-      <LeaveProjectModal isOpen={leaveModalOpen} closeModal={() => setLeaveModalOpen(false)} />
+      <MemberManagementModal
+        resetOnDelete={() => {
+          setMemberManagementModalContent({ type: 'leaveProject' })
+        }}
+        content={memberManagementModalContent}
+        isOpen={memberManagementModalOpen}
+        closeModal={() => setMemberManagementModalOpen(false)}
+      />
     </React.Fragment>
   )
 }

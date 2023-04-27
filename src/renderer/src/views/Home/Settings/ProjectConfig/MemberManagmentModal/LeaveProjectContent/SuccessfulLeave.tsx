@@ -1,10 +1,10 @@
 import { Typography } from '@mui/material'
-import { Column, Row } from '../LayoutComponents'
+import { Column, Row } from '../../../../../../components/LayoutComponents'
 import { defineMessages, useIntl } from 'react-intl'
 import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { theme } from '@renderer/theme'
-import { Button } from '../Button'
+import { Button } from '../../../../../../components/Button'
 import { Link } from 'react-router-dom'
 import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 

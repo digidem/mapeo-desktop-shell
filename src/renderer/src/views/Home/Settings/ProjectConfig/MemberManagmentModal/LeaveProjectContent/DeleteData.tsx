@@ -1,5 +1,5 @@
 import { LinearProgress, Typography } from '@mui/material'
-import { Column, Row } from '../LayoutComponents'
+import { Column, Row } from '../../../../../../components/LayoutComponents'
 import { defineMessages, useIntl } from 'react-intl'
 import { MEDIA } from '@renderer/lib/Observations'
 import { useEffect, useRef, useState } from 'react'
