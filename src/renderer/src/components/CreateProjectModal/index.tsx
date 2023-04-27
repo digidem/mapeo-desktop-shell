@@ -18,6 +18,7 @@ import { Button } from '../Button'
 import { FormLabel } from '../FormLabel'
 import { useNavigate } from 'react-router-dom'
 import { useMapeoDeviceStoreAction } from '@renderer/hooks/stores/mapeoDeviceStore'
+import { WARNING_RED } from '@renderer/theme'
 
 const PROJECT_NAME_MAX_LENGTH = 100
 const DEVICE_NAME_MAX_LENGTH = 60
@@ -146,14 +147,13 @@ export const CreateProjectModal = ({ open, onClose }: CreateProjectModalProps) =
               <FormLabel required>{intl.formatMessage(messages.question1)}</FormLabel>
               <RadioGroup value={teamMembersShouldBeVisible} onChange={handleTeamMembersVisibleChange}>
                 <FormControlLabel
-                  color="error"
                   value="yes"
-                  control={<Radio sx={shouldBeVisibleError ? { color: theme.warningRed } : {}} />}
+                  control={<Radio sx={shouldBeVisibleError ? { color: WARNING_RED } : {}} />}
                   label={intl.formatMessage(messages.yes)}
                 />
                 <FormControlLabel
                   value="no"
-                  control={<Radio sx={shouldBeVisibleError ? { color: theme.warningRed } : {}} />}
+                  control={<Radio sx={shouldBeVisibleError ? { color: WARNING_RED } : {}} />}
                   label={intl.formatMessage(messages.no)}
                 />
               </RadioGroup>

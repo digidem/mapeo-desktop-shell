@@ -1,4 +1,4 @@
-import { Checkbox, Typography } from '@mui/material'
+import { Checkbox, FormControlLabel, Typography } from '@mui/material'
 import ErrorIcon from '@mui/icons-material/Error'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber'
 import { Column, Row } from '../../../../../../components/LayoutComponents'
@@ -6,7 +6,7 @@ import { defineMessages, useIntl } from 'react-intl'
 import { Button } from '../../../../../../components/Button'
 import { MEDIA, OBSERVATIONS } from '@renderer/lib/Observations'
 import { useState } from 'react'
-import { theme } from '@renderer/theme'
+import { WARNING_RED, theme } from '@renderer/theme'
 import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
 const m = defineMessages({
@@ -61,9 +61,9 @@ export const LeaveProjectConfirmation = ({ moveToDeleteDataContent, closeModal }
     moveToDeleteDataContent()
   }
 
-  function onClickCheckbox() {
+  function onClickCheckbox(checked: boolean) {
     if (error) setError(false)
-    setConfirmDelete((value) => !value)
+    setConfirmDelete(checked)
   }
 
   return (
@@ -95,22 +95,14 @@ export const LeaveProjectConfirmation = ({ moveToDeleteDataContent, closeModal }
             </Column>
           </Row>
           <Row alignItems={'center'}>
-            <Column>
-              <Checkbox
-                style={error ? { color: theme.warningRed } : undefined}
-                onClick={onClickCheckbox}
-                value={confirmDelete}
-              />
-            </Column>
-            <Column>
-              <Typography
-                style={error ? { color: theme.warningRed } : undefined}
-                variant="body1"
-                fontSize={16}
-              >
-                {t(m.checkConfirmation, { name: projectName })}
-              </Typography>
-            </Column>
+            <FormControlLabel
+              checked={confirmDelete}
+              componentsProps={error ? { typography: { sx: { color: WARNING_RED } } } : undefined}
+              onChange={(_event, checked) => onClickCheckbox(checked)}
+              control={<Checkbox sx={error ? { color: WARNING_RED } : undefined} />}
+              label={t(m.checkConfirmation, { name: projectName })}
+              value={confirmDelete}
+            />
           </Row>
         </Column>
       </Row>
