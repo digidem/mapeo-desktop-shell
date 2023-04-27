@@ -20,7 +20,6 @@ export const MigratingProjectView = () => {
   const [mediaMigrated, setMediaMigrated] = useState(0)
 
   const updateProgress = useCallback(() => {
-    console.log('update')
     const obsMigrating = Math.floor(Math.random() * 6)
     const mediaMigrating = Math.floor(Math.random() * 6)
 
@@ -39,7 +38,6 @@ export const MigratingProjectView = () => {
   const progress = ((mediaMigrated + observationsMigrated) / total) * 100
 
   if (progress >= 100 && interval.current) {
-    console.log('stop')
     clearInterval(interval.current)
     interval.current = undefined
   }
@@ -168,7 +166,7 @@ const messages = defineMessages({
   },
   media: {
     id: 'views.migratingProject.media',
-    defaultMessage: 'media',
+    defaultMessage: 'media files',
   },
   next: {
     id: 'views.migratingProject.next',

@@ -15,7 +15,7 @@ const m = defineMessages({
   subtitle: {
     id: 'Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.subtitle',
     defaultMessage:
-      'Their data will remain with the project but their device will be unable to sync or add new observations',
+      'Their data will remain with the project  and the project data on their device will stay on their device, but their device will be unable to sync new data.',
   },
   cancel: {
     id: 'Settings.ProjectConfig.MemberManagement.ConfirmRemoveDevice.cancel',

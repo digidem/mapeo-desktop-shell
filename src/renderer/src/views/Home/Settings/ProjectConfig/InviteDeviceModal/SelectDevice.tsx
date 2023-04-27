@@ -85,7 +85,7 @@ const m = defineMessages({
   },
   noDeviceSuggestion2: {
     id: 'views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDeviceSuggestion2',
-    defaultMessage: 'Make sure both devices are on the same version of Mapeo',
+    defaultMessage: 'Make sure both devices are using new Mapeo',
   },
   learnMore: {
     id: 'views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.learnMore',

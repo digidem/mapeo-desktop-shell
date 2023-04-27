@@ -26,7 +26,7 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
           <Typography variant="h1" align="center">
             {intl.formatMessage(messages.title)}
           </Typography>
-          <span>
+          <span style={{ padding: '0 5em' }}>
             {!skipped ? (
               <>
                 <Typography variant="body1" align="center">
@@ -34,6 +34,12 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
                 </Typography>
                 <Typography variant="body1" align="center">
                   {intl.formatMessage(messages.message2)}
+                </Typography>
+                <Typography variant="body1" align="center">
+                  {intl.formatMessage(messages.message3)}
+                </Typography>
+                <Typography variant="body1" align="center">
+                  {intl.formatMessage(messages.message4)}
                 </Typography>
               </>
             ) : (
@@ -52,7 +58,7 @@ export const SkipMigrationModal = ({ open, onClose }: SkipMigrationModalModalPro
               {intl.formatMessage(messages.buttonSkip)}
             </Button>
           ) : null}
-          <Button variant="text" color="primary" onClick={handleCloseDialog}>
+          <Button variant="text" color="primary" onClick={onClose}>
             {skipped ? intl.formatMessage(messages.buttonClose) : intl.formatMessage(messages.buttonCancel)}
           </Button>
         </Row>
@@ -68,11 +74,22 @@ const messages = defineMessages({
   },
   message1: {
     id: 'components.skipMigrationModal.message1',
-    defaultMessage: 'Your previous Mapeo data will not be visible in the new Mapeo apps.',
+    defaultMessage: 'You will start Mapeo SuperS with a new empty project.',
   },
   message2: {
     id: 'components.skipMigrationModal.message2',
-    defaultMessage: 'Please proceed with caution.',
+    defaultMessage:
+      "If you have synchronized you data to another computer that is performing data migrations, and you want to continue colaborating, you need to receive an invitation from that device to join it's project.  After joining the project and synchronizing you will be able to see your previous data and add new data using MapeoSuperS.",
+  },
+  message3: {
+    id: 'components.skipMigrationModal.message3',
+    defaultMessage:
+      'If you have not syncronized you data to another computer and you want to continue seeing your data with MapeoSuperS You will need to go back and migrate your data or use Mapoeo5 to syncronize with the computer designated for migration first.',
+  },
+  message4: {
+    id: 'components.skipMigrationModal.message4',
+    defaultMessage:
+      'You can skip this now, and data will not be lost. it will just not be visible to MapeoSuperS.  To migrate your data later, find out more',
   },
   skippedMessage: {
     id: 'components.skipMigrationModal.skippedMessage',
