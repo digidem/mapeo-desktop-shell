@@ -14,6 +14,10 @@ import { Row } from '@renderer/components/LayoutComponents'
 import shadows from '@mui/material/styles/shadows'
 import { useMapeoDeviceStore } from '@renderer/hooks/stores/mapeoDeviceStore'
 
+import TerritoryView from '@assets/TerritoryView.png'
+import ObservationView from '@assets/ObservationView.png'
+import SyncView from '@assets/SyncView.png'
+
 const GridContainer = styled.div(`
   flex: 1;
   display: grid;
@@ -66,12 +70,14 @@ export const Home = () => {
           </SidebarGridSection>
           <MainGridSection>
             <TabPanel active={activePanel === 'territory'}>
-              {intl.formatMessage(sidebarMessages.territory)}
+              <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={TerritoryView} />
             </TabPanel>
             <TabPanel active={activePanel === 'observations'}>
-              {intl.formatMessage(sidebarMessages.observations)}
+              <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={ObservationView} />
             </TabPanel>
-            <TabPanel active={activePanel === 'sync'}>{intl.formatMessage(sidebarMessages.sync)}</TabPanel>
+            <TabPanel active={activePanel === 'sync'}>
+              <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={SyncView} />
+            </TabPanel>
             <TabPanel active={activePanel === 'settings'}>
               <Settings initiateInviteFlow={initiateInviteFlow} />
             </TabPanel>

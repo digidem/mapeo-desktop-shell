@@ -119,12 +119,12 @@ export const Settings = ({ initiateInviteFlow }: { initiateInviteFlow?: boolean 
         />
       </SettingsTabContainer>
       <SettingsPanelContainer>
-        <TabPanel active={activeTab === 'language'}>Language</TabPanel>
+        <TabPanel active={activeTab === 'language'} />
         <TabPanel active={activeTab === 'project'}>
           <ProjectConfig />
         </TabPanel>
-        <TabPanel active={activeTab === 'about'}>About</TabPanel>
-        <TabPanel active={activeTab === 'coordinates'}>Coordinate System</TabPanel>
+        <TabPanel active={activeTab === 'about'} />
+        <TabPanel active={activeTab === 'coordinates'} />
       </SettingsPanelContainer>
     </Container>
   )
