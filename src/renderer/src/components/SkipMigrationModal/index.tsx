@@ -70,7 +70,7 @@ const messages = defineMessages({
   message2: {
     id: 'components.skipMigrationModal.message2',
     defaultMessage:
-      'If you have synchronized you data to another computer that is performing data migrations, and you want to continue colaborating, you need to receive an invitation from that device to join its project.  After joining the project and synchronizing you will be able to see your previous data and add new data using MapeoSuperS.',
+      'If you have synchronized you data to another computer that is performing data migrations, and you want to continue colaborating, you need to receive an invitation from that device to join its project. After joining the project and synchronizing you will be able to see your previous data and add new data using MapeoSuperS.',
   },
   message3: {
     id: 'components.skipMigrationModal.message3',

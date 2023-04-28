@@ -25,7 +25,7 @@ export const MigrationView = () => {
   return (
     <OnboardingLayout>
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
-      <Column sx={{ bgcolor: theme.white, width: '100%' }} justifyContent={'space-between'}>
+      <Column sx={{ bgcolor: theme.white }} justifyContent={'space-between'}>
         <Column spacing={3}>
           <span>
             <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
