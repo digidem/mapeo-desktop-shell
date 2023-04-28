@@ -194,6 +194,156 @@
   "views.Home.Settings.ProjectConfig.DeviceInfoContent.pastDeviceNames": {
     "message": "Nombres de dispositivos anteriores:"
   },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.removeDevice": {
+    "message": "Eliminar dispositivo"
+  },
+  "views.Home.Settings.ProjectConfig.DeviceInfoContent.role": {
+    "message": "Rol:"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
+    "message": "Invitar dispositivo"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.learnMore": {
+    "message": "Aprende más"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDevicePrompt": {
+    "message": "¿No ves un dispositivo?"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDeviceSuggestion1": {
+    "message": "Asegurarte de que ambos dispositivos estén en la misma red wifi"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.noDeviceSuggestion2": {
+    "message": "Asegurarte de que ambos dispositivos estén utilizando MapeoSuperS"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.selectDevice": {
+    "message": "Selecciona un dispositivo para invitar"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.coordinatorDescription": {
+    "message": "Como coordinador, este dispositivo puede invitar y quitar dispositivos de este proyecto y administrar los detalles del proyecto."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.coordinatorTitle": {
+    "message": "Coordinador"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantDescription": {
+    "message": "Como Participante, este dispositivo puede crear, editar, sincronizar y compartir observaciones. No pueden administrar usuarios ni detalles del proyecto."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.participantTitle": {
+    "message": "Participante"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectRole.selectRole": {
+    "message": "Selecciona un rol para este dispositivo"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.acceptedMessage": {
+    "message": "Invitación aceptada"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.asA": {
+    "message": "como un"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.coordinator": {
+    "message": "Coordinador"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.device": {
+    "message": "Dispositivo"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.inviting": {
+    "message": "Estás invitando..."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.participant": {
+    "message": "Participante"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.pendingMessage": {
+    "message": "Esperando a que el dispositivo acepte la invitación"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.role": {
+    "message": "Rol"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.sendInvite": {
+    "message": "Enviar la invitación"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.status": {
+    "message": "Estatus"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.statusAccepted": {
+    "message": "¡Aceptado!"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.SendInvite.statusPending": {
+    "message": "Pendiente..."
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.cancel": {
+    "message": "Anular"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.cancelInvitation": {
+    "message": "Cancelar invitación"
+  },
+  "views.Home.Settings.ProjectConfig.InviteDeviceModal.index.close": {
+    "message": "Cerrar"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.coordinator": {
+    "message": "Coordinadores"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.description": {
+    "message": "Invita a otros dispositivos a tu proyecto para empezar a sincronizar y compartir datos"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.invite": {
+    "message": "Invitar"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.leaveProject": {
+    "message": "Dejar el proyecto"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.participants": {
+    "message": "Participantes"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice": {
+    "message": "Este dispositivo!"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.title": {
+    "message": "Administrar equipo"
+  },
+  "views.Home.Settings.ProjectConfig.index.joinProject": {
+    "message": "Unirte a un proyecto"
+  },
+  "views.Home.Settings.ProjectConfig.index.title": {
+    "message": "Configuración del proyecto"
+  },
+  "views.Home.Settings.index.aboutSubtitle": {
+    "message": "Versión y número de compilación"
+  },
+  "views.Home.Settings.index.aboutTitle": {
+    "message": "Acerca de"
+  },
+  "views.Home.Settings.index.coordinatesSubtitle": {
+    "message": "UTM, Lat/Long, DMS"
+  },
+  "views.Home.Settings.index.coordinatesTitle": {
+    "message": "Sistema de coordenadas"
+  },
+  "views.Home.Settings.index.languageSubtitle": {
+    "message": "Mostrar el idioma de la aplicación"
+  },
+  "views.Home.Settings.index.languageTitle": {
+    "message": "Idioma"
+  },
+  "views.Home.Settings.index.projectSubtitle": {
+    "message": "Categorías, iconos y preguntas"
+  },
+  "views.Home.Settings.index.projectTitle": {
+    "message": "Configuración del proyecto"
+  },
+  "views.Home.Sidebar.observations": {
+    "message": "Observaciones"
+  },
+  "views.Home.Sidebar.settings": {
+    "message": "Ajustes"
+  },
+  "views.Home.Sidebar.sync": {
+    "message": "Sincronización"
+  },
+  "views.Home.Sidebar.territory": {
+    "message": "Territorio"
+  },
+  "views.home.tabs.learnMore": {
+    "message": "Aprende más"
+  },
   "views.home.tabs.successfullyInstalled": {
     "message": "Mapeo SuperS se ha instalado correctamente"
   },
@@ -241,5 +391,110 @@
   },
   "views.migration.migrateInstruction6": {
     "message": "Si se ha designado otro dispositivo como dispositivo de migración, deberás omitir la migración. Comenzarás con una base de datos vacía. Deberás ser invitado por el dispositivo de migración al nuevo proyecto mejorado en el nuevo Mapeo y sincronizar para obtener datos anteriores de Mapeo en tu dispositivo"
+  },
+  "views.migration.migrateInstruction7": {
+    "message": "¿Has decidido que quieres un nuevo comienzo? Puedes omitir la migración. Siempre puedes migrar tus datos más tarde"
+  },
+  "views.migration.migratePreviousInstruction": {
+    "message": "Hemos encontrado un proyecto anterior de Mapeo. Para comenzar a utilizar MapeoSuperS con los datos que tienes en Mapeo 5, se requiere la migración de datos. Una vez que estés listo para migrar tus datos a MapeoSuperS, sigue los siguientes pasos "
+  },
+  "views.migration.migratePreviousTitle": {
+    "message": "Migra los datos anteriores de Mapeo\n\n\""
+  },
+  "views.migration.observations": {
+    "message": "Observaciones"
+  },
+  "views.migration.projectKeyTitle": {
+    "message": "Clave de proyecto"
+  },
+  "views.migration.skipMigration": {
+    "message": "Omitir Migración"
+  },
+  "views.migration.welcomeTitle": {
+    "message": "Bienvenido a"
+  },
+  "views.migrationComplete.enterProjectName": {
+    "message": "Pon un nombre a tu proyecto"
+  },
+  "views.migrationComplete.finish": {
+    "message": "Terminar"
+  },
+  "views.migrationComplete.importedConfig": {
+    "message": "Configuración importada"
+  },
+  "views.migrationComplete.importedConfigCaption": {
+    "message": "Podrás actualizar la configuración después de migrar."
+  },
+  "views.migrationComplete.noNameErrorMessage": {
+    "message": "Por favor, pon un nombre a tu proyecto"
+  },
+  "views.migrationComplete.projectNamePlaceholder": {
+    "message": "Nombre del proyecto"
+  },
+  "views.migrationNoData.calloutLink": {
+    "message": "Materiales de soporte de Mapeo"
+  },
+  "views.migrationNoData.calloutText": {
+    "message": "Los datos anteriores de Mapeo no estarán visibles en las nuevas aplicaciones de Mapeo hasta que has migrado los datos. Para empezar, sincroniza los datos de tu dispositivo móvil con la versión anterior de Mapeo."
+  },
+  "views.migrationNoData.createProjectSubtitle": {
+    "message": "Iniciar un nuevo proyecto Mapeo"
+  },
+  "views.migrationNoData.createProjectTitle": {
+    "message": "Crear un proyecto"
+  },
+  "views.migrationNoData.joinProjectSubtitle": {
+    "message": "Únete a un proyecto Mapeo existente"
+  },
+  "views.migrationNoData.joinProjectTitle": {
+    "message": "Unirte a un proyecto"
+  },
+  "views.migrationNoData.message": {
+    "message": "Estamos muy contentos de que pueda experimentar la actualización de Mapeo."
+  },
+  "views.migrationNoData.message2": {
+    "message": "Una pregunta rápida antes de empezar:"
+  },
+  "views.migrationNoData.no": {
+    "message": "No"
+  },
+  "views.migrationNoData.noPathMessage": {
+    "message": "Genial, ¡empecemos!"
+  },
+  "views.migrationNoData.question": {
+    "message": "Has utilizado una versión anterior de Mapeo?"
+  },
+  "views.migrationNoData.questionCaption": {
+    "message": "Esta podría ser una versión anterior de Mapeo en desktop o móvil. Versiones 5x y anteriores."
+  },
+  "views.migrationNoData.seeMigrationSteps": {
+    "message": "Ver pasos de Migración"
+  },
+  "views.migrationNoData.skipMigration": {
+    "message": "Omitir Migración"
+  },
+  "views.migrationNoData.welcomeTitle": {
+    "message": "Bienvenido a"
+  },
+  "views.migrationNoData.yes": {
+    "message": "Sí"
+  },
+  "views.navigation.dataIsDetected": {
+    "message": "Se detectan datos de Mapeo"
+  },
+  "views.navigation.dataNotDetected": {
+    "message": "Mapeo <bold>no</bold> detectado"
+  },
+  "views.navigation.invitation": {
+    "message": "Invitación"
+  },
+  "views.navigation.inviteDevice": {
+    "message": "Invitar dispositivo"
+  },
+  "views.navigation.migration": {
+    "message": "Migración"
+  },
+  "views.navigation.title": {
+    "message": "Mapeo Desktop Test"
   }
 }
