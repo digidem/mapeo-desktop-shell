@@ -149,6 +149,9 @@
   "modals.joinProject.buttonClose": {
     "message": "Close"
   },
+  "modals.joinProject.message": {
+    "message": "End of path. Testing how to join a project is not availabe for now."
+  },
   "modals.joinProject.title": {
     "message": "Join Project"
   },
@@ -337,6 +340,15 @@
   },
   "views.Home.Sidebar.territory": {
     "message": "Territory"
+  },
+  "views.MigrationNoData.MigrationStepsModal.close": {
+    "message": "Close"
+  },
+  "views.MigrationNoData.MigrationStepsModal.content": {
+    "message": "This screen will show the animated progress of the Mapeo data migration proccess. You will not be able to do anything on Mapeo until it is complete. When Migration is complete you will be able to close the migration window. You wil then see all the data that was migrated from old mapeo to Mapeo SuperS"
+  },
+  "views.MigrationNoData.MigrationStepsModal.steps": {
+    "message": "Migration Steps"
   },
   "views.home.tabs.learnMore": {
     "message": "Learn more"
