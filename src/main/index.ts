@@ -167,7 +167,7 @@ const getMenuTemplate = () => {
         {
           label: intl.formatMessage(messages.inviteDevice),
           click() {
-            navigate('/home', { defaultTab: 'settings' })
+            navigate('/home', { inviteFlow: true })
           },
         },
       ],

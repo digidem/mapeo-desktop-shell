@@ -70,8 +70,10 @@ const SettingsPanelContainer = styled.div(`
   flex: 1;
 `)
 
-export const Settings = () => {
-  const [activeTab, setActiveTab] = React.useState<SettingsTabName>('language')
+export const Settings = ({ initiateInviteFlow }: { initiateInviteFlow?: boolean }) => {
+  const [activeTab, setActiveTab] = React.useState<SettingsTabName>(
+    initiateInviteFlow ? 'project' : 'language',
+  )
 
   const { formatMessage: t } = useIntl()
 

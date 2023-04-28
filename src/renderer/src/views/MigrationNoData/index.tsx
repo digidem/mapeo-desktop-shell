@@ -19,6 +19,7 @@ import { CreateProjectModal } from '@renderer/components/CreateProjectModal'
 import { FormLabel } from '@renderer/components/FormLabel'
 import { JoinProjectModal } from '@renderer/components/JoinProjectModal'
 import { useLocation } from 'react-router-dom'
+import { MigrateStepsModal } from './MigrateStepsModal'
 
 type ShouldUsePreviousMapeoData = 'yes' | 'no'
 
@@ -36,6 +37,7 @@ export const MigrationNoDataView = () => {
   const [skipModalOpen, setSkipModalOpen] = useState(false)
   const [createProjectModalOpen, setCreateProjectModalOpen] = useState(false)
   const [joinProjectModalOpen, setJoinProjectModalOpen] = useState(false)
+  const [migrateStepsModalOpen, setMigrateStepsModalOpen] = useState(false)
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShouldUsePreviousMapeoData(event.target.value as ShouldUsePreviousMapeoData)
@@ -54,6 +56,7 @@ export const MigrationNoDataView = () => {
         open={joinProjectModalOpen}
         onClose={() => setJoinProjectModalOpen(false)}
       ></JoinProjectModal>
+      <MigrateStepsModal isOpen={migrateStepsModalOpen} closeModal={() => setMigrateStepsModalOpen(false)} />
       <OnboardingLayout>
         <Column justifyContent="space-between" height={'100%'}>
           <Column spacing={5}>
@@ -98,7 +101,12 @@ export const MigrationNoDataView = () => {
                 {intl.formatMessage(messages.skipMigration)}
               </Button>
               <Column alignItems="flex-end" spacing={1}>
-                <Button onClick={() => null} variant="contained" disableElevation sx={{ px: 5 }}>
+                <Button
+                  onClick={() => setMigrateStepsModalOpen(true)}
+                  variant="contained"
+                  disableElevation
+                  sx={{ px: 5 }}
+                >
                   {intl.formatMessage(messages.seeMigrationSteps)}
                 </Button>
               </Column>

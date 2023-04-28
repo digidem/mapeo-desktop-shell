@@ -9,7 +9,7 @@ export const OnboardingLayout = ({ children }: { children: ReactNode }) => {
   const theme = useTheme()
   return (
     <DefaultLayout>
-      <Row>
+      <Row flex={1}>
         <Column sx={{ bgcolor: theme.white, padding: spacing.large, maxWidth: '60%' }}>{children}</Column>
 
         <Column

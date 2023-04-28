@@ -40,15 +40,16 @@ const BottomBarGridSection = styled.div(`
 export type PanelName = 'territory' | 'observations' | 'sync' | 'settings'
 
 type LocationState = {
-  defaultTab?: PanelName
+  inviteFlow?: boolean
   showSnackBar?: boolean
 }
 
 export const Home = () => {
   const location = useLocation()
   const state = location.state as LocationState
+  const initiateInviteFlow = !state || !state.inviteFlow ? false : state.inviteFlow
   const [activePanel, setPanelName] = React.useState<PanelName>(
-    !state || !state.defaultTab ? 'observations' : state.defaultTab,
+    !initiateInviteFlow ? 'observations' : 'settings',
   )
   const intl = useIntl()
   const [snackbarMessageOpen, setSnackbarMessageOpen] = React.useState(
@@ -72,7 +73,7 @@ export const Home = () => {
             </TabPanel>
             <TabPanel active={activePanel === 'sync'}>{intl.formatMessage(sidebarMessages.sync)}</TabPanel>
             <TabPanel active={activePanel === 'settings'}>
-              <Settings />
+              <Settings initiateInviteFlow={initiateInviteFlow} />
             </TabPanel>
           </MainGridSection>
 
