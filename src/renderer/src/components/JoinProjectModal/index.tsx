@@ -26,7 +26,9 @@ export const JoinProjectModal = ({ open, onClose }: JoinProjectModalProps) => {
 
         <Container maxWidth="xl" sx={{ paddingY: 4, mb: 8 }}>
           <Column spacing={4} justifyContent="center" alignItems="center">
-            {'[[ JOIN A PROJECT ]]'}
+            <Typography variant="h2" fontSize={24}>
+              {intl.formatMessage(messages.message)}
+            </Typography>
           </Column>
         </Container>
 
@@ -47,6 +49,10 @@ const messages = defineMessages({
   title: {
     id: 'modals.joinProject.title',
     defaultMessage: 'Join Project',
+  },
+  message: {
+    id: 'modals.joinProject.message',
+    defaultMessage: 'End of path. Testing how to join a project is not availabe for now.',
   },
   buttonClose: {
     id: 'modals.joinProject.buttonClose',

@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { DefaultLayout } from '@renderer/layouts/default'
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { LanguageSwitcher } from '@renderer/components/LanguageSwitch'
+import { LinkProps } from 'react-router-dom'
 
 export const IndexView = () => {
   const theme = useTheme()
@@ -36,7 +37,12 @@ export const IndexView = () => {
             />
           </TestGroupColumn>
           <TestGroupColumn title={intl.formatMessage(messages.invitation)}>
-            <CardLink number={3} to="/" title={intl.formatMessage(messages.inviteDevice)} />
+            <CardLink
+              state={{ inviteFlow: true }}
+              number={3}
+              to="/home"
+              title={intl.formatMessage(messages.inviteDevice)}
+            />
           </TestGroupColumn>
         </Row>
       </Column>
@@ -53,8 +59,18 @@ const TestGroupColumn = ({ title, children }: { title: string; children: ReactNo
   </Column>
 )
 
-const CardLink = ({ number, title, to }: { number: number; title: string | ReactNode; to: string }) => (
-  <StyledLink to={to}>
+const CardLink = ({
+  number,
+  title,
+  to,
+  state,
+}: {
+  number: number
+  title: string | ReactNode
+  to: string
+  state?: LinkProps['state']
+}) => (
+  <StyledLink to={to} state={state}>
     <StyledCard>
       <StyledNumBox>
         <Typography variant="h2" fontWeight={500}>

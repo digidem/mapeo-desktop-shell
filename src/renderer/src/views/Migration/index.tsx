@@ -25,7 +25,7 @@ export const MigrationView = () => {
   return (
     <OnboardingLayout>
       <SkipMigrationModal open={skipModalOpen} onClose={() => setSkipModalOpen(false)}></SkipMigrationModal>
-      <Column sx={{ bgcolor: theme.white, flex: 1 }} justifyContent={'space-between'}>
+      <Column sx={{ bgcolor: theme.white }} justifyContent={'space-between'}>
         <Column spacing={3}>
           <span>
             <Typography variant="h1">{intl.formatMessage(messages.welcomeTitle)}</Typography>
@@ -161,7 +161,8 @@ const messages = defineMessages({
   },
   migrateInstruction3: {
     id: 'views.migration.migrateInstruction3',
-    defaultMessage: 'MapeoSuperS introduces a new way to manage data security with your peers through Projects',
+    defaultMessage:
+      'MapeoSuperS introduces a new way to manage data security with your peers through Projects',
   },
   migrateInstruction4: {
     id: 'views.migration.migrateInstruction4',
