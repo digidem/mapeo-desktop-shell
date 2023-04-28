@@ -30,7 +30,7 @@
     "message": "Se detectan datos de Mapeo"
   },
   "app.menu.mapeoDataNotDetected": {
-    "message": "No se han detectado datos de Mapeo"
+    "message": "Datos de Mapeo no detectados"
   },
   "app.menu.paste": {
     "message": "Pegar"
@@ -105,7 +105,7 @@
     "message": "Crear proyecto"
   },
   "modals.createProject.deviceNameFieldLabel": {
-    "message": "Añade un nombre para tu dispositivo"
+    "message": "Pon un nombre a tu dispositivo"
   },
   "modals.createProject.deviceNameFieldPlaceholder": {
     "message": "Nombre del dispositivo"
@@ -294,7 +294,7 @@
     "message": "Participantes"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice": {
-    "message": "Este dispositivo!"
+    "message": "Tu dispositivo!"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.title": {
     "message": "Administrar equipo"
@@ -489,7 +489,7 @@
     "message": "Sí"
   },
   "views.navigation.dataIsDetected": {
-    "message": "Se detectan datos de Mapeo"
+    "message": " Datos de Mapeo Detectados"
   },
   "views.navigation.dataNotDetected": {
     "message": "Mapeo <bold>no</bold> detectado"
