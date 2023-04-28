@@ -53,11 +53,11 @@ export const MigrationView = () => {
         </Column>
         <DetailsCard projectKey={PROJECT_KEY} configAddress={CONFIG_ADDRESS} />
         <Row justifyContent="space-between" alignItems="flex-start">
-          <Button onClick={() => setSkipModalOpen(true)} variant="text" sx={{ color: theme.warningRed }}>
+          <Button color="warning" onClick={() => setSkipModalOpen(true)} variant="text">
             {intl.formatMessage(messages.skipMigration)}
           </Button>
           <Column alignItems="flex-end" spacing={1}>
-            <Link to="/migrating-project">
+            <Link to="/migrating-project" style={{ textDecoration: 'none' }}>
               <Button onClick={() => null} variant="contained" disableElevation>
                 {intl.formatMessage(messages.migrate)}
               </Button>

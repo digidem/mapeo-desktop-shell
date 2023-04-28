@@ -1,18 +1,27 @@
 import { createTheme } from '@mui/material'
 import React from 'react'
 
-export const MAPEO_BLUE = '#0066FF'
-export const MAPEO_ORANGE = '#E86826'
+// Slightly lighter than GREY
+export const PLACEHOLDER_GREY_LIGHT = '#8C8C8C'
+
+// Slighter darker than GREY
+export const PLACEHOLDER_GREY_DARK = '#4C4C4C'
+
 export const OFF_WHITE = '#F6F6F6'
 export const WHITE = '#FFFFFF'
 export const OFF_BLACK = '#333333'
-export const MIDNIGHT_BLUE = '#000033'
-export const MID_BLUE = '#19337F'
-export const WARNING_RED = '#D92222'
 export const GREY_LIGHT = '#E6E6E6'
 export const GREY = '#707070'
 export const GREY_BLUE = '#CCCCD6'
-export const GREEN = '#59A553'
+
+export const MAPEO_BLUE = PLACEHOLDER_GREY_LIGHT // '#0066FF'
+export const MAPEO_ORANGE = PLACEHOLDER_GREY_LIGHT // '#E86826'
+
+export const MIDNIGHT_BLUE = PLACEHOLDER_GREY_DARK // '#000033'
+export const MID_BLUE = PLACEHOLDER_GREY_DARK // '#19337F'
+export const WARNING_RED = '#D92222'
+
+export const GREEN = PLACEHOLDER_GREY_LIGHT // '#59A553'
 
 export const FONT_FAM_TITLE = `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
 export const FONT_FAM_BODY = `Roboto, Rubik, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`
@@ -145,7 +154,9 @@ export const theme = createTheme({
   palette: {
     primary: { main: MAPEO_BLUE },
     secondary: { main: MID_BLUE },
-    warning: { main: WARNING_RED },
+    // Normally these should be WARNING_RED but using PLACEHOLDER_GREY_LIGHT for shell app purposes
+    warning: { main: PLACEHOLDER_GREY_LIGHT },
+    error: { main: PLACEHOLDER_GREY_LIGHT },
   },
   components: {
     MuiButtonBase: {

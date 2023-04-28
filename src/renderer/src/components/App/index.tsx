@@ -1,30 +1,45 @@
+import { CssBaseline, GlobalStyles } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 
+import { theme, OFF_BLACK, WHITE, WARNING_RED } from '../../theme'
 import { IntlProvider } from '../IntlProvider'
 import { Router } from '../Router'
-import { theme, OFF_BLACK as black, OFF_WHITE as white } from '../../theme'
-import { CssBaseline, GlobalStyles } from '@mui/material'
 import { fontFace } from './fontface'
 
-const GLOBAL_STYLES = {
-  body: {
-    color: black,
-    backgroundColor: white,
-    fontFamily: `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`,
+const GLOBAL_STYLES: React.ComponentProps<typeof GlobalStyles>['styles'] = [
+  fontFace,
+  {
+    body: {
+      color: OFF_BLACK,
+      backgroundColor: WHITE,
+      fontFamily: `Rubik, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;`,
+    },
   },
-  ...fontFace,
-}
+  // Converts all SVG elements to grayscale EXCEPT
+  // those built into various MUI form control elements reflecting an error state
+  `
+  svg {
+    filter: grayscale(1);
+  }
+  [class^=MuiFormControl] svg {
+    filter: unset;
+  }
+  [class^=MuiFormControl] .Mui-error svg {
+    color: ${WARNING_RED};
+  }
+  `,
+]
 
 function App() {
   return (
     <>
       <CssBaseline />
-      <GlobalStyles styles={GLOBAL_STYLES} />
-      <IntlProvider>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles styles={GLOBAL_STYLES} />
+        <IntlProvider>
           <Router />
-        </ThemeProvider>
-      </IntlProvider>
+        </IntlProvider>
+      </ThemeProvider>
     </>
   )
 }

@@ -116,7 +116,7 @@ export const MigratingProjectView = () => {
             borderColor: theme.grey.light,
           }}
         >
-          <Link to="/migration-complete">
+          <Link to="/migration-complete" style={{ textDecoration: 'none' }}>
             <Button
               onClick={() => {}}
               variant="contained"
