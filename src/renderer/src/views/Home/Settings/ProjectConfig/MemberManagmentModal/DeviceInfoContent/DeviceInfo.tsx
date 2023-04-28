@@ -175,7 +175,7 @@ export const DeviceInfo = ({ closeModal, deviceId, moveToConfirmationScreen }: D
           width: '100%',
         }}
       >
-        <Button noBorder variant="text" sx={{ color: theme.warningRed }} onClick={moveToConfirmationScreen}>
+        <Button noBorder variant="text" color="warning" onClick={moveToConfirmationScreen}>
           {t(m.removeDevice)}
         </Button>
         <Button

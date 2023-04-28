@@ -79,7 +79,8 @@ export const ConfirmRemoveDevice = ({ deviceId, closeModal, resetOnDelete }: Con
           noBorder
           disableElevation
           variant="contained"
-          sx={{ backgroundColor: theme.warningRed, color: theme.white }}
+          color="warning"
+          sx={{ backgroundColor: theme.blue.mid, color: theme.white }}
           onClick={handleRemoveDevice}
         >
           {t(m.removeDevice)}
