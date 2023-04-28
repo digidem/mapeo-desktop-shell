@@ -149,6 +149,9 @@
   "modals.joinProject.buttonClose": {
     "message": "Cerrar"
   },
+  "modals.joinProject.message": {
+    "message": "Fin de la ruta. La prueba de cómo unirse a un proyecto no está disponible por ahora."
+  },
   "modals.joinProject.title": {
     "message": "Unirte a un proyecto"
   },
@@ -337,6 +340,15 @@
   },
   "views.Home.Sidebar.territory": {
     "message": "Territorio"
+  },
+  "views.MigrationNoData.MigrationStepsModal.close": {
+    "message": "Cerrar"
+  },
+  "views.MigrationNoData.MigrationStepsModal.content": {
+    "message": "Esta pantalla mostrará el progreso animado del proceso de migración de datos de Mapeo. No podrás hacer nada en Mapeo hasta que esté completo. Cuando Mapeo finalice la migración, podrás cerrar la ventana de migración. Luego verás todos los datos que se migraron de Mapeo antiguo a Mapeo SuperS"
+  },
+  "views.MigrationNoData.MigrationStepsModal.steps": {
+    "message": "Etapas de Migración"
   },
   "views.home.tabs.learnMore": {
     "message": "Aprende más"
