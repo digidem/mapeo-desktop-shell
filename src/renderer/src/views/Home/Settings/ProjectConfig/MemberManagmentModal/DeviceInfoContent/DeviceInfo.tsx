@@ -1,7 +1,6 @@
 import { Column, Row } from '@renderer/components/LayoutComponents'
 import { Role, useMapeoDeviceStore, useMapeoDeviceStoreAction } from '@renderer/hooks/stores/mapeoDeviceStore'
-import desktopImageUrl from '@assets/desktop.png'
-import mobileImageUrl from '@assets/mobile.png'
+
 import PersonAddIcon from '@mui/icons-material/PersonAddAltOutlined'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import { spacing } from '@renderer/theme/spacing'
@@ -10,6 +9,7 @@ import { theme } from '@renderer/theme'
 import { Button } from '../../Button'
 import { useState } from 'react'
 import { MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material'
+import { DeviceIcon } from '@renderer/components/DeviceIcon'
 
 const m = defineMessages({
   dateAdded: {
@@ -71,10 +71,7 @@ export const DeviceInfo = ({ closeModal, deviceId, moveToConfirmationScreen }: D
         <Column alignItems="flex-start" spacing={2}>
           <Row alignItems="center">
             <Column marginRight={spacing.medium}>
-              <img
-                src={device.deviceType === 'desktop' ? desktopImageUrl : mobileImageUrl}
-                style={{ display: 'block', maxWidth: '100%', width: '40px' }}
-              />
+              <DeviceIcon type={device.deviceType} />
             </Column>
             <Column marginLeft={1}>
               <Row>

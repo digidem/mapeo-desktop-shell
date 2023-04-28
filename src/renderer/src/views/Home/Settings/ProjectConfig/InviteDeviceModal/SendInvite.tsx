@@ -9,13 +9,12 @@ import { spacing } from '@renderer/theme/spacing'
 import { useMapeoDevice } from '@renderer/hooks/useMapeoDevice'
 import { Device, Role } from '@renderer/hooks/stores/mapeoDeviceStore'
 
-import desktopImageUrl from '../../../../../../assets/desktop.png'
-import mobileImageUrl from '../../../../../../assets/mobile.png'
 import { Text } from '../Text'
 import { Button, ButtonText } from '../Button'
 import { InviteStatus } from '.'
 import styled from '@emotion/styled'
 import { GREY_BLUE } from '@renderer/theme'
+import { DeviceIcon } from '@renderer/components/DeviceIcon'
 
 export const SendInvite = ({
   deviceId,
@@ -45,10 +44,7 @@ const DeviceInfo = ({ deviceType, deviceId, name }: Pick<Device, 'deviceType' | 
   const theme = useTheme()
   return (
     <Row spacing={spacing.medium} alignItems="center">
-      <img
-        src={deviceType === 'desktop' ? desktopImageUrl : mobileImageUrl}
-        style={{ display: 'block', maxWidth: '100%', width: '40px' }}
-      />
+      <DeviceIcon type={deviceType} />
       <Column>
         <Text size="medium" fontWeight="500">
           {name}

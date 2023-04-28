@@ -4,10 +4,9 @@ import { Column, Row } from '@renderer/components/LayoutComponents'
 import { spacing } from '@renderer/theme/spacing'
 import { Device } from '@renderer/hooks/stores/mapeoDeviceStore'
 
-import desktopImageUrl from '../../../../../assets/desktop.png'
-import mobileImageUrl from '../../../../../assets/mobile.png'
 import { Button } from './Button'
 import { Text } from './Text'
+import { DeviceIcon } from '@renderer/components/DeviceIcon'
 
 const SHARED_CONTAINER_STYLES = {
   maxWidth: '400px',
@@ -51,11 +50,8 @@ export const PeerCard = ({ dateText, deviceType, pressableAction, subtitle, titl
   const theme = useTheme()
   return (
     <Container onClick={onClick}>
-      <Column marginRight={spacing.medium}>
-        <img
-          src={deviceType === 'desktop' ? desktopImageUrl : mobileImageUrl}
-          style={{ display: 'block', maxWidth: '100%', width: '40px' }}
-        />
+      <Column style={{ marginRight: spacing.medium }}>
+        <DeviceIcon type={deviceType} />
       </Column>
       <Column flex={1}>
         <Row justifyContent="space-between">

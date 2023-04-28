@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-type DeviceType = 'mobile' | 'desktop'
+export type DeviceType = 'mobile' | 'desktop'
 
 export type Role = 'coordinator' | 'participant'
 

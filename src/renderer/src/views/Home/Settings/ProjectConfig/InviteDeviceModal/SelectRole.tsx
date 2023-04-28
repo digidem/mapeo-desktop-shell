@@ -7,10 +7,9 @@ import { spacing } from '@renderer/theme/spacing'
 import { useMapeoDevice } from '@renderer/hooks/useMapeoDevice'
 import { Role } from '@renderer/hooks/stores/mapeoDeviceStore'
 
-import desktopImageUrl from '../../../../../../assets/desktop.png'
-import mobileImageUrl from '../../../../../../assets/mobile.png'
 import { Text } from '../Text'
 import { Button } from '../Button'
+import { DeviceIcon } from '@renderer/components/DeviceIcon'
 
 export const SelectRole = ({
   deviceId,
@@ -93,10 +92,7 @@ const RoleSelectionButton = ({
           paddingY={spacing.medium}
         >
           <Column>
-            <img
-              src={device.deviceType === 'desktop' ? desktopImageUrl : mobileImageUrl}
-              style={{ display: 'block', maxWidth: '100%', width: '40px' }}
-            />
+            <DeviceIcon type={device.deviceType} />
           </Column>
           <Column flex={1} alignItems="flex-start">
             <Text size="small" fontWeight="600">
