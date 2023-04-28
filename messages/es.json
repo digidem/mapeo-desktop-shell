@@ -77,9 +77,6 @@
   "components.skipMigrationModal.buttonCancel": {
     "message": "Anular"
   },
-  "components.skipMigrationModal.buttonClose": {
-    "message": "Cerrar"
-  },
   "components.skipMigrationModal.buttonSkip": {
     "message": "Omitir Migración"
   },
