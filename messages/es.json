@@ -492,7 +492,7 @@
     "message": " Datos de Mapeo Detectados"
   },
   "views.navigation.dataNotDetected": {
-    "message": "Mapeo <bold>no</bold> detectado"
+    "message": "Datos de Mapeo <bold>no</bold> Detectados"
   },
   "views.navigation.invitation": {
     "message": "Invitación"
