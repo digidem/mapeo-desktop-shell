@@ -45,7 +45,7 @@ const m = defineMessages({
   },
   thisDevice: {
     id: 'views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice',
-    defaultMessage: 'This Device!',
+    defaultMessage: 'Your Device!',
   },
 })
 
