@@ -201,7 +201,7 @@
     "message": "Rol:"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
-    "message": "Invitar dispositivo"
+    "message": "Invitación de dispositivo"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.learnMore": {
     "message": "Aprende más"
