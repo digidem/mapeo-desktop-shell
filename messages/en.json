@@ -35,6 +35,9 @@
   "app.menu.paste": {
     "message": "Paste"
   },
+  "app.menu.quit": {
+    "message": "Quit"
+  },
   "app.menu.testingHome": {
     "message": "Testing Home"
   },
