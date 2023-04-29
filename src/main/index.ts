@@ -13,6 +13,8 @@ let locale = app.getLocale() || 'es'
 
 let mainWindow
 
+const isMac = process.platform === 'darwin'
+
 const createWindow = (): void => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -76,7 +78,7 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+  if (!isMac) {
     app.quit()
   }
 })
@@ -97,6 +99,10 @@ const messages = defineMessages({
   file: {
     id: 'app.menu.file',
     defaultMessage: 'File',
+  },
+  quit: {
+    id: 'app.menu.quit',
+    defaultMessage: 'Quit',
   },
   testingHome: {
     id: 'app.menu.testingHome',
@@ -142,6 +148,20 @@ const getMenuTemplate = () => {
   )
 
   const menuBase = [
+    ...(isMac
+      ? [
+          {
+            label: 'Mapeo Shell',
+            submenu: [
+              {
+                label: intl.formatMessage(messages.quit),
+                role: 'quit',
+                accelerator: 'CmdOrCtrl+Q',
+              },
+            ],
+          },
+        ]
+      : []),
     {
       label: intl.formatMessage(messages.file),
       submenu: [
@@ -213,7 +233,7 @@ const getMenuTemplate = () => {
   // the app title instead. including a dummy menu item on mac will get around this issue
   const MACOS_DUMMY_ITEM = { label: '' }
 
-  if (process.platform === 'darwin') {
+  if (isMac) {
     menuBase.unshift(MACOS_DUMMY_ITEM)
   }
 
