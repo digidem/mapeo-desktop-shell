@@ -201,7 +201,7 @@
     "message": "Rol:"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.Layout.title": {
-    "message": "Invitar dispositivo"
+    "message": "Invitación de dispositivo"
   },
   "views.Home.Settings.ProjectConfig.InviteDeviceModal.SelectDevice.learnMore": {
     "message": "Aprende más"
@@ -292,6 +292,9 @@
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.participants": {
     "message": "Participantes"
+  },
+  "views.Home.Settings.ProjectConfig.ManageTeamSection.thisDevice": {
+    "message": "Tu dispositivo!"
   },
   "views.Home.Settings.ProjectConfig.ManageTeamSection.title": {
     "message": "Administrar equipo"
