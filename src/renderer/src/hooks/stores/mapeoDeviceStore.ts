@@ -1,3 +1,4 @@
+import { PeerList } from '@renderer/lib/Particpants'
 import { create } from 'zustand'
 
 export type DeviceType = 'mobile' | 'desktop'
@@ -30,7 +31,7 @@ type MapeoDeviceState = {
 }
 
 export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => {
-  const { members, nonMembers } = createRandomDevices(6, 15)
+  const { members, nonMembers } = PeerList
   return {
     nonMemberDevices: nonMembers,
     memberDevices: members,
@@ -93,45 +94,3 @@ export const useMapeoDeviceStore = create<MapeoDeviceState>()((set) => {
 })
 
 export const useMapeoDeviceStoreAction = () => useMapeoDeviceStore((store) => store.actions)
-
-function createRandomDevices(min: number, max: number) {
-  const numberOfDevices = randomInteger(min, max)
-
-  const nonMembers: Record<string, Device> = {}
-  const members: Record<string, MemberDevice> = {}
-
-  for (let i = 1; i <= numberOfDevices; i++) {
-    // Always create at least one member and one non-member device
-    const isMember = i === 1 ? true : i === 2 ? false : Math.random() > 0.6
-
-    const deviceType = Math.random() > 0.75 ? 'desktop' : 'mobile'
-
-    const deviceInfo: Device = {
-      name: `Peer ${i}`,
-      deviceType,
-      deviceId: deviceType === 'mobile' ? `Android ${i}` : `Desktop ${i}`,
-    }
-
-    if (i === 1) {
-      deviceInfo.isSelf = true
-    }
-
-    if (isMember) {
-      const memberDeviceInfo: MemberDevice = {
-        ...deviceInfo,
-        role: deviceInfo.isSelf || Math.random() > 0.8 ? 'coordinator' : 'participant',
-        dateAdded: Date.now(),
-      }
-
-      members[memberDeviceInfo.deviceId] = memberDeviceInfo
-    } else {
-      nonMembers[deviceInfo.deviceId] = deviceInfo
-    }
-  }
-
-  return { members, nonMembers }
-}
-
-function randomInteger(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
